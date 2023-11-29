@@ -1,0 +1,8 @@
+package colored-man-pages
+package fzf
+package https://github.com/IlanCosman/tide.git
+package https://github.com/jhillyerd/plugin-git
+package pj
+theme bobthefish
+theme default
+theme lambda

@@ -1,0 +1,47 @@
+{
+  "name": "Custom snippets",
+  "author": "Shion Shimizu",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "plaintex",
+          "tex"
+        ],
+        "path": "./latex.json"
+      },
+      {
+        "language": "julia",
+        "path": "./julia.json"
+      },
+      {
+        "language": [
+          "plaintex",
+          "tex"
+        ],
+        "path": "./latex/latex-snippets.json"
+      },
+      {
+        "language": [
+          "plaintex",
+          "tex"
+        ],
+        "path": "./latex/vscode-latex-snippets.json"
+      },
+      {
+        "language": [
+          "bibtex",
+          "bib"
+        ],
+        "path": "./latex/bibtex.json"
+      },
+      {
+        "language": "fortran",
+        "path": "./FortranFreeForm.json"
+      }
+    ]
+  }
+}

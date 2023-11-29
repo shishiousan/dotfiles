@@ -1,0 +1,9 @@
+{
+  "showUnsupportedFiles": true,
+  "spellcheck": true,
+  "vimMode": true,
+  "showLineNumber": true,
+  "livePreview": true,
+  "readableLineLength": false,
+  "attachmentFolderPath": "/"
+}

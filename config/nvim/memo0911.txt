@@ -1,0 +1,19 @@
+
+when you suffer client quit for json file 
+please check the version of npm and node 
+you can update throgh n as follows
+
+n --latest (or --stable)
+
+and npm update is done by 
+ 
+npm update -g npm 
+
+both maybe require sudo 
+
+tips for making snippets by .json file 
+
+please care about ',' if you add extra kamma 
+vscode-leader cannot read that file and results in no snippets appear in your buffer.
+
+
