@@ -17,7 +17,7 @@ return {
       },
       indent = {
         enable = true,
-        disable = { "julia" }, -- some strange indent happen
+        disable = { "julia", "fortran" }, -- some strange indent happen
       },
       -- since `vim.tbl_deep_extend`, can only merge tables and not lists, the code above
       -- would overwrite `ensure_installed` with the new value.
