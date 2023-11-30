@@ -2,6 +2,11 @@ if not status --is-interactive
     exit
 end
 
+# Load EASIFEM variable shell script
+if [ -f $HOME/.config/easifem/easifemvar.fish ]
+    source $HOME/.config/easifem/easifemvar.fish
+end
+
 # Load private config
 if [ -f $HOME/.config/fish/private.fish ]
     source $HOME/.config/fish/private.fish
@@ -99,10 +104,22 @@ function less
     command less -R $argv
 end
 
+functions -c cd standard_cd
+
 function cd
-    builtin cd $argv; and ls
+    standard_cd $argv; and ls
 end
 
 # if status is-interactive  
 #     # Commands to run in interactive sessions can go here
 # end
+
+fish_add_path /opt/Paraview/bin/
+fish_add_path ~/.cargo/bin
+fish_add_path /opt/smartgit/bin
+fish_add_path ~/.npm-global/bin
+fish_add_path ~/go/bin
+
+# set -gx GMSH_LIB $HOME/.local/lib/
+#
+set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/./lib

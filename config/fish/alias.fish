@@ -16,20 +16,20 @@ set --export fish "$HOME/.config/fish"
 set --export VIMTEX_OUTPUT_DIRECTORY build
 set --export JULIA_NUM_THREADS 4
 set --export BROWSER brave
-set --export JAVA_HOME /usr/lib/jvm/java-20-openjdk/
-# set --export JAVA_OPTS -Xmx1024m
+set --export JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64/
 
-set -x PATH /home/shion/perl5/bin $PATH 2>/dev/null
-set -q PERL5LIB; and set -x PERL5LIB /home/shion/perl5/lib/perl5:$PERL5LIB
-set -q PERL5LIB; or set -x PERL5LIB /home/shion/perl5/lib/perl5
-set -q PERL_LOCAL_LIB_ROOT; and set -x PERL_LOCAL_LIB_ROOT /home/shion/perl5:$PERL_LOCAL_LIB_ROOT
-set -q PERL_LOCAL_LIB_ROOT; or set -x PERL_LOCAL_LIB_ROOT /home/shion/perl5
-set -x PERL_MB_OPT --install_base\ \"/home/shion/perl5\"
-set -x PERL_MM_OPT INSTALL_BASE=/home/shion/perl5
+
+#easifem-dev related 
+set --export easifem "$DROPBOX/easifem"
+set --export base "$easifem/base"
+set --export classes "$easifem/classes"
+
+# set --export JAVA_OPTS -Xmx1024m
 
 # alias
 #moving 
 alias db="cd $DROPBOX"
+alias de="cd $HOME/Desktop/"
 alias ..2="cd ../.."
 alias ..3="cd ../../.."
 
@@ -54,11 +54,11 @@ alias sb="source $brc"
 alias gist="git status"
 
 # path
-fish_add_path /opt/Paraview/bin/
-fish_add_path $HOME/.cargo/bin
-fish_add_path $PATH:/opt/smartgit/bin
-fish_add_path $PATH:~/.npm-global/bin
-fish_add_path $PATH:$HOME/go/bin
+# fish_add_path /opt/Paraview/bin/
+# fish_add_path ~/.cargo/bin
+# fish_add_path /opt/smartgit/bin
+# fish_add_path ~/.npm-global/bin
+# fish_add_path ~/go/bin
 
 function v
     nvim $argv
