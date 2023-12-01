@@ -90,7 +90,8 @@ return {
       end
       return {
         completion = {
-          completeopt = "menu,menuone", --remove ,noinsert",
+          -- autocomplete = false,
+          completeopt = "menu, menuone , noinsert",
         },
         snippet = {
           expand = function(args)
@@ -197,11 +198,11 @@ return {
           },
           documentation = cmp.config.window.bordered(),
         },
-        experimental = {
-          ghost_text = {
-            hl_group = "CmpGhostText",
-          },
-        },
+        -- experimental = {
+        --   ghost_text = {
+        --     hl_group = "CmpGhostText",
+        --   },
+        -- },
         sorting = defaults.sorting,
         cmp.setup.cmdline("/", {
           mapping = cmp.mapping.preset.cmdline(),
@@ -233,6 +234,7 @@ return {
     "vim-utils/vim-husk",
     branch = "custom",
     lazy = true,
+    pin = true,
     event = "BufEnter",
   },
   {

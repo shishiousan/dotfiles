@@ -389,7 +389,7 @@
     "description": "Raise error with line number",
     "body": [
       "CALL e%RaiseError(modName //'::'//myName// ' - '// &",
-      "\t& '$0'//tostring(__LINE__)"
+      "\t& '$0'//tostring(__LINE__))"
     ]
   },
   "info": {

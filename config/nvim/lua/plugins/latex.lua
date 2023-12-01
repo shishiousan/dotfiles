@@ -120,6 +120,7 @@ return {
   {
     "matze/vim-tex-fold",
     lazy = true,
+    pin = true, -- disable automatic update
     ft = { "tex", "latex", "bib" },
     init = function()
       -- {{{~}}} is also folded
@@ -159,6 +160,8 @@ return {
       {
         "jhofscheier/ltex-utils.nvim",
         branch = "custom", -- NOTE: my branch
+        pin = true,
+        -- disable update
       },
     },
     opts = {
