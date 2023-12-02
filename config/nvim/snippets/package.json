@@ -39,7 +39,10 @@
         "path": "./latex/bibtex.json"
       },
       {
-        "language": "fortran",
+        "language": [
+          "fortran",
+          "markdown"
+        ],
         "path": "./FortranFreeForm.json"
       }
     ]
