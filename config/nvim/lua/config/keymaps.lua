@@ -42,11 +42,19 @@ local lazyterm = function()
 end
 map("n", "<leader>ft", lazyterm, { desc = "Terminal (root dir)" })
 map("n", "<leader>fT", function()
-  Util.terminal.open()
+  Util.terminal.open(nil, { cwd = vim.fn.expand("%:p:h") })
 end, { desc = "Terminal (cwd)" })
-map("n", "<c-/>", lazyterm, { desc = "Terminal (root dir)" })
+-- map("n", "<c-/>", lazyterm, { desc = "Terminal (root dir)" })
+map("n", "<c-/>", function()
+  Util.terminal.open(nil, { cwd = vim.fn.expand("%:p:h") })
+end, { desc = "Terminal (cwd)" })
 map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
 -- vim.keymap.del("n", "<c-_>") -- used by wezterm "decrease font size"
+
+-- save file
+map("n", "<leader>fs", "<cmd>w<CR>", { desc = "write" })
+map("n", "<leader>fa", "<cmd>wa<CR>", { desc = "write all" })
+map("n", "<leader>fq", "<cmd>wa<CR><cmd>qa<CR>", { desc = "write all and quit all" })
 
 -- NOTE:
 -- Following settings for <C-j> is to be active

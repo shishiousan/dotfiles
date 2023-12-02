@@ -91,7 +91,7 @@ return {
       return {
         completion = {
           -- autocomplete = false,
-          completeopt = "menu, menuone , noinsert",
+          completeopt = "menu, menuone",
         },
         snippet = {
           expand = function(args)
