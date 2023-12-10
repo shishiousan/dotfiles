@@ -130,7 +130,7 @@ return {
   {
     "jhofscheier/ltex-utils.nvim",
     lazy = true,
-    filetypes = { "tex", "markdown" },
+    filetypes = { "tex" },
     pin = true, -- disable automatic update
     branch = "custom", -- NOTE: my branch
     dependencies = {
@@ -167,7 +167,7 @@ return {
     opts = {
       servers = {
         ltex = {
-          filetypes = { "tex", "markdown" },
+          filetypes = { "tex" },
           on_attach = function(_, bufnr)
             vim.notify("ltex starts")
             require("ltex-utils").on_attach(bufnr)
@@ -187,7 +187,7 @@ return {
               -- filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex" },
               -- filetypes = { "markdown", "tex", "mdx" },
               -- enabled = { "latex", "tex", "bib" },
-              enabled = { "latex", "markdown" },
+              enabled = { "latex" },
             },
           },
         },
