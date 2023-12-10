@@ -62,8 +62,10 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     wk.register({
       m = {
         name = "+markdown",
-        p = { "<cmd>MarkdownPreview<CR>", "markdown preview" },
-        s = { "<cmd>MarkdownPreviewStop<CR>", "stop markdown preview" },
+        -- p = { "<cmd>MarkdownPreview<CR>", "markdown preview" },
+        p = { "<cmd>PeekOpen<CR>", "markdown preview" },
+        -- s = { "<cmd>MarkdownPreviewStop<CR>", "stop markdown preview" },
+        s = { "<cmd>PeekClose<CR>", "stop markdown preview" },
       },
     }, { prefix = "<leader>", mode = { "n" } })
   end,
