@@ -176,6 +176,15 @@
       "! summary: \t"
     ]
   },
+  "shion": {
+    "prefix": "shion",
+    "description": "shion",
+    "body": [
+      "!> author: Shion Shimizu",
+      "! date: \t",
+      "! summary: \t"
+    ]
+  },
   "szaghi": {
     "prefix": "szaghi",
     "description": "szaghi",
@@ -389,7 +398,7 @@
     "description": "Raise error with line number",
     "body": [
       "CALL e%RaiseError(modName //'::'//myName// ' - '// &",
-      "\t& '$0'//tostring(__LINE__))"
+      "\t& 'Check line number $0'//tostring(__LINE__))"
     ]
   },
   "info": {
@@ -516,7 +525,8 @@
   "typ": {
     "prefix": "typ",
     "body": "type(${1:type name})${2:, ${3:attributes}} :: ${4:name}",
-    "description": "Custom Type"
+    "description": "Custom Type",
+    "": "type(${1:type name})${2:, ${3:attributes}} :: ${4:name}"
   },
   "cy": {
     "prefix": "cy",

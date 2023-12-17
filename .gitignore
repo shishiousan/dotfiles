@@ -1,1 +1,4 @@
 ltex*.txt
+lazy*.json
+spell/
+local/share/nvim/
