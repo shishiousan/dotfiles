@@ -1,6 +1,7 @@
 return {
   {
     "smoka7/multicursors.nvim",
+    -- branch = "v0.9.0",
     event = "VeryLazy",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
