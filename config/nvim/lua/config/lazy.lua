@@ -72,6 +72,3 @@ vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent6 guifg=#56B6C2 gui=nocombine]])
 
 vim.cmd([[highlight MiniIndentscopeSymbol guifg=#c308ff gui=nocombine]])
---for fortran indent
--- vim.cmd([[ let fortran_indent_less=0 ]])
--- vim.g["fortran_indent_less"] = 1
