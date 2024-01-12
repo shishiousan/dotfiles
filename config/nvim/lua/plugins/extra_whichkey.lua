@@ -8,10 +8,10 @@ wk.register({
   },
   w = {
     name = "window",
-    h = { "<Ctrl>h", "Move to left" },
-    j = { "<Ctrl>j", "Move down" },
-    k = { "<Ctrl>k", "Move up" },
-    l = { "<Ctrl>l", "Move to right" },
+    h = { "<C-W>h", "Move to left" },
+    j = { "<C-W>j", "Move down" },
+    k = { "<C-W>k", "Move up" },
+    l = { "<C-W>l", "Move to right" },
   },
 }, { prefix = "<leader>", mode = "n" })
 
