@@ -76,6 +76,7 @@ return {
             os.getenv("DROPBOX") .. "/easifem/base/src/**",
             os.getenv("DROPBOX") .. "/easifem/classes/src/**",
             os.getenv("DROPBOX") .. "/easifem/elasticity/src/**",
+            os.getenv("DROPBOX") .. "/easifem/acoustic/src/**",
             "--hover_signature",
             "--hover_language=fortran",
             "--use_signature_help",

@@ -6,6 +6,13 @@ wk.register({
     i = { "<cmd>tab split<CR>", "Zoom in" },
     o = { "<cmd>tab close<CR>", "Zoom out" },
   },
+  w = {
+    name = "window",
+    h = { "<Ctrl>h", "Move to left" },
+    j = { "<Ctrl>j", "Move down" },
+    k = { "<Ctrl>k", "Move up" },
+    l = { "<Ctrl>l", "Move to right" },
+  },
 }, { prefix = "<leader>", mode = "n" })
 
 return {
