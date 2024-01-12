@@ -29,6 +29,21 @@ return {
     },
   },
   {
+    "nvim-tree/nvim-web-devicons",
+    lazy = true,
+    config = function()
+      require("nvim-web-devicons").setup({
+        override_by_filename = {
+          ["toml"] = {
+            icon = "",
+            color = "#6d8086",
+            name = "Toml",
+          },
+        },
+      })
+    end,
+  },
+  {
     "goolord/alpha-nvim",
     event = "VimEnter",
     opts = function()

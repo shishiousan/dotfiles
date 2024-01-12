@@ -26,6 +26,28 @@ return {
       vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
   },
+  {
+    "arminveres/md-pdf.nvim",
+    branch = "main", -- you can assume that main is somewhat stable until releases will be made
+    lazy = true,
+    config = function()
+      require("md-pdf").setup({
+        margins = "1.0cm",
+        highlight = "tango",
+        toc = false,
+      })
+    end,
+    keys = {
+      {
+        "<leader>mc",
+        function()
+          require("md-pdf").convert_md_to_pdf()
+        end,
+        desc = "Convert to pdf",
+      },
+    },
+    opts = {},
+  },
   -- {
   --   "iamcco/markdown-preview.nvim",
   --   lazy = true,

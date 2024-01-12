@@ -714,6 +714,11 @@
     "body": "module ${1:name}\n\n\timplicit none\n\t$0\n\nend module $1\n",
     "description": "module"
   },
+  "neq": {
+    "prefix": "neq",
+    "body": ".ne.",
+    "description": "Not-Equal"
+  },
   "neqv": {
     "prefix": "neqv",
     "body": ".neqv.",
