@@ -3,9 +3,9 @@ function fish_logo \
     --argument-names outer_color medium_color inner_color mouth eye
 
     # defaults:
-    [ $outer_color  ]; or set outer_color  'red'
-    [ $medium_color ]; or set medium_color 'f70'
-    [ $inner_color  ]; or set inner_color  'yellow'
+    [ $outer_color  ]; or set outer_color  'cyan'
+    [ $medium_color ]; or set medium_color 'magenta'
+    [ $inner_color  ]; or set inner_color  'blue'
     [ $mouth ]; or set mouth '['
     [ $eye   ]; or set eye   'O'
 
@@ -44,3 +44,4 @@ See set_color --help for more on available colors.'
                       (J'$m'JJ'$o'| \UUU)
                        (UU)'(set_color normal)
 end
+

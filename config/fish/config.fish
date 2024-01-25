@@ -104,6 +104,7 @@ function less
     command less -R $argv
 end
 
+# NOTE: to enable "cd -"
 functions -c cd standard_cd
 
 function cd
@@ -114,12 +115,11 @@ end
 #     # Commands to run in interactive sessions can go here
 # end
 
-fish_add_path /opt/Paraview/bin/
-fish_add_path ~/.cargo/bin
-fish_add_path /opt/smartgit/bin
-fish_add_path ~/.npm-global/bin
-fish_add_path ~/go/bin
+# NOTE: In addition to following extra paths 
+# one symlink to libgmsh.so.x.xx.x should be made 
+# in $HOME/.easifem/install/easifem/extpkgs/lib 
+set -gx GMSH_LIB $HOME/.local/lib/
+set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
 
-# set -gx GMSH_LIB $HOME/.local/lib/
-#
-set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/./lib
+# set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu
+# set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/lib/python3.10/config-3.10-x86_64-linux-gnu
