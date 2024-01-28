@@ -26,6 +26,9 @@ set --export base "$easifem/base"
 set --export classes "$easifem/classes"
 set --export elasticity "$easifem/elasticity"
 set --export acoustic "$easifem/acoustic"
+set --export OMP_NUM_THREADS 1
+set --export OPENBLAS_NUM_THREADS 1
+
 
 # set --export pyflags -L/usr/lib/python3.10/config-3.10-x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -lpython3.10 -lcrypt -ldl -lm -lm
 
