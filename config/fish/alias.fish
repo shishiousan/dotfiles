@@ -29,6 +29,8 @@ set --export acoustic "$easifem/acoustic"
 set --export OMP_NUM_THREADS 1
 set --export OPENBLAS_NUM_THREADS 1
 
+# sci lab 
+set --export SCI /usr/share/scilab/
 
 # set --export pyflags -L/usr/lib/python3.10/config-3.10-x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -lpython3.10 -lcrypt -ldl -lm -lm
 
@@ -103,4 +105,10 @@ function rebuild_easifem_debug
     easifem clean base classes materials kernels elasticity acoustic $argv
     cd $base && python3 install.py && cd $classes && python3 install.py
     cd $elasticity && python3 install.py && cd $acoustic && python3 install.py
+end
+
+# resolving opengl related issue 
+function scilab
+    set --export MESA_GL_VERSION_OVERRIDE 3.0
+    command scilab $argv
 end

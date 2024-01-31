@@ -25,21 +25,22 @@ foreground = "#F9F9F9"
 [font]
 size = 14.0
 
+[font.normal]
+family = "FiraCode Nerd Font"
+# family = "RobotoMono Nerd Font Mono"
+style = "Regular"
+
 [font.bold]
 family = "FiraCode Nerd Font"
 style = "Bold"
-
-[font.bold_italic]
-family = "FiraCode Nerd Font"
-style = "Bold Italic"
 
 [font.italic]
 family = "FiraCode Nerd Font"
 style = "Italic"
 
-[font.normal]
+[font.bold_italic]
 family = "FiraCode Nerd Font"
-style = "Regular"
+style = "Bold Italic"
 
 [[keyboard.bindings]]
 action = "ToggleFullscreen"
