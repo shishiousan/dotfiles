@@ -80,6 +80,20 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = vim.api.nvim_create_augroup("typst", { clear = true }),
+  pattern = { "typst" },
+  callback = function()
+    local wk = require("which-key")
+    wk.register({
+      T = {
+        name = "+Typst",
+        w = { "<cmd>TypstWatch<CR>", "watch typst docment" },
+      },
+    }, { prefix = "<leader>", mode = { "n" } })
+  end,
+})
+
 -- NOTE: if statement is necessary to prevent
 -- wrong cut (x) in neo-tree filesystem
 vim.api.nvim_create_autocmd("BufEnter", {
