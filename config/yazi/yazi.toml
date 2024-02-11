@@ -19,6 +19,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 [opener]
 document = [
 	{ exec = 'zathura "$1"', desc = "open pdf", for = "unix" },
+	{ exec = 'okular "$1"', desc = "open pdf2", for = "unix" },
 ]
 edit = [
 	{ exec = '$EDITOR "$@"', block = true,  for = "unix" },
