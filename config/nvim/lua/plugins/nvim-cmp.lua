@@ -1,32 +1,39 @@
 local kind_icons = {
-  Text = "",
-  Method = "m",
-  Function = "",
+  Text = "󰊄",
+  Method = "",
+  Function = "󰡱",
   Constructor = "",
   Field = "",
   Variable = "",
-  Class = "",
+  Class = "",
   Interface = "",
   Module = "",
   Property = "",
   Unit = "",
   Value = "",
   Enum = "",
-  Keyword = "",
+  Keyword = "",
   Snippet = "",
   Color = "",
-  File = "",
+  File = "",
   Reference = "",
-  Folder = "",
+  Folder = "󰉓",
   EnumMember = "",
-  Constant = "",
+  Constant = "󰏿",
   Struct = "",
   Event = "",
-  Operator = "",
-  TypeParameter = "",
+  Operator = "󰋎",
+  TypeParameter = "󰉺",
 }
 
 return {
+  {
+    "glepnir/nerdicons.nvim",
+    cmd = "NerdIcons",
+    config = function()
+      require("nerdicons").setup({})
+    end,
+  },
   {
     "L3MON4D3/LuaSnip",
     build = (not jit.os:find("Windows"))
