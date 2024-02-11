@@ -21,6 +21,9 @@ document = [
 	{ exec = 'zathura "$1"', desc = "open pdf", for = "unix" },
 	{ exec = 'okular "$1"', desc = "open pdf2", for = "unix" },
 ]
+lyxdocs = [
+	{ exec = 'lyx "$1"', desc = "open by lyx", for = "unix" },
+]
 edit = [
 	{ exec = '$EDITOR "$@"', block = true,  for = "unix" },
 	{ exec = 'code "%*"',    orphan = true, for = "windows" },
@@ -51,6 +54,9 @@ rules = [
 
   #pdf 
 	{ mime = "application/pdf", use ="document" },
+  
+  #lyx 
+  {name = "*.lyx", use="lyxdocs"},
 
 	{ mime = "text/*",  use = [ "edit", "reveal" ] },
 	{ mime = "image/*", use = [ "open", "reveal" ] },
