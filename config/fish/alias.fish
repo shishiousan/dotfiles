@@ -25,7 +25,7 @@ set --export easifem "$DROPBOX/easifem"
 set --export base "$easifem/base"
 set --export classes "$easifem/classes"
 set --export elasticity "$easifem/elasticity"
-set --export acoustic "$easifem/acoustic"
+set --export acoustic $easifem/acoustic
 set --export OMP_NUM_THREADS 1
 set --export OPENBLAS_NUM_THREADS 1
 
@@ -57,6 +57,7 @@ alias ..3="cd ../../.."
 if [ -f $HOME/.cargo/bin/lsd ]
     alias ls="lsd"
 end
+
 alias l="ls -l"
 alias la="ls -a"
 alias lla="ls -la"
@@ -84,7 +85,7 @@ function v
 end
 
 function vvim
-    nvim "$nvim"
+    nvim $nvim
 end
 
 function nv
@@ -92,19 +93,34 @@ function nv
 end
 
 function nvvim
-    neovide --frame none "$nvim"
+    neovide --frame none $nvim
 end
 
-function rebuild_easifem
-    easifem clean base classes materials kernels elasticity acoustic $argv
-    cd $base && python3 release_install.py && cd $classes && python3 release_install.py
-    cd $elasticity && python3 release_install.py && cd $acoustic && python3 release_install.py
-end
+function rebuild_easifem -d "Rebuild entire easifem liblaries"
+    set currentPath $pwd
+    argparse d/debug -- $argv
+    if set -ql _flag_debug
+        echo "debug mode is selected "
+        set script install.py
+    else
+        echo "release mode is selected "
+        set script release_install.py
+    end
 
-function rebuild_easifem_debug
-    easifem clean base classes materials kernels elasticity acoustic $argv
-    cd $base && python3 install.py && cd $classes && python3 install.py
-    cd $elasticity && python3 install.py && cd $acoustic && python3 install.py
+    set mylists base classes materials kernels elasticity acoustic
+    set mypaths $base $classes $elasticity $acoustic
+
+    if count $argv >/dev/null
+        easifem clean $mylists $argv
+    else
+        easifem clean $mylists
+    end
+
+    for ipath in $mypaths
+        cd $ipath
+        python3 $script
+    end
+    cd $currentPath
 end
 
 # resolving opengl related issue 

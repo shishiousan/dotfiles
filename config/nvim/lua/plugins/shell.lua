@@ -10,4 +10,8 @@ return {
     "LhKipp/nvim-nu",
     filetypes = { "nu" },
   },
+  {
+    "dag/vim-fish",
+    filetypes = { "fish" },
+  },
 }

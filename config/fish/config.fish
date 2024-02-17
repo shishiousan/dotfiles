@@ -123,3 +123,7 @@ set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
 
 # set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu
 # set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/lib/python3.10/config-3.10-x86_64-linux-gnu
+
+# oh-my-posh init fish | source
+# oh-my-posh init fish --config $HOME/.config/omp/themes/catppuccin.omp.json | source
+oh-my-posh init fish --config $HOME/.config/omp/themes/velvet.omp.json | source
