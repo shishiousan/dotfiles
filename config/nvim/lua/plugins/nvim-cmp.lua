@@ -237,13 +237,13 @@ return {
       }
     end,
   },
-  {
-    "vim-utils/vim-husk",
-    branch = "custom",
-    lazy = true,
-    pin = true,
-    event = "BufEnter",
-  },
+  -- {
+  --   "vim-utils/vim-husk",
+  --   branch = "custom",
+  --   lazy = true,
+  --   pin = true,
+  --   event = "BufEnter",
+  -- },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",

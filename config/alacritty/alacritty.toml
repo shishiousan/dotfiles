@@ -52,3 +52,13 @@ history = 50000
 [window]
 opacity = 0.95
 
+# [cursor]
+# blink_interval= 500
+#
+# [cursor.style]
+# shape = "Beam"
+# blinking =  "Always"
+#
+# [cursor.vi_mode_style]
+# shape = "Block"
+# blinking = "Off"

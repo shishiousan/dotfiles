@@ -1,0 +1,453 @@
+ls
+la
+lsd
+ls
+ls -a
+ls -l
+db
+cd Dropbox/
+cd test_easifem/
+..
+c
+exitr
+exit
+env | reject config | transpose key val | each {|r| echo $"$env.($r.key) = '($r.val)'"} | str join (char nl)
+config nu
+env | reject config | transpose key val | each {|r| echo $"$env.($r.key) = '($r.val)'"} | str join (char nl)
+env.config
+$env | reject config | transpose key val | each {|r| echo $"$env.($r.key) = '($r.val)'"} | str join (char nl)
+$HOME
+env.$HOME
+$env.HOME
+$env.PATH
+exit
+config set
+config --help
+exit
+$env.PATH
+config env
+exit 
+config env
+cd .config/
+cd nushell/
+ls
+nvim env.nu
+c
+neofetch 
+c
+ls
+lsd
+c
+$env.PATH
+c
+config env
+c
+clear
+config nu 
+source $nu.config-path
+exit
+c
+clear
+config nu 
+exit
+config nu
+exit
+cd $env.DROPBOX
+config nu 
+exot
+exit
+config nu 
+exit
+config nu 
+exit
+config nu 
+exit
+core-ls
+old-ls
+which ls
+ls -tree
+ls --tree
+ls
+cd .cargo/
+cd bin/
+ls
+rls
+fd
+config nu 
+exot
+exit
+lt
+j
+config nu 
+exit
+c
+lt
+c
+ls
+ls | sort-by type name -i
+ls | sort-by type name -i | grid -c
+/usr/bin/ls
+/usr/bin/ls --tree
+lsd --tree
+cd $env.fish
+lsd --tree
+c
+config nu
+exit
+lt
+db
+cd TeX/
+lt
+..
+config nu 
+..
+which ..
+cd
+ls
+c
+v
+vim
+nvim
+config nu 
+exot
+exit
+v
+config nu 
+exit
+v
+config nu 
+exit
+v
+config nu
+exit
+v
+cd $($env.$(HOME))
+cd $'($env.$(HOME))'
+cd $'($env.HOME)'
+echo $env.$'($env.HOME)'
+echo $env.$env.HOME
+echo $env.($env.HOME)
+echo $env.$($env.HOME)
+echo $env.$"($env.HOME)"
+echo $env."$($env.HOME)"
+cd ; ls
+config nu
+exit
+config nu
+exit 
+config nu
+exit
+config nu
+exit
+c
+rebuild_easifem $env.acoustic
+c
+config nu
+exit
+config nu
+exit
+config nu 
+c
+exit
+config nu
+exit
+c
+scolab
+^scilab 
+ls
+c
+rebuild_easifem $env.acoustic
+c
+config nu
+exot
+exit 
+config nu
+exit
+scilab 
+config nu
+exitr
+exit
+config nu
+exit
+config nu
+exit
+scilab
+c
+exit
+ls
+config nu
+exit
+neofetch --help
+neofetch --gap 4
+neofetch --gap 10
+neofetch
+c
+j
+db
+cd test_easifem/config/
+..
+c
+easifem run -e easifemClasses -f remove_test.F90
+v
+c
+curl -s https://ohmyposh.dev/install.sh | bash -s
+exit
+config nu
+exit
+config nu
+exot
+exit
+config nu 
+exit
+source $env.HOME
+echo $env.HOME
+echo $env.HOME/thi
+config nu 
+exit
+config nu
+echo $'($env.HOME)/home/hoem'
+source $'($env.HOME)/.cofig/omp/'
+source $HOME/.cofig/omp/
+config nu
+exit
+config nu
+exit
+config nu
+exit
+config nu 
+exit
+$nu.home-path
+config nu
+exit
+db
+cd test_easifem/
+c
+lsd
+lg
+config nu
+ls
+lg
+exit
+config nu
+exit
+lg
+db
+cd dotfiles/
+gist
+lg config/
+l config/
+config nu 
+exit
+cv
+c
+lg Dropbox/
+c
+lsd
+c
+exit
+c
+rebuild_easifem
+c
+fc-cache
+fc-cache -f -v
+c
+which c
+ls
+lg
+l
+ya
+ls
+lla
+ls texmf
+ls -t texmf
+ls -a texmf
+ls -a tex*
+ls -al tex*
+ps
+ps | bat
+ps | cat
+cd dotfiles/
+dn
+cd $env.acoustic
+v
+ls
+bat install.py
+cd src/
+l
+cd submodules/
+ls
+cd AbstractAcoustic/
+ls
+cd src/
+;s
+ls
+bat AbstractAcousticUtility.F90
+c
+ls
+ls | sort-by size | reverse
+c
+ls | sort-by size | reverse
+ls -t
+ls -a
+ls -l
+date
+date now
+date now | to-table
+date now to-table
+date  to-table
+date to-table now
+date to-table 
+date | to-table
+date --help
+date to-table 
+date to-table | ls
+date to-table | cat
+date to-table | date now
+date to-table |table 
+date to-table | table 
+date now | date to-table 
+echo $?
+echo $env.?
+echo $nu.pid
+echo $($?)
+echo $?
+echo ?
+echo $'?'
+echo $env.LAST_EXIT_CODE
+c
+fish
+cd .config/
+mkdir starship
+cd starship 
+cargo install starship --locked
+echo $env.LAST_EXIT_CODE
+c
+starship --version
+c
+starship init nu | save ./
+starship init nu | save .
+starship init nu | save 
+starship init nu | save ./init.nu
+ls
+touch starship.toml
+cargo install zoxide --locked
+c
+z 
+cd .cargo/
+cd bin/
+ls
+zoxide 
+config env
+la
+c
+config nu 
+c
+z 
+cd $env.DROPBOX
+cd test_easifem/scalar_wave/
+cd
+z scalar
+c
+cd
+cd /
+cd $nu.env-path
+echo $env.DROPBOX
+c
+cd '/home/shion'
+config env
+config nu 
+confifn
+cd $env.DROPBOX/
+cd $env.DROPBOX+/
+cd $'($env.DROPBOX)/'
+$env.HOME | path expand 
+path expand 
+$home
+$homedir
+config env
+cd /
+cd $env.PATH
+path
+$env.PATH
+let-env PATH = $env.PATH
+c
+cd /
+cd /home/shion/AbstractKernel/
+ls
+c
+config nu
+c
+$env.HOME | append /Dropbox
+$env.HOME | prepend /Dropbox
+config env
+cofig nu
+config nu
+c
+$env.HOME | path join  /Dropbox
+$env.HOME | path join 
+[$env.HOME, /dropbox] | path join 
+path join 
+$env.HOME | path join  /Dropbox
+$'($env.HOME)' | path join  /Dropbox
+$'($env.HOME)' | path join /Dropbox
+'/home/' | path join /Dropbox
+$env.HOME | path join  Dropbox
+$env.HOME | path join  Dropbox/Code/
+$env.PATH
+config env
+c
+cd /
+$env.HOME
+config env
+sudo apt-get  install caraspace
+sudo apt-get install carapace
+sudo apt-get install carapace-bin
+cd Downloads/
+ls
+ex carapace-bin_0.30.1_linux_amd64.deb
+sudo apt install carapace-bin_0.30.1_linux_amd64.deb
+sudo apt install ./carapace-bin_0.30.1_linux_amd64.deb
+c
+ls
+carapace 
+c
+config env
+config nu
+cd /
+c
+carapace 
+c
+exit
+fish
+c
+$env.HOME'/'
+$env.HOME^/
+^$env.HOME
+^cd $env.HOME
+^ls
+^cd ~
+cd
+expand $env.HOME
+c
+~
+echo ~
+bash
+db
+cd test_easifem/
+cd
+z scalar
+config nu 
+config nu 
+c
+ls
+db
+cd 
+cd .config/
+cd nushell/
+ls
+..
+db
+cd dotfiles/
+cd config/
+ls
+gist

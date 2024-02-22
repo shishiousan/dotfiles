@@ -118,9 +118,8 @@ return {
     end,
   },
   {
-    "matze/vim-tex-fold",
+    "shishiousan/vim-tex-fold",
     lazy = true,
-    pin = true, -- disable automatic update
     ft = { "tex", "latex", "bib" },
     init = function()
       -- {{{~}}} is also folded
@@ -128,11 +127,9 @@ return {
     end,
   },
   {
-    "jhofscheier/ltex-utils.nvim",
+    "shishiousan/ltex-utils.nvim",
     lazy = true,
     filetypes = { "tex" },
-    pin = true, -- disable automatic update
-    branch = "custom", -- NOTE: my branch
     dependencies = {
       "neovim/nvim-lspconfig",
       "nvim-telescope/telescope.nvim",
@@ -158,10 +155,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
-        "jhofscheier/ltex-utils.nvim",
-        branch = "custom", -- NOTE: my branch
-        pin = true,
-        -- disable update
+        "shishiousan/ltex-utils.nvim",
       },
     },
     opts = {

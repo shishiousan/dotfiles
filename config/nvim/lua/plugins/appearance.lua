@@ -27,6 +27,36 @@ return {
       --   },
       -- },
     },
+    keys = {
+      {
+        "<leader>bp",
+        "<cmd>BufferLineMovePrev<CR>",
+        mode = { "n" },
+        silent = false,
+        desc = "Move buffer to previous ",
+      },
+      {
+        "<leader>bn",
+        "<cmd>BufferLineMoveNext<CR>",
+        mode = { "n" },
+        silent = false,
+        desc = "Move buffer to next ",
+      },
+      {
+        "<leader>bP",
+        "<cmd>BufferLineTogglePin<CR>",
+        mode = { "n" },
+        silent = false,
+        desc = " Toggle Pin for buffer ",
+      },
+      {
+        "<leader>bC",
+        "<cmd>BufferLineGroupClose ungrouped<CR>",
+        mode = { "n" },
+        silent = false,
+        desc = " Delete all non-pinned buffer ",
+      },
+    },
   },
   {
     "nvim-tree/nvim-web-devicons",
