@@ -32,7 +32,7 @@ return {
     lazy = true,
     config = function()
       require("md-pdf").setup({
-        margins = "1.0cm",
+        margins = "2.0cm",
         highlight = "tango",
         toc = false,
       })
