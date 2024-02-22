@@ -63,6 +63,11 @@ alias la="ls -a"
 alias lla="ls -la"
 alias lt="ls --tree"
 
+# cat to bad iff exist 
+if [ -f $HOME/.cargo/bin/bat ]
+    alias cat="bat"
+end
+
 #safe action
 alias cp="cp -i"
 alias mv="mv -i"
@@ -75,6 +80,14 @@ alias sz="source $zrc"
 alias sb="source $brc"
 alias gist="git status"
 alias python="python3"
+
+function mdu -d "my disk usage function"
+    if count $argv >/dev/null
+        du -hs $argv | sort -hr | column -t | rs -j | cat
+    else
+        du -hs * | sort -hr | column -t | rs -j | cat
+    end
+end
 
 function ya
     yazi $argv
