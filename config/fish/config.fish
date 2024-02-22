@@ -100,9 +100,9 @@ function ex --description "Extract bundled & compressed files"
     end
 end
 
-function less
-    command less -R $argv
-end
+# function less
+#         command less -R $argv
+# end
 
 # NOTE: to enable "cd -"
 functions -c cd standard_cd

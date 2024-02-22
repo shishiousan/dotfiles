@@ -66,7 +66,9 @@ alias lt="ls --tree"
 # cat to bad iff exist 
 if [ -f $HOME/.cargo/bin/bat ]
     alias cat="bat"
+    alias less="bat"
 end
+
 
 #safe action
 alias cp="cp -i"
@@ -83,9 +85,36 @@ alias python="python3"
 
 function mdu -d "my disk usage function"
     if count $argv >/dev/null
-        du -hs $argv | sort -hr | column -t | rs -j | cat
+        du -hs $argv | sort -hr | column -t | rs -j (ls -l | wc -l) 2 | less
     else
-        du -hs * | sort -hr | column -t | rs -j | cat
+        du -hs * | sort -hr | column -t | rs -j (ls -l | wc -l) 2 | less
+    end
+end
+
+function psm -d "process sorted by memory usage"
+    argparse q/quiet -- $argv
+    echo "more detail you can check by ps aux"
+    ps aux | awk '{sum += $4} {ssum += $6} END {print "Total memory usage ",sum,"%,",ssum/1024,"MB(RSS)"}'
+    if not set -ql _flag_quiet
+        ps aux -e --sort -%mem | awk '{s=$11; sub(/^\/.*\//, "", s); print $2,$3,$4,$6,s}' | column -t | less
+    end
+end
+
+function psc -d "process sorted by cpu usage"
+    argparse q/quiet -- $argv
+    set npr (nproc --all)
+    echo "more detail you can check by ps aux"
+    ps aux | awk -v var=$npr '{sum += $3} END {print "Total cpu usage ",sum,"% out of 100% x",var}'
+    if not set -ql _flag_quiet
+        ps aux -e --sort -%cpu | awk '{s=$11; sub(/^\/.*\//, "", s); print $2,$3,$4,$6,s}' | column -t | less
+    end
+end
+
+function pst -d "process sorted by time "
+    argparse q/quiet -- $argv
+    echo "more detail you can check by ps aux"
+    if not set -ql _flag_quiet
+        ps aux -e --sort -time | awk '{s=$11; sub(/^\/.*\//, "", s); print $2,$3,$4,$6,$10,s}' | column -t | less
     end
 end
 
