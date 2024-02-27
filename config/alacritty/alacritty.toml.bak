@@ -23,24 +23,23 @@ background = "#222222"
 foreground = "#F9F9F9"
 
 [font]
-size = 14.0
-
-[font.normal]
-family = "FiraCode Nerd Font"
-# family = "RobotoMono Nerd Font Mono"
-style = "Regular"
+size = 11.0
 
 [font.bold]
 family = "FiraCode Nerd Font"
 style = "Bold"
 
+[font.bold_italic]
+family = "FiraCode Nerd Font"
+style = "Bold Italic"
+
 [font.italic]
 family = "FiraCode Nerd Font"
 style = "Italic"
 
-[font.bold_italic]
+[font.normal]
 family = "FiraCode Nerd Font"
-style = "Bold Italic"
+style = "Regular"
 
 [[keyboard.bindings]]
 action = "ToggleFullscreen"
@@ -55,15 +54,4 @@ mods = "Shift"
 history = 50000
 
 [window]
-opacity = 0.95
-
-# [cursor]
-# blink_interval= 500
-#
-# [cursor.style]
-# shape = "Beam"
-# blinking =  "Always"
-#
-# [cursor.vi_mode_style]
-# shape = "Block"
-# blinking = "Off"
+opacity = 1.0
