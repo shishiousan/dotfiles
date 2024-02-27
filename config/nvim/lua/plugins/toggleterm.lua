@@ -13,8 +13,15 @@ return {
     version = "*",
     opts = {
       --[[ things you want to change go here]]
-      direction = "vertical", -- "vertical", "horizontal", or "float"
-      size = vim.o.columns * 0.4,
+      direction = "horizontal", -- "vertical", "horizontal", or "float"
+      -- size = vim.o.columns * 0.4,
+      size = function(term)
+        if term.direction == "horizontal" then
+          return 15
+        elseif term.direction == "vertical" then
+          return vim.o.columns * 0.4
+        end
+      end,
       shade_terminals = false,
       open_mapping = [[<c-\>]],
       winbar = {
