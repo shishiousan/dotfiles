@@ -1,15 +1,31 @@
 return {
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   {
-    "LunarVim/lunar.nvim",
+    -- "baliestri/aura-theme",
+    "daltonmenezes/aura-theme",
     lazy = false,
     priority = 1000,
+    config = function(plugin)
+      vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
+      vim.cmd([[colorscheme aura-dark]])
+    end,
   },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "lunar",
-    },
-  },
+  -- {
+  --   "bignimbus/pop-punk.vim",
+  --   lazy = false,
+  --   priority = 1000,
+  -- },
+  -- {
+  --   "LunarVim/lunar.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  -- },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "aura-dark",
+  --   },
+  -- },
   {
     "akinsho/bufferline.nvim",
     optional = true,

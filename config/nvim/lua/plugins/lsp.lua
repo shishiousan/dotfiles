@@ -53,6 +53,10 @@ return {
             --   SYMBOL_CACHE_DOWNLOAD = (new_config.symbol_cache_download == false) and "0" or "1",
             -- })
           end,
+          root_dir = function(fname)
+            local util = require("lspconfig.util")
+            return util.root_pattern("Project.toml")(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
+          end,
           settings = {
             julials = {
               -- you can write some settings for julials

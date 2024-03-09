@@ -62,6 +62,16 @@ require("lazy").setup({
 --
 -- to make comment non italic
 vim.api.nvim_set_hl(0, "Comment", { fg = "#565f89", bg = "NONE", italic = false })
+vim.api.nvim_set_hl(0, "VertSplit", { fg = "#82e2ff", bg = "NONE" })
+vim.api.nvim_set_hl(0, "DiffAdd", { fg = "#61ffca", bg = "NONE" })
+vim.api.nvim_set_hl(0, "DiffText", { fg = "#ffca85", bg = "NONE" })
+vim.api.nvim_set_hl(0, "DiffChange", { fg = "#82e2ff", bg = "NONE" })
+vim.api.nvim_set_hl(0, "DiffDelete", { fg = "#ff6767", bg = "NONE" })
+vim.api.nvim_set_hl(0, "@attribute", { link = "Attribute" })
+vim.api.nvim_set_hl(0, "@property.fortran", { link = "Property" })
+vim.api.nvim_set_hl(0, "@keyword.operator.fortran", { link = "Property" })
+
+-- vim.cmd([[highlight DiffAdd gui=reverse guifg=#61ffca ]])
 
 vim.opt.termguicolors = true
 vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])
