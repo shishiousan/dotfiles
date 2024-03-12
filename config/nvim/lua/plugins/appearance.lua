@@ -34,16 +34,24 @@ return {
         -- indicator = {
         --   style = "underline",
         -- },
-        separator_style = "slant",
+        -- separator_style = "slant",
       },
-      -- highlights = {
-      --   tab_separator_selected = {
-      --     sp = "#c308ff",
-      --     underline = true,
-      --   },
-      -- },
     },
     keys = {
+      {
+        "<leader>bL",
+        "<cmd>BufferLineCloseLeft<CR>",
+        mode = { "n" },
+        silent = false,
+        desc = "Delete buffers to the left",
+      },
+      {
+        "<leader>bR",
+        "<cmd>BufferLineCloseRight<CR>",
+        mode = { "n" },
+        silent = false,
+        desc = "Delete buffers to the right",
+      },
       {
         "<leader>bp",
         "<cmd>BufferLineMovePrev<CR>",
@@ -72,6 +80,21 @@ return {
         silent = false,
         desc = " Delete all non-pinned buffer ",
       },
+      {
+        "<leader>bt",
+        function()
+          local val = vim.o.showtabline
+          if val == 0 then
+            vim.print("Enabling the bufferline")
+            vim.cmd("set showtabline=2")
+          else
+            vim.print("Disabling the bufferline")
+            vim.cmd("set showtabline=0")
+          end
+        end,
+        mode = { "n" },
+        desc = " Toggle bufferline",
+      },
     },
   },
   {
@@ -97,7 +120,7 @@ return {
       local logo = [[
                                                           ⠀⠀⠀⠀⠀⠀⣀⡤⠴⠒⠒⠒⠶⢤⣄⡀⠀⠀⠀⠀⠀⠀
 ██████╗ ███████╗███╗   ██╗ ██████╗ ██╗   ██╗██╗███╗   ███╗⠀⠀⠀⠀⣠⠞⠁⠀⠀⠀⠀⠀⠀⠀⠈⠙⢦⡀⠀⠀⠀⠀
-██╔══██╗██╔════╝████╗  ██║██╔════╝ ██║   ██║██║████╗ ████║⠀⠀⠀⡼⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢳⡀⠀<Hi!⠀⠀
+██╔══██╗██╔════╝████╗  ██║██╔════╝ ██║   ██║██║████╗ ████║⠀⠀⠀⡼⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢳⡀⠀< FXXK YOU!!⠀⠀
 ██████╔╝█████╗  ██╔██╗ ██║██║  ███╗██║   ██║██║██╔████╔██║⠀⠀⢸⠁⠀⠀⣠⠖⠛⠛⠲⢤⠀⠀⠀⣰⠚⠛⢷⠀⠀⠀
 ██╔═══╝ ██╔══╝  ██║╚██╗██║██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║⠀⠀⣿⠀⠀⣸⠃⠀⠀⢀⣀⠈⢧⣠⣤⣯⢠⣤⠘⣆⠀⠀
 ██║     ███████╗██║ ╚████║╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║⠀⠀⣿⠀⠀⡇⠀⠀⠀⠻⠟⠠⣏⣀⣀⣨⡇⠉⢀⣿⠀⠀
