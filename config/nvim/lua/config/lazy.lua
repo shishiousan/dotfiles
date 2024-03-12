@@ -70,6 +70,7 @@ vim.api.nvim_set_hl(0, "DiffDelete", { fg = "#ff6767", bg = "NONE" })
 vim.api.nvim_set_hl(0, "@attribute", { link = "Attribute" })
 vim.api.nvim_set_hl(0, "@property.fortran", { link = "Property" })
 vim.api.nvim_set_hl(0, "@keyword.operator.fortran", { link = "Property" })
+vim.api.nvim_set_hl(0, "@variable.lua", { link = "Attribute" })
 
 -- vim.cmd([[highlight DiffAdd gui=reverse guifg=#61ffca ]])
 
