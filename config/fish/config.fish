@@ -127,7 +127,7 @@ set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
 
 # oh-my-posh init fish | source
 # oh-my-posh init fish --config $HOME/.config/omp/themes/catppuccin.omp.json | source
-oh-my-posh init fish --config $HOME/.config/omp/themes/velvet.omp.json | source
+# oh-my-posh init fish --config $HOME/.config/omp/themes/velvet.omp.json | source
 
 if test -e $HOME/.nix-profile/etc/profile.d/nix.fish
     . $HOME/.nix-profile/etc/profile.d/nix.fish

@@ -29,6 +29,8 @@ set --export acoustic $easifem/acoustic
 set --export OMP_NUM_THREADS 1
 set --export OPENBLAS_NUM_THREADS 1
 
+# set --export QTDIR /usr/share/qt5
+
 # sci lab 
 set --export SCI /usr/share/scilab/
 
