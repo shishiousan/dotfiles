@@ -2,7 +2,8 @@ return {
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   {
     -- "baliestri/aura-theme",
-    "daltonmenezes/aura-theme",
+    "shishiousan/aura-theme",
+    branch = "dev",
     lazy = false,
     priority = 1000,
     config = function(plugin)
@@ -15,11 +16,11 @@ return {
   --   lazy = false,
   --   priority = 1000,
   -- },
-  -- {
-  --   "LunarVim/lunar.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  -- },
+  {
+    "LunarVim/lunar.nvim",
+    lazy = false,
+    priority = 1000,
+  },
   -- {
   --   "LazyVim/LazyVim",
   --   opts = {
