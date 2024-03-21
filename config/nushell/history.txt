@@ -451,3 +451,91 @@ cd dotfiles/
 cd config/
 ls
 gist
+cp -r nushell ~/Dropbox/dotfiles/config/
+ls
+ls
+ls | sort-by modified 
+ls | sort-by modified | reverse 
+ls | sort-by modified | reverse | bat
+cp -r omp  /home/shion/Dropbox/dotfiles/config/
+c
+git add .
+..
+git commirt 
+git commit
+git push 
+c
+c
+fish
+chsh
+c
+cd .config 
+cd awesome/
+ls
+c
+ls
+exit
+ls
+c
+ls
+c
+exit
+neofetch 
+ls
+cd
+ls
+ls | sort-by modified | reverse 
+ls | sort-by size > 1.0KiB
+ls | sort-by size > 1.0 
+ls | sort-by size > 1.0 KB
+ls | sort-by size > 1.0 B
+ls | sort-by size > 1.0B
+ls | sort-by size > '1.0B'
+ls
+la
+lg
+ls | sort-by type name -i | grid -c
+lg
+ls | where size > 1.0kb
+du -hs *
+du -h *
+du 
+du -a *
+exit
+ls
+nvim 
+config nu
+config env 
+$HOME
+$env.HOME 
+c
+exit
+c
+du -hs *
+du *
+exit
+lg
+exit
+c
+ls
+lg
+v
+c
+zellij 
+exit
+c
+v
+exit
+ls
+cargo install tlrc
+exirt
+exit
+ls
+ls | sort-by type name -i 
+ls | where size > 1.0kb
+ls | where size > 4.0kb
+ls | where size > 5.0kb
+v
+exit
+l
+exit

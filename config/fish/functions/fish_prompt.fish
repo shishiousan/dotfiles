@@ -17,6 +17,7 @@ function fish_prompt
     set -l last_status $status
 
     set -l cyan (set_color -o cyan)
+    set -l brcyan (set_color -o brcyan)
     set -l yellow (set_color -o yellow)
     set -l green (set_color green)
     set -l red (set_color red)
@@ -24,12 +25,15 @@ function fish_prompt
     set -l blue (set_color -o blue)
     set -l normal (set_color normal)
     set -l brred (set_color brred)
+    set -l white (set_color -o white)
 
     if [ $last_status != 0 ]
         # set failed "$brightred✘$normal "
         set failed "$brightred󰻀 $normal"
+        set penguin "🐧 <$brightred Moron!$normal"
     else
         set failed "$blue󰻀 $normal"
+        set penguin "🐧 <$brcyan Cool!$normal"
     end
 
     if [ root = (whoami) ]
@@ -58,6 +62,8 @@ function fish_prompt
         end
     end
 
-    echo -n -s $failed $arrow $time ' ' $cwd $git_info $normal ' '
+    set -l line2 "$white>$brcyan>$blue>$normal "
 
+    echo -s $failed $arrow $time ' ' $cwd $git_info $normal $penguin
+    echo -s $line2
 end

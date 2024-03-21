@@ -23,7 +23,7 @@ extension:
   toml: 
   conf: 
 filetype:
-  dir: 
+  dir: " "
   file: 
   pipe: 󰟥
   socket: 
