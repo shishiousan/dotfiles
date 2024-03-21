@@ -16,8 +16,8 @@ set --export lazy "$HOME/.local/share/nvim/lazy"
 set --export fish "$HOME/.config/fish"
 set --export EDITOR nvim
 set --export VIMTEX_OUTPUT_DIRECTORY build
-set --export BROWSER brave
-set --export JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64/
+set --export BROWSER firefox
+set --export JAVA_HOME /usr/lib/jvm/java-21-openjdk/
 set --export docs "/home/shion/easifem-fortran.github.io/docs/docs-api"
 set --export DENO_INSTALL "/home/shion/.deno"
 #easifem-dev related 
@@ -29,7 +29,11 @@ set --export acoustic $easifem/acoustic
 set --export OMP_NUM_THREADS 1
 set --export OPENBLAS_NUM_THREADS 1
 
-# set --export QTDIR /usr/share/qt5
+# gtk dark 
+# NOTE: following variables are written in /etc/environment
+# set --export GTK_THEME Adwaita:dark
+# set --export GTK2_RC_FILES /usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
+# set --export QT_STYLE_OVERRIDE Adwaita-dark
 
 # sci lab 
 set --export SCI /usr/share/scilab/
@@ -56,7 +60,7 @@ alias ..3="cd ../../.."
 #ls command 
 # WARN: these commands needs a lsd 
 # please intall through cargo
-if [ -f $HOME/.cargo/bin/lsd ]
+if [ -f /usr/bin/lsd ]
     alias ls="lsd"
 end
 
@@ -66,7 +70,7 @@ alias lla="ls -la"
 alias lt="ls --tree"
 
 # cat to bad iff exist 
-if [ -f $HOME/.cargo/bin/bat ]
+if [ -f /usr/bin/bat ]
     alias cat="bat"
     alias less="bat"
 end
@@ -171,4 +175,8 @@ end
 function scilab
     set --export MESA_GL_VERSION_OVERRIDE 3.0
     command scilab $argv
+end
+
+function wofi
+    command wofi --style $HOME/.config/wofi_theme/src/mocha/style.css $argv
 end
