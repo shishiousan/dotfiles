@@ -18,7 +18,7 @@ set --export EDITOR nvim
 set --export VIMTEX_OUTPUT_DIRECTORY build
 set --export BROWSER firefox
 set --export JAVA_HOME /usr/lib/jvm/java-21-openjdk/
-set --export docs "/home/shion/easifem-fortran.github.io/docs/docs-api"
+set --export docs "/home/shion/easifem.github.io/docs/docs-api"
 set --export DENO_INSTALL "/home/shion/.deno"
 #easifem-dev related 
 set --export easifem "$DROPBOX/easifem"
@@ -71,7 +71,7 @@ alias lt="ls --tree"
 
 # cat to bad iff exist 
 if [ -f /usr/bin/bat ]
-    alias cat="bat"
+    # alias cat="bat"
     alias less="bat"
 end
 
@@ -145,7 +145,7 @@ function nvvim
 end
 
 function rebuild_easifem -d "Rebuild entire easifem liblaries"
-    set currentPath $pwd
+    set currentPath ( pwd )
     argparse d/debug -- $argv
     if set -ql _flag_debug
         echo "debug mode is selected "
@@ -179,4 +179,13 @@ end
 
 function wofi
     command wofi --style $HOME/.config/wofi_theme/src/mocha/style.css $argv
+end
+
+function paraview
+    argparse d/default -- $argv
+    if set -ql _flag_default
+        command paraview --style=Fusion $argv
+    else
+        command paraview --style=Fusion --stylesheet=$HOME/.config/ParaView/style.qss $argv
+    end
 end
