@@ -169,3 +169,9 @@ set fish_vi_force_cursor 0
 
 my_vi_mode
 fish_vi_cursor --force
+
+# installing npm packages locally
+set NPM_PACKAGES "$HOME/.npm-packages"
+set NODE_PATH "$NPM_PACKAGES/lib/node_modules" $NODE_PATH
+set PATH $PATH $NPM_PACKAGES/bin
+set MANPATH $NPM_PACKAGES/share/man $MANPATH
