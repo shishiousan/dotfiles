@@ -42,11 +42,11 @@ local lazyterm = function()
 end
 map("n", "<leader>ft", lazyterm, { desc = "Terminal (root dir)" })
 map("n", "<leader>fT", function()
-  Util.terminal.open(nil, { cwd = vim.fn.expand("%:p:h") })
+  Util.terminal.open(nil, { cwd = vim.fn.expand("%:p:h"), border = "rounded" })
 end, { desc = "Terminal (cwd)" })
 -- map("n", "<c-/>", lazyterm, { desc = "Terminal (root dir)" })
 map("n", "<c-/>", function()
-  Util.terminal.open(nil, { cwd = vim.fn.expand("%:p:h") })
+  Util.terminal.open(nil, { cwd = vim.fn.expand("%:p:h"), border = "rounded" })
 end, { desc = "Terminal (cwd)" })
 map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
 -- vim.keymap.del("n", "<c-_>") -- used by wezterm "decrease font size"
