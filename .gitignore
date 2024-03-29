@@ -2,3 +2,5 @@ ltex*.txt
 lazy*.json
 spell/
 local/share/nvim/
+
+./config/nvim/snippets/easifem-*.json
