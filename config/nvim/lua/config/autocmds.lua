@@ -106,3 +106,22 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = augroup("hide_decorations"),
+  pattern = { "*" },
+  callback = function()
+    local lualine = require("lualine")
+    local stat = vim.g.statStatusLine
+    if stat == nil or stat then
+      lualine.hide({ unhide = false })
+      vim.g.statStatusLine = false
+      vim.cmd([[set laststatus=0]])
+      vim.cmd([[hi! link StatusLine Normal]])
+      vim.cmd([[hi! link StatusLineNC Normal]])
+      vim.cmd([[set statusline=%{repeat('─',winwidth('.'))}]])
+    end
+
+    vim.cmd("set showtabline=0")
+  end,
+})

@@ -31,6 +31,9 @@ return {
           win_width = 50,
           auto_preview = false,
         },
+        symbol_in_winbar = {
+          enable = false,
+        },
       }
       -- print("lspsaga is loaded")
       require("lspsaga").setup(configs)
