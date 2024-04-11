@@ -30,6 +30,10 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
+  news = {
+    lazyvim = false,
+    neovim = false,
+  },
   -- install = { colorscheme = { "tokyonight", "habamax" } },
   -- NOTE: Check update for packages regularly
   -- checker = { enabled = true }, -- automatically check for plugin updates
@@ -52,7 +56,7 @@ require("lazy").setup({
     -- automatically check for plugin updates
     enabled = false,
     concurrency = nil, ---@type number? set to 1 to check for updates very slowly
-    notify = true, -- get a notification when new updates are found
+    notify = false, -- get a notification when new updates are found
     frequency = 3600, -- check for updates every hour
     check_pinned = true, -- check for pinned packages that can't be updated
   },

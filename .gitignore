@@ -3,4 +3,4 @@ lazy*.json
 spell/
 local/share/nvim/
 
-./config/nvim/snippets/easifem-*.json
+config/nvim/snippets/easifem-*.json
