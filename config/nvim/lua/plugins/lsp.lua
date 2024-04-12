@@ -31,6 +31,9 @@ return {
           win_width = 50,
           auto_preview = false,
         },
+        symbol_in_winbar = {
+          enable = false,
+        },
       }
       -- print("lspsaga is loaded")
       require("lspsaga").setup(configs)
@@ -53,11 +56,20 @@ return {
             --   SYMBOL_CACHE_DOWNLOAD = (new_config.symbol_cache_download == false) and "0" or "1",
             -- })
           end,
+          root_dir = function(fname)
+            local util = require("lspconfig.util")
+            return util.root_pattern("Project.toml")(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
+          end,
           settings = {
             julials = {
               -- you can write some settings for julials
             },
           },
+        },
+        lua_ls = {
+          on_attach = function(client, _)
+            client.server_capabilities.semanticTokensProvider = nil
+          end,
         },
       },
     },

@@ -46,8 +46,13 @@ set TERM xterm-256color
 # Suppresses fish's intro message
 set fish_greeting
 function fish_greeting -d "What's up fish!"
-    echo "I'm ugly fish hahah..., hru?"
-    fish_logo
+    if test $GREETYOU = 1
+        echo "I'm ugly fish hahah..., hru?"
+        fish_logo
+    else
+        neofetch
+        set GREETYOU 1
+    end
 end
 
 # Prevent directories names from being shortened
@@ -127,10 +132,17 @@ set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
 
 # oh-my-posh init fish | source
 # oh-my-posh init fish --config $HOME/.config/omp/themes/catppuccin.omp.json | source
-oh-my-posh init fish --config $HOME/.config/omp/themes/velvet.omp.json | source
+#oh-my-posh init fish --config $HOME/.config/omp/themes/velvet.omp.json | source
 
-if test -e $HOME/.nix-profile/etc/profile.d/nix.fish
-    . $HOME/.nix-profile/etc/profile.d/nix.fish
+# if test -e $HOME/.nix-profile/etc/profile.d/nix.fish
+#     . $HOME/.nix-profile/etc/profile.d/nix.fish
+# end
+
+if not pgrep --full ssh-agent | string collect >/dev/null
+    eval (ssh-agent -c)
+    set -Ux SSH_AGENT_PID $SSH_AGENT_PID
+    set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+    eval (ssh-add $HOME/.ssh/id_git_rsa)
 end
 
 # activate vim mode without erasing any default key bindings 
@@ -156,4 +168,10 @@ set fish_cursor_external line blink
 set fish_vi_force_cursor 0
 
 my_vi_mode
-fish_vi_cursor
+fish_vi_cursor --force
+
+# installing npm packages locally
+set NPM_PACKAGES "$HOME/.npm-packages"
+set NODE_PATH "$NPM_PACKAGES/lib/node_modules" $NODE_PATH
+set PATH $PATH $NPM_PACKAGES/bin
+set MANPATH $NPM_PACKAGES/share/man $MANPATH

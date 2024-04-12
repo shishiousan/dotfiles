@@ -9,6 +9,7 @@ DelimitedFiles
 FFTW
 Ferrite
 FileIO
+GLMakie
 GeometryBasics
 Gmsh
 HDF5
@@ -20,12 +21,15 @@ JLD2
 KrylovKit
 LaTeXStrings
 LinearSolve
+Makie
 OrdinaryDiffEq
+PkgTemplates
 Plots
 Preconditioners
 ProgressMeter
 PyCall
 PyPlot
+SciPy
 StaticArrays
 SymPy
 Tensors

@@ -11,7 +11,7 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
-    { import = "lazyvim.plugins.extras.ui.alpha" },
+    -- { import = "lazyvim.plugins.extras.ui.alpha" },
     -- { import = "lazyvim.plugins.extras.lang.typescript" },
     -- { import = "lazyvim.plugins.extras.lang.tex" },
     { import = "lazyvim.plugins.extras.lang.json" },
@@ -29,6 +29,10 @@ require("lazy").setup({
     -- have outdated releases, which may break your Neovim install.
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
+  },
+  news = {
+    lazyvim = false,
+    neovim = false,
   },
   -- install = { colorscheme = { "tokyonight", "habamax" } },
   -- NOTE: Check update for packages regularly
@@ -52,7 +56,7 @@ require("lazy").setup({
     -- automatically check for plugin updates
     enabled = false,
     concurrency = nil, ---@type number? set to 1 to check for updates very slowly
-    notify = true, -- get a notification when new updates are found
+    notify = false, -- get a notification when new updates are found
     frequency = 3600, -- check for updates every hour
     check_pinned = true, -- check for pinned packages that can't be updated
   },
@@ -62,6 +66,17 @@ require("lazy").setup({
 --
 -- to make comment non italic
 vim.api.nvim_set_hl(0, "Comment", { fg = "#565f89", bg = "NONE", italic = false })
+vim.api.nvim_set_hl(0, "VertSplit", { fg = "#82e2ff", bg = "NONE" })
+vim.api.nvim_set_hl(0, "DiffAdd", { fg = "#61ffca", bg = "NONE" })
+vim.api.nvim_set_hl(0, "DiffText", { fg = "#ffca85", bg = "NONE" })
+vim.api.nvim_set_hl(0, "DiffChange", { fg = "#82e2ff", bg = "NONE" })
+vim.api.nvim_set_hl(0, "DiffDelete", { fg = "#ff6767", bg = "NONE" })
+vim.api.nvim_set_hl(0, "@attribute", { link = "Attribute" })
+vim.api.nvim_set_hl(0, "@property.fortran", { link = "Property" })
+vim.api.nvim_set_hl(0, "@keyword.operator.fortran", { link = "Property" })
+vim.api.nvim_set_hl(0, "@variable.lua", { link = "Attribute" })
+
+-- vim.cmd([[highlight DiffAdd gui=reverse guifg=#61ffca ]])
 
 vim.opt.termguicolors = true
 vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])

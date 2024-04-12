@@ -912,3 +912,4 @@ colors:
 
 key_bindings:
   -  { key: F11, action: ToggleFullscreen }
+  -  { key: Return, mods: Shift, chars: "\x1b[13;2u"}
