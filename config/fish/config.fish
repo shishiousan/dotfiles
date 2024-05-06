@@ -3,9 +3,9 @@ if not status --is-interactive
 end
 
 # Load EASIFEM variable shell script
-if [ -f $HOME/.config/easifem/easifemvar.fish ]
-    source $HOME/.config/easifem/easifemvar.fish
-end
+# if [ -f $HOME/.config/easifem/easifemvar.fish ]
+#     source $HOME/.config/easifem/easifemvar.fish
+# end
 
 # Load private config
 if [ -f $HOME/.config/fish/private.fish ]
@@ -50,7 +50,8 @@ function fish_greeting -d "What's up fish!"
         echo "I'm ugly fish hahah..., hru?"
         fish_logo
     else
-        neofetch
+        # neofetch
+        fastfetch
         set GREETYOU 1
     end
 end
@@ -175,3 +176,10 @@ set NPM_PACKAGES "$HOME/.npm-packages"
 set NODE_PATH "$NPM_PACKAGES/lib/node_modules" $NODE_PATH
 set PATH $PATH $NPM_PACKAGES/bin
 set MANPATH $NPM_PACKAGES/share/man $MANPATH
+
+# pnpm
+set -gx PNPM_HOME "/home/shion/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
