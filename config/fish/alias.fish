@@ -18,7 +18,6 @@ set --export EDITOR nvim
 set --export VIMTEX_OUTPUT_DIRECTORY build
 set --export BROWSER firefox
 set --export JAVA_HOME /usr/lib/jvm/java-21-openjdk/
-set --export docs "/home/shion/easifem.github.io/docs/docs-api"
 set --export DENO_INSTALL "/home/shion/.deno"
 #easifem-dev related 
 set --export easifem "$DROPBOX/easifem"
@@ -26,6 +25,10 @@ set --export base "$easifem/base"
 set --export classes "$easifem/classes"
 set --export elasticity "$easifem/elasticity"
 set --export acoustic $easifem/acoustic
+set --export ere $HOME/easifem-results
+set --export easifemdocs $easifem/easifem.github.io
+set --export docs $easifem/easifem.github.io/docs/docs-api
+set --export lec $easifem/lectures/docs
 set --export OMP_NUM_THREADS 1
 set --export OPENBLAS_NUM_THREADS 1
 
@@ -58,10 +61,16 @@ alias ..2="cd ../.."
 alias ..3="cd ../../.."
 
 #ls command 
+# these commands needs a lsd 
+# please intall through cargo
+# if [ -f /usr/bin/lsd ]
+#     alias ls="lsd"
+# end
+
 # WARN: these commands needs a lsd 
 # please intall through cargo
-if [ -f /usr/bin/lsd ]
-    alias ls="lsd"
+if command -q eza
+    alias ls="eza --icons"
 end
 
 alias l="ls -l"
@@ -121,6 +130,15 @@ function pst -d "process sorted by time "
     echo "more detail you can check by ps aux"
     if not set -ql _flag_quiet
         ps aux -e --sort -time | awk '{s=$11; sub(/^\/.*\//, "", s); print $2,$3,$4,$6,$10,s}' | column -t | less
+    end
+end
+
+function nvim
+    if [ -f $fish/functions/nvm.fish ]
+        nvm use v16
+        command nvim $argv
+    else
+        command nvim $argv
     end
 end
 
