@@ -6,10 +6,10 @@ return {
     },
     build = ":TSUpdate",
   },
-  {
-    "LhKipp/nvim-nu",
-    filetypes = { "nu" },
-  },
+  -- {
+  --   "LhKipp/nvim-nu",
+  --   filetypes = { "nu" },
+  -- },
   {
     "dag/vim-fish",
     filetypes = { "fish" },

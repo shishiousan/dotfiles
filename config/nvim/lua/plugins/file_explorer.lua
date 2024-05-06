@@ -3,7 +3,8 @@ local wk = require("which-key")
 wk.register({
   f = {
     name = "+file/find",
-    o = { "<cmd>Neotree reveal<CR>", "Reveal open" },
+    -- o = { "<cmd>Neotree reveal<CR>", "Reveal open" },
+    o = { "<cmd>Neotree position=float reveal_force_cwd=true dir=%:p:h reveal_file=%:p<CR>", "Reveal in the tree" },
   },
   O = { "<cmd>Oil<cr>", "Oil explorer (cwd)" },
 }, { prefix = "<leader>", mode = { "n" } })
@@ -44,6 +45,7 @@ return {
         --           return a.type > b.type
         --       end
         --   end , -- this sorts files and directories descendantly
+        -- write the code
         default_component_configs = {
           container = {
             enable_character_fade = true,
@@ -119,7 +121,7 @@ return {
         commands = {},
         window = {
           position = "float", -- "left", "right", "top", "bottom" , "current" and "float"
-          width = 40,
+          width = 65,
           mapping_options = {
             noremap = true,
             nowait = true,

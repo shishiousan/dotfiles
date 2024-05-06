@@ -24,9 +24,16 @@ local kind_icons = {
   Event = "",
   Operator = "󰋎",
   TypeParameter = "󰉺",
+  Copilot = "",
 }
 
 return {
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end,
+  -- },
   {
     "glepnir/nerdicons.nvim",
     cmd = "NerdIcons",
@@ -144,6 +151,7 @@ return {
           }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
         sources = cmp.config.sources({
+          -- { name = "copilot" },
           { name = "luasnip" },
           { name = "nvim_lsp" },
           { name = "buffer", keyword_length = 4 },
@@ -158,38 +166,18 @@ return {
             },
           },
           { name = "omni" },
-          -- {
-          --   name = "spell",
-          --   keyword_length = 4,
-          --   option = {
-          --     keep_all_entries = false,
-          --     enable_in_context = function()
-          --       return true
-          --     end,
-          --   },
-          -- },
         }),
-        -- formatting = {
-        --   format = function(_, item)
-        --     local icons = require("lazyvim.config").icons.kinds
-        --     if icons[item.kind] then
-        --       item.kind = icons[item.kind] .. item.kind
-        --     end
-        --     return item
-        --   end,
-        -- },
         formatting = {
           fields = { "kind", "abbr", "menu" },
           format = function(entry, vim_item)
-            -- Kind icons
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
             -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
             vim_item.menu = ({
-              -- omni = "[VimTex]",
               omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
               nvim_lsp = "[LSP]",
               luasnip = "[Snippet]",
               buffer = "[Buffer]",
+              -- copilot = "[Copilot]",
               spell = "[Spell]",
               latex_symbols = "[Symbols]",
               cmdline = "[CMD]",
@@ -205,11 +193,6 @@ return {
           },
           documentation = cmp.config.window.bordered(),
         },
-        -- experimental = {
-        --   ghost_text = {
-        --     hl_group = "CmpGhostText",
-        --   },
-        -- },
         sorting = defaults.sorting,
         cmp.setup.cmdline("/", {
           mapping = cmp.mapping.preset.cmdline(),
@@ -237,13 +220,6 @@ return {
       }
     end,
   },
-  -- {
-  --   "vim-utils/vim-husk",
-  --   branch = "custom",
-  --   lazy = true,
-  --   pin = true,
-  --   event = "BufEnter",
-  -- },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",

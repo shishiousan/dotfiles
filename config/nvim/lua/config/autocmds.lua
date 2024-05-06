@@ -6,14 +6,13 @@ local function augroup(name)
 end
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("indent_folding"),
-  pattern = { "julia", "lua" },
-  -- pattern = { "lua" },
+  group = augroup("expr_folding"),
+  pattern = { "fortran", "lua" },
   callback = function()
-    vim.opt_local.foldmethod = "indent"
-    vim.opt_local.foldcolumn = "2"
-    vim.opt_local.foldnestmax = 1
-    vim.cmd("set foldopen-=block")
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.opt_local.foldtext = "v:lua.vim.treesitter.foldtext()"
+    vim.opt_local.foldnestmax = 2
   end,
 })
 
@@ -29,17 +28,8 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("expr_folding"),
-  pattern = { "tex" },
-  callback = function()
-    -- vim.g.vimtex_fold_enabled = 1
-    vim.opt_local.foldcolumn = "2"
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
   group = augroup("no_folding"),
-  pattern = { "TelescopeResults", "ToggleTerm", "Noice", "sagaoutline" },
+  pattern = { "TelescopeResults", "ToggleTerm", "Noice", "sagaoutline", "dashboard" },
   callback = function()
     vim.opt_local.foldenable = false
     vim.opt_local.foldcolumn = "0"
@@ -53,15 +43,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.cmd("wincmd L")
   end,
 })
-
--- vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
---   group = augroup("additional_syntax"),
---   pattern = { "fortran" },
---   callback = function()
---     vim.cmd("syn keyword myfortrankey ASYNCHRONOUS")
---     vim.cmd("hi link myfortrankey Type")
---   end,
--- })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = vim.api.nvim_create_augroup("markdown_keys_set", { clear = true }),
@@ -94,19 +75,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- NOTE: if statement is necessary to prevent
--- wrong cut (x) in neo-tree filesystem
-vim.api.nvim_create_autocmd("BufEnter", {
-  group = augroup("debug_for_folding"),
-  pattern = { "*" },
-  callback = function()
-    local filetype = vim.bo.filetype
-    if filetype == "tex" then
-      vim.cmd("normal zx") -- update the folding
-    end
-  end,
-})
-
 vim.api.nvim_create_autocmd("BufWinEnter", {
   group = augroup("hide_decorations"),
   pattern = { "*" },
@@ -121,7 +89,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
       vim.cmd([[hi! link StatusLineNC Normal]])
       vim.cmd([[set statusline=%{repeat('─',winwidth('.'))}]])
     end
-
     vim.cmd("set showtabline=0")
   end,
 })

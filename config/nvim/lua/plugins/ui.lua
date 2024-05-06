@@ -33,26 +33,4 @@ return {
       },
     },
   },
-  {
-    "ibhagwan/fzf-lua",
-    -- optional for icon support
-    lazy = true,
-    dependencies = {
-      "junegunn/fzf",
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      -- calling `setup` is optional for customization
-      require("fzf-lua").setup({})
-    end,
-    keys = {
-      {
-        "<leader>F",
-        "<cmd>FzfLua builtin<CR>",
-        mode = { "n" },
-        silent = true,
-        desc = "fzf-lua builtin",
-      },
-    },
-  },
 }
