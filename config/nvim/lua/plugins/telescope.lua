@@ -79,6 +79,7 @@ return {
       { "<leader>fr", false },
       { "<leader>fR", false },
       { "<leader><space>", false },
+      { "<leader>fb", false },
     },
   },
 }

@@ -3,7 +3,7 @@ return {
     "github/copilot.vim",
     lazy = false,
     config = function()
-      vim.keymap.set("i", "<C-M>", 'copilot#Accept("\\<CR>")', {
+      vim.keymap.set("i", "<C-CR>", 'copilot#Accept("\\<CR>")', {
         expr = true,
         replace_keycodes = false,
       })

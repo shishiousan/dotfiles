@@ -19,7 +19,8 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- exit by jj
-map("i", "jj", "<esc>")
+map("i", "jk", "<esc>")
+-- map("i", "jj", "<esc>")
 
 -- remove hilight
 map("n", "<C-n>", "<cmd>nohlsearch<CR>")
