@@ -2,11 +2,6 @@ if not status --is-interactive
     exit
 end
 
-# Load EASIFEM variable shell script
-if [ -f $HOME/.config/easifem/easifemvar.fish ]
-    source $HOME/.config/easifem/easifemvar.fish
-end
-
 # Load private config
 if [ -f $HOME/.config/fish/private.fish ]
     source $HOME/.config/fish/private.fish
@@ -17,26 +12,23 @@ if [ -f $HOME/.config/fish/git.fish ]
     source $HOME/.config/fish/git.fish
 end
 
-# Aliases
-if [ -f $HOME/.config/fish/alias.fish ]
-    source $HOME/.config/fish/alias.fish
+if [ -f $HOME/.config/fish/variables.fish ]
+    source $HOME/.config/fish/variables.fish
 end
 
-# reload fish config
-function reload
-    exec fish
-    set -l config (status -f)
-    echo "reloading: $config"
+# abbreviations
+if [ -f $HOME/.config/fish/abbrs.fish ]
+    source $HOME/.config/fish/abbrs.fish
+end
+
+# myfunctions
+if [ -f $HOME/.config/fish/myfunctions.fish ]
+    source $HOME/.config/fish/myfunctions.fish
 end
 
 # User paths
 set -e fish_user_paths
 set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/Applications $fish_user_paths
-
-# Starship prompt
-#if command -sq starship
-#    starship init fish | source
-#end
 
 # sets tools
 #set -x TERM alacritty
@@ -45,15 +37,6 @@ set TERM xterm-256color
 
 # Suppresses fish's intro message
 set fish_greeting
-function fish_greeting -d "What's up fish!"
-    if test $GREETYOU = 1
-        echo "I'm ugly fish hahah..., hru?"
-        fish_logo
-    else
-        neofetch
-        set GREETYOU 1
-    end
-end
 
 # Prevent directories names from being shortened
 set -g theme_nerd_fonts yes
@@ -66,97 +49,17 @@ if status --is-login
     set -gx PATH $PATH ~/.local/bin
 end
 
-function ex --description "Extract bundled & compressed files"
-    if test -f "$argv[1]"
-        switch $argv[1]
-            case '*.tar.bz2'
-                tar xjf $argv[1]
-            case '*.tar.gz'
-                tar xzf $argv[1]
-            case '*.bz2'
-                bunzip2 $argv[1]
-            case '*.rar'
-                unrar $argv[1]
-            case '*.gz'
-                gunzip $argv[1]
-            case '*.tar'
-                tar xf $argv[1]
-            case '*.tbz2'
-                tar xjf $argv[1]
-            case '*.tgz'
-                tar xzf $argv[1]
-            case '*.zip'
-                unzip $argv[1]
-            case '*.Z'
-                uncompress $argv[1]
-            case '*.7z'
-                7z $argv[1]
-            case '*.deb'
-                ar $argv[1]
-            case '*.tar.xz'
-                tar xf $argv[1]
-            case '*.tar.zst'
-                tar xf $argv[1]
-            case '*'
-                echo "'$argv[1]' cannot be extracted via ex"
-        end
-    else
-        echo "'$argv[1]' is not a valid file"
-    end
+if command -q oh-my-posh
+    #oh-my-posh init fish | source
+    #oh-my-posh init fish --config $HOME/.config/omp/themes/catppuccin.omp.json | source
+    oh-my-posh init fish --config $HOME/.config/omp/themes/velvet.omp.json | source
 end
-
-# function less
-#         command less -R $argv
-# end
-
-# NOTE: to enable "cd -"
-functions -c cd standard_cd
-
-function cd
-    standard_cd $argv; and ls
-end
-
-# if status is-interactive  
-#     # Commands to run in interactive sessions can go here
-# end
-
-# NOTE: In addition to following extra paths 
-# one symlink to libgmsh.so.x.xx.x should be made 
-# in $HOME/.easifem/install/easifem/extpkgs/lib 
-set -gx GMSH_LIB $HOME/.local/lib/
-set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
-
-# set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu
-# set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/lib/python3.10/config-3.10-x86_64-linux-gnu
-
-
-# oh-my-posh init fish | source
-# oh-my-posh init fish --config $HOME/.config/omp/themes/catppuccin.omp.json | source
-#oh-my-posh init fish --config $HOME/.config/omp/themes/velvet.omp.json | source
-
-# if test -e $HOME/.nix-profile/etc/profile.d/nix.fish
-#     . $HOME/.nix-profile/etc/profile.d/nix.fish
-# end
 
 if not pgrep --full ssh-agent | string collect >/dev/null
     eval (ssh-agent -c)
     set -Ux SSH_AGENT_PID $SSH_AGENT_PID
     set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
     eval (ssh-add $HOME/.ssh/id_git_rsa)
-end
-
-# activate vim mode without erasing any default key bindings 
-function my_vi_mode
-    for mode in default insert visual
-        fish_default_key_bindings -M $mode
-    end
-
-    fish_vi_key_bindings --no-erase
-
-    bind -M insert -m default jj cancel repaint-mode
-
-    # Due to the cursor_default, it is redundant 
-    # set fish_cursor_visual block
 end
 
 set fish_cursor_default block
@@ -166,7 +69,7 @@ set fish_cursor_replace underscore
 # Set the external cursor to a line. The external cursor appears when a command is started.
 set fish_cursor_external line blink
 set fish_vi_force_cursor 0
-
+# init vi mode 
 my_vi_mode
 fish_vi_cursor --force
 
@@ -175,3 +78,21 @@ set NPM_PACKAGES "$HOME/.npm-packages"
 set NODE_PATH "$NPM_PACKAGES/lib/node_modules" $NODE_PATH
 set PATH $PATH $NPM_PACKAGES/bin
 set MANPATH $NPM_PACKAGES/share/man $MANPATH
+
+# pnpm
+set -gx PNPM_HOME "/home/shion/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /home/shion/miniconda3/bin/conda
+    # eval /home/easifem/miniconda3/bin/conda "shell.fish" hook $argv | source
+end
+
+if test -f /home/shion/miniconda3/etc/fish/conf.d/conda.fish
+    source /home/shion/miniconda3/etc/fish/conf.d/conda.fish
+end
+# <<< conda initialize <<<

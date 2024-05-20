@@ -19,7 +19,8 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- exit by jj
-map("i", "jj", "<esc>")
+map("i", "jk", "<esc>")
+-- map("i", "jj", "<esc>")
 
 -- remove hilight
 map("n", "<C-n>", "<cmd>nohlsearch<CR>")
@@ -52,9 +53,22 @@ map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
 -- vim.keymap.del("n", "<c-_>") -- used by wezterm "decrease font size"
 
 -- save file
-map("n", "<leader>fs", "<cmd>w<CR>", { desc = "write" })
-map("n", "<leader>fa", "<cmd>wa<CR>", { desc = "write all" })
-map("n", "<leader>fq", "<cmd>wa<CR><cmd>qa<CR>", { desc = "write all and quit all" })
+map("n", "<leader>fs", "<cmd>silent! w<CR>", { desc = "write" })
+map("n", "<leader>fa", "<cmd>silent! wa<CR>", { desc = "write all" })
+map("n", "<leader>fq", "<cmd>silent! wa<CR><cmd>qa<CR>", { desc = "write all and quit all" })
+
+map("n", "<leader>rp", "o<esc>v:'<,'>!erun -bs %<CR>")
+-- map("n", "<leader>rr", ":!erun -bs %<CR>")
+map("n", "<leader>rr", function()
+  local text = vim.cmd([[!erun -bs %]])
+  vim.print(text)
+end)
+-- map("n", "<leader>rcp", "o<esc>v:'<,'>!erun -cs %<CR>")
+-- map("n", "<leader>rcc", ":!erun -cs %<CR>")
+-- map("n", "<leader>rep", "o<esc>v:'<,'>!erun -es %<CR>")
+-- map("n", "<leader>ree", ":!erun -es %<CR>")
+-- map("n", "<leader>rap", "o<esc>v:'<,'>!erun -as %<CR>")
+-- map("n", "<leader>raa", ":!erun -as %<CR>")
 
 -- NOTE:
 -- Following settings for <C-j> is to be active

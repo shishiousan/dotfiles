@@ -1,13 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR FZF_DEFAULT_OPTS:\x2d\x2dheight\x2040\x25
-SETUVAR FZF_DISABLE_KEYBINDINGS:0
-SETUVAR FZF_LEGACY_KEYBINDINGS:1
-SETUVAR FZF_PREVIEW_DIR_CMD:ls
-SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
-SETUVAR FZF_TMUX_HEIGHT:40\x25
-SETUVAR --export SSH_AGENT_PID:707
-SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dXXXXXXWP9rTO/agent\x2e706
+SETUVAR --export SSH_AGENT_PID:886
+SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dXXXXXX9MhViT/agent\x2e885
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/shion/\x2elocal/share/z/data
@@ -15,13 +9,19 @@ SETUVAR Z_DATA_DIR:/home/shion/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/shion\x24
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_0rax_2F_fish_2D_bd_files:\x7e/\x2econfig/fish/functions/bd\x2efish\x1e\x7e/\x2econfig/fish/completions/bd\x2efish
-SETUVAR _fisher_jethrokuan_2F_fzf_files:\x7e/\x2econfig/fish/functions/__fzf_cd\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_complete\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_complete_preview\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_find_file\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_get_dir\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_open\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_parse_commandline\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_reverse_isearch\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzfcmd\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fzf\x2efish
+SETUVAR _fisher_easifem_2F_easifem_2D_fish_2D_utility_files:\x7e/\x2econfig/fish/functions/_easifem_output_reshape\x2efish\x1e\x7e/\x2econfig/fish/functions/_get_easifem_flag\x2efish\x1e\x7e/\x2econfig/fish/functions/backup_easifem\x2efish\x1e\x7e/\x2econfig/fish/functions/baseBuild\x2efish\x1e\x7e/\x2econfig/fish/functions/baseInstall\x2efish\x1e\x7e/\x2econfig/fish/functions/cf_easifem\x2efish\x1e\x7e/\x2econfig/fish/functions/classBuild\x2efish\x1e\x7e/\x2econfig/fish/functions/classInstall\x2efish\x1e\x7e/\x2econfig/fish/functions/easifem\x2dfish\x2dutility\x2efish\x1e\x7e/\x2econfig/fish/functions/ebuild\x2efish\x1e\x7e/\x2econfig/fish/functions/edoc\x2efish\x1e\x7e/\x2econfig/fish/functions/egreet\x2efish\x1e\x7e/\x2econfig/fish/functions/einstall\x2efish\x1e\x7e/\x2econfig/fish/functions/erebuild\x2efish\x1e\x7e/\x2econfig/fish/functions/erun\x2efish\x1e\x7e/\x2econfig/fish/functions/etest\x2efish\x1e\x7e/\x2econfig/fish/functions/evim\x2efish\x1e\x7e/\x2econfig/fish/functions/switch_easifem\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/easifem\x2dfish\x2dutility\x2efish\x1e\x7e/\x2econfig/fish/completions/easifem\x2dfish\x2dutility\x2efish
+SETUVAR _fisher_franciscolourenco_2F_done_files:\x7e/\x2econfig/fish/conf\x2ed/done\x2efish
 SETUVAR _fisher_jethrokuan_2F_z_files:\x7e/\x2econfig/fish/functions/__z\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_add\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_clean\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_complete\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/z\x2efish
+SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:\x7e/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/autopair\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
 SETUVAR _fisher_laughedelic_2F_fish__logo_files:\x7e/\x2econfig/fish/functions/fish_logo\x2efish\x1e\x7e/\x2econfig/fish/completions/fish_logo\x2efish
+SETUVAR _fisher_nickeb96_2F_puffer_2D_fish_files:\x7e/\x2econfig/fish/functions/_puffer_fish_expand_bang\x2efish\x1e\x7e/\x2econfig/fish/functions/_puffer_fish_expand_dots\x2efish\x1e\x7e/\x2econfig/fish/functions/_puffer_fish_expand_lastarg\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/puffer_fish_key_bindings\x2efish
 SETUVAR _fisher_oh_2D_my_2D_fish_2F_theme_2D_beloglazov_files:\x7e/\x2econfig/fish/functions/fish_prompt\x2efish
-SETUVAR _fisher_plugins:jethrokuan/fzf\x1ejethrokuan/z\x1e0rax/fish\x2dbd\x1elaughedelic/fish_logo\x1eamio/fish\x2dtheme\x2deden\x1ejorgebucaran/fisher\x1eoh\x2dmy\x2dfish/theme\x2dbeloglazov
+SETUVAR _fisher_patrickf1_2F_fzf_2E_fish_files:\x7e/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_changed_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_diff_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_processes\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e\x7e/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
+SETUVAR _fisher_plugins:jethrokuan/z\x1e0rax/fish\x2dbd\x1elaughedelic/fish_logo\x1ejorgebucaran/fisher\x1eoh\x2dmy\x2dfish/theme\x2dbeloglazov\x1eyo\x2dgoto/fish\x2dplugin\x2dtemplate\x1eeasifem/easifem\x2dfish\x2dutility\x1ejorgebucaran/nvm\x2efish\x1epatrickf1/fzf\x2efish\x1ejorgebucaran/autopair\x2efish\x1enickeb96/puffer\x2dfish\x1efranciscolourenco/done
 SETUVAR _fisher_upgraded_to_4_4:\x1d
+SETUVAR _fisher_yo_2D_goto_2F_fish_2D_plugin_2D_template_files:\x7e/\x2econfig/fish/functions/__fpt_initialize_git\x2efish\x1e\x7e/\x2econfig/fish/functions/__fpt_interactive\x2efish\x1e\x7e/\x2econfig/fish/functions/__fpt_make_template\x2efish\x1e\x7e/\x2econfig/fish/functions/__fpt_write_template_completions\x2efish\x1e\x7e/\x2econfig/fish/functions/__fpt_write_template_functions\x2efish\x1e\x7e/\x2econfig/fish/functions/__fpt_write_template_LICENSE\x2efish\x1e\x7e/\x2econfig/fish/functions/__fpt_write_template_README\x2efish\x1e\x7e/\x2econfig/fish/functions/fish\x2dplugin\x2dtemplate\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fish\x2dplugin\x2dtemplate\x2efish\x1e\x7e/\x2econfig/fish/completions/fish\x2dplugin\x2dtemplate\x2efish
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:blue

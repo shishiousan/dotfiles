@@ -3,7 +3,7 @@ return {
     "github/copilot.vim",
     lazy = false,
     config = function()
-      vim.keymap.set("i", "<C-M>", 'copilot#Accept("\\<CR>")', {
+      vim.keymap.set("i", "<C-CR>", 'copilot#Accept("\\<CR>")', {
         expr = true,
         replace_keycodes = false,
       })
@@ -29,7 +29,7 @@ return {
     end,
     keys = {
       {
-        "<leader>cc",
+        "<leader>CC",
         function()
           local stat = vim.g.copilot_enabled
           if stat == nil or stat == 1 then
@@ -53,6 +53,15 @@ return {
         end,
         mode = { "i" },
         desc = "Open copilot panel",
+      },
+      {
+        "<leader>CB",
+        function()
+          local lang = vim.bo.filetype
+          -- local stats = vim.b.copilot_enabled
+          vim.cmd("let b:copilot_enabled = {'" .. lang .. "': v:true }")
+          print("Copilot enabled locally for " .. lang)
+        end,
       },
     },
   },

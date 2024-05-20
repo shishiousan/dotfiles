@@ -1,14 +1,14 @@
-
 function etest -d "efficient easifem test"
-    set currentPath ( pwd )
+    set -l currentPath ( pwd )
 
     argparse \
         c/classes b/base \
         a/acoustic e/elasticity \
+        s/smartout q/quiet \
         'n/modname=' -- $argv
     or return 1
 
-    set cands "easifemBase\neasifemClasses\neasifemAcoustic\neasifemElasticity"
+    set -l cands "easifemBase\neasifemClasses\neasifemAcoustic\neasifemElasticity"
 
     if set -ql _flag_acoustic
         set eflag easifemAcoustic
@@ -24,12 +24,23 @@ function etest -d "efficient easifem test"
         set eflag (echo -e $cands | fzf )
     end
 
-    if count $argv >/dev/null
-        easifem run -e $eflag -f $argv
+    if set -ql _flag_quiet
+        set run run -q
     else
-        builtin cd $docs
-        set dirname (find . -type d | fzf )
-        easifem run -e $eflag -f (find $dirname -name "*.[fF]*" -o -name "*.md" -type f | fzf )
+        set run run
+    end
+    # echo $eflag
+
+    builtin cd $docs
+    set -l test_dir $docs/(fd --type d | fzf)
+    builtin cd $test_dir
+
+    if set -ql _flag_smartout
+        easifem $run -e $eflag -f (fd -I --type f -e md -e F90 -e f90  | fzf ) >tmp_etest
+        _easifem_output_reshape tmp_etest
+        rm -f tmp_etest
+    else
+        easifem $run -e $eflag -f (fd -I --type f -e md -e F90 -e f90  | fzf )
     end
 
     builtin cd $currentPath

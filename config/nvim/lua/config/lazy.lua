@@ -17,6 +17,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
     { import = "lazyvim.plugins.extras.util.project" },
+    -- { import = "lazyvim.plugins.extras.lang.cmake" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     { import = "plugins" },
@@ -65,25 +66,40 @@ require("lazy").setup({
 -- NOTE: These highlight related config should be declared after loading of colorscheme
 --
 -- to make comment non italic
-vim.api.nvim_set_hl(0, "Comment", { fg = "#565f89", bg = "NONE", italic = false })
+-- vim.api.nvim_set_hl(0, "Comment", { fg = "#565f89", bg = "NONE", italic = false })
 vim.api.nvim_set_hl(0, "VertSplit", { fg = "#82e2ff", bg = "NONE" })
-vim.api.nvim_set_hl(0, "DiffAdd", { fg = "#61ffca", bg = "NONE" })
-vim.api.nvim_set_hl(0, "DiffText", { fg = "#ffca85", bg = "NONE" })
-vim.api.nvim_set_hl(0, "DiffChange", { fg = "#82e2ff", bg = "NONE" })
-vim.api.nvim_set_hl(0, "DiffDelete", { fg = "#ff6767", bg = "NONE" })
-vim.api.nvim_set_hl(0, "@attribute", { link = "Attribute" })
-vim.api.nvim_set_hl(0, "@property.fortran", { link = "Property" })
-vim.api.nvim_set_hl(0, "@keyword.operator.fortran", { link = "Property" })
-vim.api.nvim_set_hl(0, "@variable.lua", { link = "Attribute" })
+vim.api.nvim_set_hl(0, "IncSearch", { bg = "#82e2ff", fg = "#000000" })
+-- vim.api.nvim_set_hl(0, "DiffAdd", { fg = "#61ffca", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "DiffText", { fg = "#ffca85", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "DiffChange", { fg = "#82e2ff", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "DiffDelete", { fg = "#ff6767", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "@attribute", { link = "Attribute" })
+vim.api.nvim_set_hl(0, "Delimiter", { link = "Special" })
+vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "TelescopePromptBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { link = "FloatBorder" })
+-- vim.api.nvim_set_hl(0, "@property.fortran", { link = "Property" })
+-- vim.api.nvim_set_hl(0, "@keyword.operator.fortran", { link = "Property" })
+-- vim.api.nvim_set_hl(0, "@variable.lua", { link = "Attribute" })
+-- vim.api.nvim_set_hl(0, "Visual", { fg = "#ffffff", bg = "#505050" })
+-- vim.api.nvim_set_hl(0, "Conceal", { fg = "#505050", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "MatchParen", { fg = "#ffffff", bg = "#a277ff" })
 
 -- vim.cmd([[highlight DiffAdd gui=reverse guifg=#61ffca ]])
 
 vim.opt.termguicolors = true
-vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent4 guifg=#C678DD gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent6 guifg=#56B6C2 gui=nocombine]])
+vim.opt.winblend = 0
+vim.opt.pumblend = 0
+-- vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])
+-- vim.cmd([[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]])
+-- vim.cmd([[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]])
+-- vim.cmd([[highlight IndentBlanklineIndent4 guifg=#C678DD gui=nocombine]])
+-- vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
+-- vim.cmd([[highlight IndentBlanklineIndent6 guifg=#56B6C2 gui=nocombine]])
 
-vim.cmd([[highlight MiniIndentscopeSymbol guifg=#c308ff gui=nocombine]])
+-- vim.cmd([[highlight MiniIndentscopeSymbol guifg=#c308ff gui=nocombine]])
+vim.cmd([[highlight Headline1 guibg=#1e2718]])
+vim.cmd([[highlight Headline2 guibg=#21262d]])
+vim.cmd([[highlight CodeBlock guibg=#1c1c1c]])
+vim.cmd([[highlight Dash guibg=#D19A66 gui=bold]])

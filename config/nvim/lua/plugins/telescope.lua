@@ -72,5 +72,14 @@ return {
       require("telescope").load_extension("bibtex")
       require("telescope").load_extension("fzf")
     end,
+    keys = {
+      { "<leader>ff", false },
+      { "<leader>fF", false },
+      { "<leader>fg", false },
+      { "<leader>fr", false },
+      { "<leader>fR", false },
+      { "<leader><space>", false },
+      { "<leader>fb", false },
+    },
   },
 }
