@@ -1,4 +1,3 @@
-
 set -gx EASIFEM_INSTALL_DIR ~/.easifem/install
 set -gx EASIFEM_BUILD_DIR ~/.easifem/build
 set -gx EASIFEM_SOURCE_DIR ~/.easifem/src
