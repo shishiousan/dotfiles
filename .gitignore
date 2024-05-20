@@ -4,4 +4,4 @@ spell/
 local/share/nvim/
 
 config/nvim/snippets/easifem-*.json
-config/tmux/plugins/tpm
+config/tmux/plugins/*
