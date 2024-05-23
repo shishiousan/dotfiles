@@ -57,10 +57,16 @@ style = "Bold Italic"
 action = "ToggleFullscreen"
 key = "F11"
 
+# reference [https://stackoverflow.com/questions/16359878/how-to-map-shift-enter]
 [[keyboard.bindings]]
 chars = "\u001B[13;2u"
 key = "Return"
 mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B[13;5u"
+key = "Return"
+mods = "Control"
 
 [scrolling]
 history = 50000

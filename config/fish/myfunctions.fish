@@ -165,7 +165,7 @@ function mayavi
 end
 
 function fish_greeting -d "What's up fish!"
-    if test $GREETYOU = 1
+    if test "$GREETYOU" = 1
         echo "I'm ugly fish hahah..., hru?"
         fish_logo
     else
@@ -194,4 +194,12 @@ function reload
     exec fish
     set -l config (status -f)
     echo "reloading: $config"
+end
+
+# ssh connection reactivate 
+function ssh_reactivate
+    eval (ssh-agent -c)
+    set -Ux SSH_AGENT_PID $SSH_AGENT_PID
+    set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+    eval (ssh-add $HOME/.ssh/id_git_rsa)
 end

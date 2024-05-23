@@ -33,6 +33,7 @@ set --export OPENBLAS_NUM_THREADS 1
 # in $HOME/.easifem/install/easifem/extpkgs/lib 
 set -gx GMSH_LIB $HOME/.local/lib/
 set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
+set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib
 
 # gtk dark 
 # NOTE: following variables are written in /etc/environment
