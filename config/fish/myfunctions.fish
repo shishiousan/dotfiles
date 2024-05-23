@@ -165,7 +165,7 @@ function mayavi
 end
 
 function fish_greeting -d "What's up fish!"
-    if test $GREETYOU = 1
+    if test "$GREETYOU" = 1
         echo "I'm ugly fish hahah..., hru?"
         fish_logo
     else

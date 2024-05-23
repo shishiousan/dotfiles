@@ -49,7 +49,10 @@ end, { desc = "Terminal (cwd)" })
 map("n", "<c-/>", function()
   Util.terminal.open(nil, { cwd = vim.fn.expand("%:p:h"), border = "rounded" })
 end, { desc = "Terminal (cwd)" })
-map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
+map("n", "<c-_>", function()
+  Util.terminal.open(nil, { cwd = vim.fn.expand("%:p:h"), border = "rounded" })
+end, { desc = "Terminal (cwd)" })
+-- map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
 -- vim.keymap.del("n", "<c-_>") -- used by wezterm "decrease font size"
 
 -- save file
@@ -75,7 +78,10 @@ end)
 -- when <S-CR> keymap, defined in ToggleTerm plugin file, does not work
 --
 -- vim.keymap.del("t", "<C-j>")
--- vim.keymap.del("n", "<C-j>")
+-- vim.keymap.del({ "n", "t" }, "<C-j>")
+-- vim.keymap.del({ "n", "t" }, "<C-k>")
+-- vim.keymap.del({ "n", "t" }, "<C-l>")
+-- vim.keymap.del({ "n", "t" }, "<C-h>")
 -- vim.keymap.set(
 --   "n",
 --   "<C-j>",

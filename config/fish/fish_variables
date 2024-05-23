@@ -1,7 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export SSH_AGENT_PID:886
-SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dXXXXXX9MhViT/agent\x2e885
+SETUVAR --export SSH_AGENT_PID:2243
+SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dXXXXXX1HiTiG/agent\x2e2242
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/shion/\x2elocal/share/z/data

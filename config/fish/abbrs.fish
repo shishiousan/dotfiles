@@ -5,6 +5,8 @@
 ## moving directory
 abbr -a db "cd $DROPBOX"
 abbr -a odv "cd $ONEDRIVE"
+abbr -a cdd "cd $HOME/Downloads"
+abbr -a cdc "cd $HOME/.config"
 # abbr -a de "cd $HOME/Desktop/"
 # now I am using puffer-fish instead of them 
 # alias ..2="cd ../.."
@@ -52,6 +54,10 @@ abbr -a tn "tmux new -s"
 abbr -a ta "tmux attach -t"
 abbr -a tl "tmux ls"
 abbr -a tk "tmux kill-session -t"
+abbr -a tka "tmux kill-session -a"
+abbr -a tks "tmux kill-server "
+abbr -a tds "tmux detach -s"
+abbr -a td "tmux detach"
 
 # others 
 abbr -a c clear
