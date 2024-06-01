@@ -9,6 +9,7 @@ set --export nvim "$DROPBOX/dotfiles/config/nvim"
 set --export lazy "$HOME/.local/share/nvim/lazy"
 # set --export fish "$DROPBOX/dotfiles/config/fish"
 set --export fish "$HOME/.config/fish"
+set --export config "$HOME/.config"
 
 set --export EDITOR nvim
 set --export VIMTEX_OUTPUT_DIRECTORY build
@@ -26,6 +27,9 @@ set --export ere $HOME/easifem-results
 set --export easifemdocs $easifem/easifem.github.io
 set --export docs $easifem/easifem.github.io/docs/docs-api
 set --export lec $easifem/lectures/docs
+set --export econ $easifem/config
+set --export easigo $easifem/easifemGO
+set --export easifish $easifem/easifem-fish-utility
 set --export OMP_NUM_THREADS 1
 set --export OPENBLAS_NUM_THREADS 1
 # NOTE: In addition to following extra paths 
@@ -35,6 +39,7 @@ set -gx GMSH_LIB $HOME/.local/lib/
 set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
 set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib
 
+set -gx FZF_DEFAULT_OPTS --color=bg+:#2d3036,border:#ffffff,spinner:#ff5ef1,hl:#7b8496,fg:#ffffff,header:#7b8496,info:#5ef1ff,pointer:#ff5ef1,marker:#ffbd5e,fg+:#ffffff,prompt:#ff5ef1,hl+:#ff5ef1
 # gtk dark 
 # NOTE: following variables are written in /etc/environment
 # set --export GTK_THEME Adwaita:dark

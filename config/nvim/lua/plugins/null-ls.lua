@@ -1,7 +1,7 @@
 return {
   "nvimtools/none-ls.nvim",
-  -- "jose-elias-alvarez/null-ls.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  -- event = { "BufReadPre", "BufNewFile" },
+  lazy = false,
   dependencies = { "mason.nvim" },
   opts = function()
     local nls = require("null-ls")
@@ -13,8 +13,8 @@ return {
         -- nls.builtins.formatting.stylua,
         -- nls.builtins.formatting.shfmt,
         -- nls.builtins.diagnostics.flake8,
-        nls.builtins.diagnostics.cmake_lint,
-        nls.builtins.formatting.cmake_format,
+        -- nls.builtins.diagnostics.cmake_lint,
+        -- nls.builtins.formatting.cmake_format,
         nls.builtins.formatting.fprettify.with({
           extra_args = {
             "--case",

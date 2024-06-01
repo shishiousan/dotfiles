@@ -77,10 +77,18 @@ vim.api.nvim_set_hl(0, "IncSearch", { bg = "#82e2ff", fg = "#000000" })
 vim.api.nvim_set_hl(0, "Delimiter", { link = "Special" })
 vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
 vim.api.nvim_set_hl(0, "MiniFilesBorder", { link = "Normal" })
+vim.api.nvim_set_hl(0, "TelescopeNormal", { link = "Normal" })
 vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
 vim.api.nvim_set_hl(0, "TelescopePromptBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "TelescopePromptNormal", { link = "TelescopeNormal" })
 vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { link = "TelescopeNormal" })
 vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { link = "TelescopeNormal" })
+vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { link = "Special" })
+vim.api.nvim_set_hl(0, "TelescopePromptTitle", { link = "Special" })
+vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { link = "Special" })
+vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { link = "Special" })
 -- vim.api.nvim_set_hl(0, "@property.fortran", { link = "Property" })
 -- vim.api.nvim_set_hl(0, "@keyword.operator.fortran", { link = "Property" })
 -- vim.api.nvim_set_hl(0, "@variable.lua", { link = "Attribute" })
@@ -105,3 +113,19 @@ vim.cmd([[highlight Headline1 guibg=#1e2718]])
 vim.cmd([[highlight Headline2 guibg=#21262d]])
 vim.cmd([[highlight CodeBlock guibg=#1c1c1c]])
 vim.cmd([[highlight Dash guibg=#D19A66 gui=bold]])
+
+vim.cmd([[let g:fzf_colors =
+\ { 'fg':         ['fg', 'Normal'],
+  \ 'bg':         ['bg', 'Normal'],
+  \ 'preview-bg': ['bg', 'NormalFloat'],
+  \ 'hl':         ['fg', 'Comment'],
+  \ 'fg+':        ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':        ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':        ['fg', 'Statement'],
+  \ 'info':       ['fg', 'PreProc'],
+  \ 'border':     ['fg', 'Ignore'],
+  \ 'prompt':     ['fg', 'Conditional'],
+  \ 'pointer':    ['fg', 'Exception'],
+  \ 'marker':     ['fg', 'Keyword'],
+  \ 'spinner':    ['fg', 'Label'],
+  \ 'header':     ['fg', 'Comment'] }]])

@@ -2,6 +2,9 @@ if not status --is-interactive
     exit
 end
 
+if [ -f $HOME/.config/easifem/easifemvar.fish ]
+    source $HOME/.config/easifem/easifemvar.fish
+end
 # Load private config
 if [ -f $HOME/.config/fish/private.fish ]
     source $HOME/.config/fish/private.fish
