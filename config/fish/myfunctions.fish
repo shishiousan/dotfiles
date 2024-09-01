@@ -165,7 +165,7 @@ function mayavi
 end
 
 function fish_greeting -d "What's up fish!"
-    if test $GREETYOU = 1
+    if test "$GREETYOU" = 1
         echo "I'm ugly fish hahah..., hru?"
         fish_logo
     else
@@ -194,4 +194,39 @@ function reload
     exec fish
     set -l config (status -f)
     echo "reloading: $config"
+end
+
+# ssh connection reactivate 
+function ssh_reactivate
+    eval (ssh-agent -c)
+    set -Ux SSH_AGENT_PID $SSH_AGENT_PID
+    set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+    eval (ssh-add $HOME/.ssh/id_git_rsa)
+end
+
+## reference https://github.com/fish-shell/fish-shell/issues/296
+function uniqVar --description 'Remove duplicates from environment variable'
+
+    if test (count $argv) = 1
+        set -l newvar
+        set -l count 0
+        for v in $$argv
+            if contains -- $v $newvar
+                set count (math $count+1)
+            else
+                set newvar $newvar $v
+            end
+        end
+        set $argv $newvar
+        test $count -gt 0
+        and echo Removed $count duplicates from $argv
+    else
+        for a in $argv
+            uniqVar $a
+        end
+    end
+end
+
+function echo_figs
+    echo *.pdf
 end

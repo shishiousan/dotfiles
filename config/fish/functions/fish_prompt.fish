@@ -1,5 +1,31 @@
 # name: beloglazov
 
+function _fish_mode_prompt --description "Display vi prompt mode"
+    # Do nothing if not in vi mode
+    if test "$fish_key_bindings" = fish_vi_key_bindings
+        or test "$fish_key_bindings" = fish_hybrid_key_bindings
+        switch $fish_bind_mode
+            case default
+                set_color --bold brmagenta
+                echo '[N]'
+            case insert
+                set_color --bold brcyan
+                echo '[I]'
+            case replace_one
+                set_color --bold brgreen
+                echo '[r]'
+            case replace
+                set_color --bold green
+                echo '[R]'
+            case visual
+                set_color --bold brred
+                echo '[V]'
+        end
+        set_color normal
+        echo -n ' '
+    end
+end
+
 function _git_branch_name
     echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
 end
@@ -60,10 +86,20 @@ function fish_prompt
             set -l dirty "$yellow ✗$normal"
             set git_info "$git_info$dirty"
         end
+    else
+        set git_info (fish_vcs_prompt)
     end
 
     set -l line2 "$white>$brcyan>$blue>$normal "
+    set -l mode (_fish_mode_prompt)
+    set -l row (stty size | cut -f 1 -d " ")
+    set -l row (math ceil $row/2)
 
+    for i in (seq 1 $row)
+        echo -sne \n
+    end
+    echo -sne '\e['$row'A'
+    # tput cup $row 0
     echo -s $failed $arrow $time ' ' $cwd $git_info $normal $penguin
     echo -s $line2
 end

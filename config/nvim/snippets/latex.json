@@ -553,5 +553,14 @@
         "prefix": "SSP",
         "body": "\\subparagraph{${1:${TM_SELECTED_TEXT}}}",
         "description": "subparagraph"
+    },
+    "line": {
+        "prefix": "line",
+        "body": [
+        "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
+        "%                                                $0",
+        "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+        ],
+        "description": "comment lines"
     }
 }

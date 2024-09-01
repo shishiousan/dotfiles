@@ -71,7 +71,7 @@ return {
     "rafamadriz/friendly-snippets",
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load({
-        exclude = { "latex", "julia", "fortran" },
+        exclude = { "latex", "tex", "julia", "fortran" },
       })
     end,
   },
@@ -86,7 +86,7 @@ return {
       "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-cmdline",
       "kdheepak/cmp-latex-symbols",
-      -- "saadparwaiz1/cmp_luasnip",
+      "saadparwaiz1/cmp_luasnip",
       "f3fora/cmp-spell",
       "hrsh7th/cmp-omni",
       "windwp/nvim-autopairs",
