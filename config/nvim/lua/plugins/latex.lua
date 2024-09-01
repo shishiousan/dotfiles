@@ -135,7 +135,7 @@ return {
             "grammarly-languageserver",
             "--stdio",
           }
-          opts.filetypes = { "tex", "markdown" }
+          opts.filetypes = { "latex", "tex", "markdown" }
           opts.init_options = {
             clientId = "client_BaDkMgx4X19X9UxxYRCXZo",
           }

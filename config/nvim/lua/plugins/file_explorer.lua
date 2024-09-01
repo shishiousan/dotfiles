@@ -1,13 +1,16 @@
 local wk = require("which-key")
 -- normal
-wk.register({
-  f = {
-    name = "+file/find",
-    -- o = { "<cmd>Neotree reveal<CR>", "Reveal open" },
-    o = { "<cmd>Neotree position=float reveal_force_cwd=true dir=%:p:h reveal_file=%:p<CR>", "Reveal in the tree" },
+wk.add({
+  {
+    -- { "<leader>O", "<cmd>Oil<cr>", desc = "Oil explorer (cwd)" },
+    { "<leader>f", group = "+file/find" },
+    {
+      "<leader>fo",
+      "<cmd>Neotree position=float reveal_force_cwd=true dir=%:p:h reveal_file=%:p<CR>",
+      desc = "Reveal in the tree",
+    },
   },
-  O = { "<cmd>Oil<cr>", "Oil explorer (cwd)" },
-}, { prefix = "<leader>", mode = { "n" } })
+})
 
 return {
   {

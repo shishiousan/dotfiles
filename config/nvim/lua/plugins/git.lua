@@ -1,16 +1,14 @@
 local wk = require("which-key")
-wk.register({
-  g = {
-    name = "+git",
-    d = {
-      name = "+diffview",
-      o = { "<cmd>DiffviewOpen<cr>", "Diff view open" },
-      c = { "<cmd>DiffviewClose<CR>", "Diff view close" },
-      f = { "<cmd>DiffviewToggleFiles<CR>", "File panel toggle" },
-    },
-    i = { "<cmd>Gitsigns<cr>", "Init Gitsigns" },
+wk.add({
+  {
+    { "<leader>g", group = "git" },
+    { "<leader>gd", group = "diffview" },
+    { "<leader>gdc", "<cmd>DiffviewClose<CR>", desc = "Diff view close" },
+    { "<leader>gdf", "<cmd>DiffviewToggleFiles<CR>", desc = "File panel toggle" },
+    { "<leader>gdo", "<cmd>DiffviewOpen<cr>", desc = "Diff view open" },
+    { "<leader>gi", "<cmd>Gitsigns<cr>", desc = "Init Gitsigns" },
   },
-}, { prefix = "<leader>", mode = { "n" } })
+})
 
 return {
   { "tpope/vim-fugitive" },
@@ -53,9 +51,6 @@ return {
           relative = "cursor",
           row = 0,
           col = 1,
-        },
-        yadm = {
-          enable = false,
         },
       })
     end,

@@ -33,6 +33,13 @@
       },
       {
         "language": [
+          "plaintex",
+          "tex"
+        ],
+        "path": "./latex/mylatex_snippets.json"
+      },
+      {
+        "language": [
           "bibtex",
           "bib"
         ],

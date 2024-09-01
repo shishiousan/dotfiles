@@ -120,13 +120,12 @@ local modkey1 = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser2 = "brave"
 local browser1 = "firefox"
 local editor = os.getenv("EDITOR") or "nvim"
-local editorgui = "atom"
+local editorgui = "code"
 local filemanager = "nautilus"
 local mailclient = "evolution"
-local mediaplayer = "spotify"
+local mediaplayer = "spotify-launcher"
 local terminal = "alacritty"
 local terminal2 = "wezterm"
 local virtualmachine = "virtualbox"
@@ -429,6 +428,19 @@ globalkeys = my_table.join(
 		awful.util.spawn(filemanager)
 	end),
 
+	-- My wall paper
+	awful.key({ altkey }, "F1", function()
+		os.execute("variety --set ~/.config/variety/wallpaper/emperor_wall1.jpg")
+	end, { description = "Penguin wall 1", group = "altkey" }),
+	awful.key({ altkey }, "F2", function()
+		os.execute("variety --set ~/.config/variety/wallpaper/emperor_wall2.jpg")
+	end, { description = "Penguin wall 2", group = "altkey" }),
+	awful.key({ altkey }, "F3", function()
+		os.execute("variety --set ~/.config/variety/wallpaper/emperor_wall3.jpg")
+	end, { description = "Penguin wall 3", group = "altkey" }),
+	awful.key({ altkey }, "F4", function()
+		os.execute("variety --set ~/.config/variety/wallpaper/emperor_wall4.jpg")
+	end, { description = "Penguin wall 4", group = "altkey" }),
 	-- ctrl + shift + esc is removed
 
 	-- ctrl+alt +  ...
@@ -445,8 +457,8 @@ globalkeys = my_table.join(
 		awful.util.spawn("catfish")
 	end, { description = "catfish", group = "alt+ctrl" }),
 	awful.key({ modkey1, altkey }, "f", function()
-		awful.util.spawn(browser2)
-	end, { description = browser2, group = "alt+ctrl" }),
+		awful.util.spawn(browser1)
+	end, { description = browser1, group = "alt+ctrl" }),
 	awful.key({ modkey1, altkey }, "o", function()
 		awful.spawn.with_shell("$HOME/.config/awesome/scripts/picom-toggle.sh")
 	end, { description = "Picom toggle", group = "alt+ctrl" }),
@@ -460,13 +472,23 @@ globalkeys = my_table.join(
 
 	--all alt + keys for wallpaper are removed
 
+	-- screenshots
+	awful.key({}, "Print", function()
+		awful.util.spawn("scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'")
+	end, { description = "Scrot", group = "screenshots" }),
+	awful.key({ modkey1 }, "Print", function()
+		awful.util.spawn("xfce4-screenshooter")
+	end, { description = "Xfce screenshot", group = "screenshots" }),
+	awful.key({ modkey1, "Shift" }, "Print", function()
+		awful.util.spawn("gnome-screenshot -i")
+	end, { description = "Gnome screenshot", group = "screenshots" }),
 	-- Hotkeys Awesome
 
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 
 	-- Tag browsing with modkey
-	awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
-	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
+	awful.key({ modkey }, "Up", awful.tag.viewprev, { description = "view previous", group = "tag" }),
+	awful.key({ modkey }, "Down", awful.tag.viewnext, { description = "view next", group = "tag" }),
 	awful.key({ altkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
 
 	-- Tag browsing alt + tab
@@ -482,6 +504,45 @@ globalkeys = my_table.join(
 	--{description = "view  previous nonempty", group = "tag"}),
 	-- awful.key({ modkey }, "Right", function () lain.util.tag_view_nonempty(1) end,
 	-- {description = "view  next nonempty", group = "tag"}),
+
+	-- Brightness
+	awful.key({ modkey1 }, "F7", function()
+		local status =
+			os.execute("xinput list-props  'SynPS/2 Synaptics TouchPad' | grep 'Device Enabled' | grep -o '1$'")
+		if status then
+			os.execute("xinput disable 'SynPS/2 Synaptics TouchPad'")
+		else
+			os.execute("xinput enable 'SynPS/2 Synaptics TouchPad'")
+		end
+	end, { description = "Toggle tochpad", group = "hotkeys" }),
+
+	awful.key({}, "XF86MonBrightnessUp", function()
+		os.execute("brightnessctl -d 'amdgpu_bl2' set +5")
+	end, { description = "Brightness +10%", group = "hotkeys" }),
+	awful.key({}, "XF86MonBrightnessDown", function()
+		os.execute("brightnessctl -d 'amdgpu_bl2' set 5-")
+	end, { description = "Brightness -10%", group = "hotkeys" }),
+
+	awful.key({ modkey1 }, "F4", function()
+		os.execute("pactl set-source-mute 2 toggle")
+	end, { description = "Mic Mute Toggle", group = "hotkeys" }),
+
+	awful.key({ modkey1 }, "F3", function()
+		os.execute("pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%")
+	end, { description = "Sound Volume +5%", group = "hotkeys" }),
+	awful.key({ modkey1 }, "F2", function()
+		os.execute("pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%")
+	end, { description = "Sound Volume -5%", group = "hotkeys" }),
+	awful.key({ modkey1 }, "F1", function()
+		os.execute("pactl set-sink-mute 0 toggle")
+	end, { description = "Sound Mute Toggle", group = "hotkeys" }),
+
+	awful.key({ modkey1 }, "F9", function()
+		os.execute("brightnessctl --device='tpacpi::kbd_backlight' set 1-")
+	end, { description = "Less KBD Light (-50%)", group = "hotkeys" }),
+	awful.key({ modkey1 }, "F10", function()
+		os.execute("brightnessctl --device='tpacpi::kbd_backlight' set +1")
+	end, { description = "More KBD Light (+50%)", group = "hotkeys" }),
 
 	-- Default client focus
 	awful.key({ altkey }, "j", function()
@@ -516,6 +577,18 @@ globalkeys = my_table.join(
 			client.focus:raise()
 		end
 	end, { description = "focus right", group = "client" }),
+	awful.key({ modkey }, "Left", function()
+		awful.client.focus.global_bydirection("left")
+		if client.focus then
+			client.focus:raise()
+		end
+	end, { description = "focus left", group = "client" }),
+	awful.key({ modkey }, "Right", function()
+		awful.client.focus.global_bydirection("right")
+		if client.focus then
+			client.focus:raise()
+		end
+	end, { description = "focus right", group = "client" }),
 
 	-- By direction client focus with arrows
 	awful.key({ modkey1, modkey }, "Down", function()
@@ -530,18 +603,6 @@ globalkeys = my_table.join(
 			client.focus:raise()
 		end
 	end, { description = "focus up", group = "client" }),
-	awful.key({ modkey1, modkey }, "Left", function()
-		awful.client.focus.global_bydirection("left")
-		if client.focus then
-			client.focus:raise()
-		end
-	end, { description = "focus left", group = "client" }),
-	awful.key({ modkey1, modkey }, "Right", function()
-		awful.client.focus.global_bydirection("right")
-		if client.focus then
-			client.focus:raise()
-		end
-	end, { description = "focus right", group = "client" }),
 
 	-- Layout manipulation
 	awful.key({ modkey, "Shift" }, "j", function()
@@ -827,7 +888,7 @@ awful.rules.rules = {
 
 	-- Set applications to always map on the tag 1 on screen 1.
 	-- find class or role via xprop command
-	--{ rule = { class = browser2 },
+	--{ rule = { class = browser1 },
 	--properties = { screen = 1, tag = awful.util.tagnames[1], switchtotag = true  } },
 
 	--{ rule = { class = browser1 },
@@ -902,7 +963,6 @@ awful.rules.rules = {
 			},
 			class = {
 				"Arandr",
-				"Arcolinux-welcome-app.py",
 				"Blueberry",
 				"Galculator",
 				"Gnome-font-viewer",
@@ -1019,20 +1079,25 @@ client.connect_signal("mouse::enter", function(c)
 end)
 
 client.connect_signal("focus", function(c)
-	c.border_color = beautiful.border_focus
+	-- c.border_color = beautiful.border_focus
+	c.border_color = "#33ccff"
+	c.opacity = 1.0
 end)
 client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
+	c.opacity = 1.00
+	-- c.opacity = 1.0
 end)
 
 -- }}}
 
 -- Autostart applications
-awful.spawn.with_shell("$HOME/.screenlayout/mylayout.sh")
-awful.spawn.with_shell("xscreensaver -no-splash")
+-- awful.spawn.with_shell("$HOME/.screenlayout/mylayout.sh")
+-- awful.spawn.with_shell("xscreensaver -no-splash")
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
-awful.spawn.with_shell("screenkey")
+awful.spawn.with_shell("~/.dropbox-dist/dropboxd")
+-- awful.spawn.with_shell("screenkey")
 -- awful.spawn.with_shell("gio launch $HOME/.config/autostart/guake.desktop")
-awful.spawn.with_shell("gtk-launch dropbox.desktop")
-awful.spawn.with_shell("gio launch $HOME/.config/autostart/onedrivegui.desktop")
+-- awful.spawn.with_shell("gtk-launch dropbox.desktop")
+-- awful.spawn.with_shell("gio launch $HOME/.config/autostart/onedrivegui.desktop")
 awful.spawn.with_shell("picom -b --config  $HOME/.config/awesome/picom.conf")

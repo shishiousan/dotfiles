@@ -37,26 +37,37 @@ map("v", "<leader>k", "YP", { desc = "Paste above" })
 map("n", "<leader>zi", "<cmd>tab split<CR>", { desc = "Zoom in" })
 map("n", "<leader>zo", "<cmd>tab close<CR>", { desc = "Zoom out" })
 
+-- quit
+map("n", "<leader>qw", "<cmd>q<CR>", { desc = "Quit window" })
+map("n", "<leader>qo", "<cmd>only<CR>", { desc = "Only" })
+
 -- floating terminal
 local lazyterm = function()
-  Util.terminal.open(nil, { cwd = Util.root.get() })
+  LazyVim.terminal(nil, { cwd = LazyVim.root() })
 end
-map("n", "<leader>ft", lazyterm, { desc = "Terminal (root dir)" })
-map("n", "<leader>fT", function()
-  Util.terminal.open(nil, { cwd = vim.fn.expand("%:p:h"), border = "rounded" })
-end, { desc = "Terminal (cwd)" })
--- map("n", "<c-/>", lazyterm, { desc = "Terminal (root dir)" })
+map("n", "<leader>tT", lazyterm, { desc = "Terminal (Root Dir)" })
 map("n", "<c-/>", function()
-  Util.terminal.open(nil, { cwd = vim.fn.expand("%:p:h"), border = "rounded" })
-end, { desc = "Terminal (cwd)" })
+  local ft = vim.bo.filetype
+  if ft == "lazyterm" then
+    vim.cmd("close")
+  else
+    local cwd = vim.fn.expand("%:p:h")
+    LazyVim.terminal(nil, { cwd = cwd, border = "rounded" })
+  end
+end, { desc = "Terminal (parent directory)" })
 map("n", "<c-_>", function()
-  Util.terminal.open(nil, { cwd = vim.fn.expand("%:p:h"), border = "rounded" })
-end, { desc = "Terminal (cwd)" })
--- map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
--- vim.keymap.del("n", "<c-_>") -- used by wezterm "decrease font size"
+  local ft = vim.bo.filetype
+  if ft == "lazyterm" then
+    vim.cmd("close")
+  else
+    local cwd = vim.fn.expand("%:p:h")
+    LazyVim.terminal(nil, { cwd = cwd, border = "rounded" })
+  end
+end, { desc = "Terminal (parent directory)" })
 
 -- save file
-map("n", "<leader>fs", "<cmd>silent! w<CR>", { desc = "write" })
+-- map("n", "<leader>fs", "<cmd>silent! w<CR>", { desc = "write" })
+map("n", "<leader>ww", "<cmd>silent! w<CR>", { desc = "write" })
 map("n", "<leader>fa", "<cmd>silent! wa<CR>", { desc = "write all" })
 map("n", "<leader>fq", "<cmd>silent! wa<CR><cmd>qa<CR>", { desc = "write all and quit all" })
 
@@ -66,28 +77,45 @@ map("n", "<leader>rr", function()
   local text = vim.cmd([[!erun -bs %]])
   vim.print(text)
 end)
--- map("n", "<leader>rcp", "o<esc>v:'<,'>!erun -cs %<CR>")
--- map("n", "<leader>rcc", ":!erun -cs %<CR>")
--- map("n", "<leader>rep", "o<esc>v:'<,'>!erun -es %<CR>")
--- map("n", "<leader>ree", ":!erun -es %<CR>")
--- map("n", "<leader>rap", "o<esc>v:'<,'>!erun -as %<CR>")
--- map("n", "<leader>raa", ":!erun -as %<CR>")
-
--- NOTE:
--- Following settings for <C-j> is to be active
--- when <S-CR> keymap, defined in ToggleTerm plugin file, does not work
 --
--- vim.keymap.del("t", "<C-j>")
--- vim.keymap.del({ "n", "t" }, "<C-j>")
--- vim.keymap.del({ "n", "t" }, "<C-k>")
--- vim.keymap.del({ "n", "t" }, "<C-l>")
--- vim.keymap.del({ "n", "t" }, "<C-h>")
--- vim.keymap.set(
---   "n",
---   "<C-j>",
---   "<esc><cmd>ToggleTermSendCurrentLine " .. "10" .. "<CR>/^.<Bslash>+<CR><cmd>nohlsearch<CR>",
---   { silent = true }
--- )
+vim.keymap.del("n", "<leader>ft")
+map("n", "<leader>ft", function()
+  if vim.g.use_myfmt then
+    vim.notify("use_myfmt is disabled")
+  else
+    vim.notify("use_myfmt is enabled")
+  end
+  vim.g.use_myfmt = not vim.g.use_myfmt
+end, { desc = "Toggle use_myfmt" })
 
--- map({ "x", "o" }, "ai", "ai", { remap = true })
--- map({ "n" }, "<leader>Jt", "Vip", { desc = "test", remap = true })
+map("n", "<leader>R", function()
+  vim.notify("ReadMode Toggled")
+  -- vim.o.scrolloff = vim.o.scrolloff == 4 and 999 or 4
+  vim.cmd([[windo set scrollbind!]])
+end, { desc = "Toggle readermode" })
+
+map("n", "<leader>cn", function()
+  local ind = vim.g.currentCSNum
+  if ind == vim.g.CSListsLen then
+    ind = 1
+  else
+    ind = ind + 1
+  end
+  vim.g.currentCSNum = ind
+  SwitchCS(ind)
+end, { desc = "Next Colorscheme" })
+
+map("n", "<leader>cp", function()
+  local ind = vim.g.currentCSNum
+  if ind == 1 then
+    ind = vim.g.CSListsLen
+  else
+    ind = ind - 1
+  end
+  vim.g.currentCSNum = ind
+  SwitchCS(ind)
+end, { desc = "Previous Colorscheme" })
+
+map("n", "<leader>bD", function()
+  vim.cmd([[%bd|e#|bd#|'"]])
+end, { desc = "Delete other buffers" })

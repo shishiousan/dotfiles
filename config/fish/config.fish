@@ -58,12 +58,12 @@ if command -q oh-my-posh
     oh-my-posh init fish --config $HOME/.config/omp/themes/velvet.omp.json | source
 end
 
-if not pgrep --full ssh-agent | string collect >/dev/null
-    eval (ssh-agent -c)
-    set -Ux SSH_AGENT_PID $SSH_AGENT_PID
-    set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
-    eval (ssh-add $HOME/.ssh/id_git_rsa)
-end
+# if not pgrep --full ssh-agent | string collect >/dev/null
+#     eval (ssh-agent -c)
+#     set -Ux SSH_AGENT_PID $SSH_AGENT_PID
+#     set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+#     eval (ssh-add $HOME/.ssh/id_git_rsa)
+# end
 
 set fish_cursor_default block
 set fish_cursor_insert line blink

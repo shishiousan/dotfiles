@@ -8,8 +8,8 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      -- calling `setup` is optional for customization
       require("fzf-lua").setup({
+        fzf_colors = false,
         winopts = {
           preview = {
             -- defaultly preview is hidden
@@ -163,14 +163,14 @@ return {
       },
       {
         "<leader>sg",
-        "<cmd>FzfLua grep_project <CR>",
+        "<cmd>FzfLua grep_project multiline=2<CR>",
         mode = { "n" },
         silent = true,
         desc = "Grep Project",
       },
       {
         "<leader>sG",
-        "<cmd>FzfLua grep_curbuf <CR>",
+        "<cmd>FzfLua grep_curbuf multiline=2<CR>",
         mode = { "n" },
         silent = true,
         desc = "Grep Current Buffer",
@@ -247,14 +247,14 @@ return {
       },
       {
         "<leader>sw",
-        "<cmd>FzfLua grep_cword <CR>",
+        "<cmd>FzfLua grep_cword multiline=2<CR>",
         mode = { "n" },
         silent = true,
         desc = "Grep Current Word (project)",
       },
       {
         "<leader>sW",
-        "<cmd>FzfLua grep_cWORD <CR>",
+        "<cmd>FzfLua grep_cWORD multiline=2<CR>",
         mode = { "n" },
         silent = true,
         desc = "Grep Current Word (cwd)",
@@ -268,7 +268,7 @@ return {
       },
       {
         "<leader>ss",
-        "<cmd>FzfLua lsp_document_symbols <cr>",
+        "<cmd>FzfLua lsp_document_symbols multiline=2<cr>",
         mode = { "n" },
         silent = true,
         desc = "LSP Document Symbols",

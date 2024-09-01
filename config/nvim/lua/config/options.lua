@@ -2,6 +2,19 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+vim.g.currentCSNum = 1
+vim.g.CSLists = {
+  "aurora",
+  "cyberdream",
+  "flow",
+  "nordic",
+  "nordern",
+  "oldworld",
+  "eldritch",
+  "nightfall",
+}
+
+vim.g.CSListsLen = #vim.g.CSLists
 -- make comment normal font
 -- vim.cmd("hi Comment gui=NONE")
 -- vim.api.nvim_set_hl(0, "Comment", { italic = false })
@@ -17,6 +30,12 @@ vim.opt.wrapscan = false
 -- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 -- vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 -- vim.opt.foldnestmax = 1
+vim.o.scrolloff = math.floor(vim.fn.winheight(0) / 2)
+vim.o.cursorcolumn = false
+
+vim.g.nrrw_rgn_vert = 1 -- default is 0
+vim.g.nrrw_rgn_wdth = math.floor(vim.fn.winwidth(0) / 2) -- default is 30
+-- vim.diagnostic.config({ virtual_text = false })
 
 vim.api.nvim_create_user_command("CheckScreen", function()
   local width = vim.fn.winwidth(0)
@@ -95,3 +114,19 @@ function _G.qftf(info)
 end
 
 vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
+
+vim.filetype.add({
+  extension = {
+    gp = "gnuplot",
+    gnuplot = "gnuplot",
+    gnu = "gnuplot",
+    plt = "gnuplot",
+    plot = "gnuplot",
+    pal = "gnuplot",
+  },
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
+
+function SwitchCS(ind)
+  vim.cmd("colorscheme " .. vim.g.CSLists[ind])
+end

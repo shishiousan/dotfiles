@@ -1,3 +1,7 @@
+[shell]
+program = "/usr/bin/fish"
+args = ["-l"]
+
 [colors.bright]
 black = "#545454"
 blue = "#7ec4ff"
@@ -72,6 +76,8 @@ mods = "Control"
 history = 50000
 
 [window]
+decorations = 'None'
+#padding = { x = 3, y = 3 }
 opacity = 0.85
 
 # [cursor]

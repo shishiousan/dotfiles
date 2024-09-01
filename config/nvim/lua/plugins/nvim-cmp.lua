@@ -71,7 +71,7 @@ return {
     "rafamadriz/friendly-snippets",
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load({
-        exclude = { "latex", "julia", "fortran" },
+        exclude = { "latex", "tex", "julia", "fortran" },
       })
     end,
   },

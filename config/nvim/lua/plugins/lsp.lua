@@ -19,27 +19,6 @@ return {
   --   end,
   -- },
   {
-    "nvimdev/lspsaga.nvim",
-    event = "LspAttach",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      local configs = {
-        outline = {
-          win_width = 50,
-          auto_preview = false,
-        },
-        symbol_in_winbar = {
-          enable = false,
-        },
-      }
-      -- print("lspsaga is loaded")
-      require("lspsaga").setup(configs)
-    end,
-  },
-  {
     "neovim/nvim-lspconfig",
     opts = {
       ---@type lspconfig.options
@@ -71,14 +50,21 @@ return {
             client.server_capabilities.semanticTokensProvider = nil
           end,
         },
+        taplo = {},
+        texlab = {
+          settings = {
+            texlab = {
+              inlayHints = {
+                labelReferences = false,
+                labelDefinitions = false,
+              },
+            },
+          },
+        },
       },
-    },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
       setup = {
         fortls = function(_, opts)
+          opts.capabilities = require("cmp_nvim_lsp").default_capabilities()
           opts.cmd = {
             "fortls",
             "--lowercase_intrinsics",
@@ -88,24 +74,14 @@ return {
             os.getenv("DROPBOX") .. "/easifem/classes/src/**",
             os.getenv("DROPBOX") .. "/easifem/elasticity/src/**",
             os.getenv("DROPBOX") .. "/easifem/acoustic/src/**",
+            os.getenv("HOME") .. "/.easifem/src/tomlf/src/**",
             "--hover_signature",
             "--hover_language=fortran",
             "--use_signature_help",
+            -- "--debug_log",
           }
         end,
       },
-      -- servers = {
-      --   fortls = {
-      --     on_attach = function(client, bufnr)
-      --       -- your other on_attach code
-      --       -- for example, set keymaps here, like
-      --       -- vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-      --       -- (see below code block for more details)
-      --       local navbuddy = require("nvim-navbuddy")
-      --       navbuddy.attach(client, bufnr)
-      --     end,
-      --   },
-      -- },
     },
   },
 }

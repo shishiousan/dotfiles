@@ -226,3 +226,7 @@ function uniqVar --description 'Remove duplicates from environment variable'
         end
     end
 end
+
+function echo_figs
+    echo *.pdf
+end
