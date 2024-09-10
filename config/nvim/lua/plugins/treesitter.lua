@@ -12,12 +12,14 @@ return {
         "python",
         "vim",
         "yaml",
+        "toml",
         "julia",
         "fortran",
+        "fish",
       },
       indent = {
         enable = true,
-        disable = { "julia", "fortran" }, -- some strange indent happen
+        disable = { "julia", "fortran" },
       },
       highlight = {
         enable = true,

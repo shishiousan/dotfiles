@@ -1,19 +1,21 @@
 return {
-  -- NOTE: if you do not need syntax highlighting
-  -- please activate setting below
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   opts = function(_, opts)
-  --     if type(opts.ensure_installed) == "table" then
-  --       vim.list_extend(opts.ensure_installed, { "bibtex", "latex" })
-  --     end
-  --     if type(opts.highlight.disable) == "table" then
-  --       vim.list_extend(opts.highlight.disable, { "latex" })
-  --     else
-  --       opts.highlight.disable = { "latex" }
-  --     end
-  --   end,
-  -- },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        texlab = {
+          settings = {
+            texlab = {
+              inlayHints = {
+                labelReferences = false,
+                labelDefinitions = false,
+              },
+            },
+          },
+        },
+      },
+    },
+  },
   {
     "lervag/vimtex",
     lazy = false, -- lazy-loading will disable inverse search
@@ -126,24 +128,24 @@ return {
       vim.g.tex_fold_allow_marker = 1
     end,
   },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      setup = {
-        grammarly = function(_, opts)
-          opts.cmd = {
-            "grammarly-languageserver",
-            "--stdio",
-          }
-          opts.filetypes = { "latex", "tex", "markdown" }
-          opts.init_options = {
-            clientId = "client_BaDkMgx4X19X9UxxYRCXZo",
-          }
-          opts.single_file_support = true
-        end,
-      },
-    },
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     setup = {
+  --       grammarly = function(_, opts)
+  --         opts.cmd = {
+  --           "grammarly-languageserver",
+  --           "--stdio",
+  --         }
+  --         opts.filetypes = { "latex", "tex", "markdown" }
+  --         opts.init_options = {
+  --           clientId = "client_BaDkMgx4X19X9UxxYRCXZo",
+  --         }
+  --         opts.single_file_support = true
+  --       end,
+  --     },
+  --   },
+  -- },
   -- {
   --   "shishiousan/ltex-utils.nvim",
   --   lazy = true,

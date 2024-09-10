@@ -1,7 +1,6 @@
 return {
   {
     "ibhagwan/fzf-lua",
-    -- optional for icon support
     lazy = true,
     dependencies = {
       "junegunn/fzf",
@@ -12,9 +11,7 @@ return {
         fzf_colors = false,
         winopts = {
           preview = {
-            -- defaultly preview is hidden
-            -- if you want to show preview you can use <F4> key
-            -- or path the option winopts.preview.hidden = "nohidden"
+            -- "nohidden" or press f4 key
             hidden = "hidden",
           },
         },

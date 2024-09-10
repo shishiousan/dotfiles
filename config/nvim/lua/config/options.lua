@@ -2,6 +2,8 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+vim.g.trouble_lualine = false
+
 vim.g.currentCSNum = 1
 vim.g.CSLists = {
   "aurora",
@@ -32,6 +34,8 @@ vim.opt.wrapscan = false
 -- vim.opt.foldnestmax = 1
 vim.o.scrolloff = math.floor(vim.fn.winheight(0) / 2)
 vim.o.cursorcolumn = false
+vim.opt.ls = 2
+vim.opt.statusline = "%F"
 
 vim.g.nrrw_rgn_vert = 1 -- default is 0
 vim.g.nrrw_rgn_wdth = math.floor(vim.fn.winwidth(0) / 2) -- default is 30
