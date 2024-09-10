@@ -4,16 +4,16 @@ return {
     dependencies = { "mason.nvim" },
     lazy = true,
     cmd = "ConformInfo",
-    -- keys = {
-    --   {
-    --     "<leader>cF",
-    --     function()
-    --       require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
-    --     end,
-    --     mode = { "n", "v" },
-    --     desc = "Format Injected Langs",
-    --   },
-    -- },
+    keys = {
+      {
+        "<leader>cF",
+        function()
+          require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
+        end,
+        mode = { "n", "v" },
+        desc = "Format Injected Langs",
+      },
+    },
     opts = function()
       local opts = {
         -- LazyVim will use these options when formatting with the conform.nvim formatter
@@ -32,8 +32,6 @@ return {
           fortran = { "fprettify", "myfmt", stop_after_first = true },
           tex = { "latexindent" },
         },
-        -- The options you set here will be merged with the builtin formatters.
-        -- You can also define any custom formatters here.
         ---@type table<string, conform.FormatterConfigOverride|fun(bufnr: integer): nil|conform.FormatterConfigOverride>
         formatters = {
           injected = { options = { ignore_errors = true } },

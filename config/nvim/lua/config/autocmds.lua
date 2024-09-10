@@ -1,6 +1,3 @@
--- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
--- Add any additional autocmds here
 local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
@@ -89,26 +86,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  group = augroup("hide_decorations"),
-  pattern = { "*" },
-  callback = function()
-    local lualine = require("lualine")
-    local stat = vim.g.statStatusLine
-    if stat == nil or stat then
-      lualine.hide({ unhide = false })
-      vim.g.statStatusLine = false
-      vim.cmd([[set laststatus=0]])
-      vim.cmd([[hi! link StatusLine Normal]])
-      vim.cmd([[hi! link StatusLineNC Normal]])
-      vim.cmd([[set statusline=%{repeat('─',winwidth('.'))}]])
-      vim.diagnostic.config({ virtual_text = false })
-      vim.cmd("BufferTabsToggle")
-    end
-    vim.cmd("set showtabline=0")
-  end,
-})
-
 vim.api.nvim_create_autocmd("BufEnter", {
   group = augroup("disable_virtual_text"),
   pattern = { "*" },
@@ -131,5 +108,25 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 --   pattern = { "gnuplot" },
 --   callback = function()
 --     vim.cmd([[ set commentstring=#%s ]])
+--   end,
+-- })
+
+-- vim.api.nvim_create_autocmd("BufWinEnter", {
+--   group = augroup("hide_decorations"),
+--   pattern = { "*" },
+--   callback = function()
+--     local lualine = require("lualine")
+--     local stat = vim.g.statStatusLine
+--     if stat == nil or stat then
+--       lualine.hide({ unhide = false })
+--       vim.g.statStatusLine = false
+--       vim.cmd([[set laststatus=0]])
+--       vim.cmd([[hi! link StatusLine Normal]])
+--       vim.cmd([[hi! link StatusLineNC Normal]])
+--       vim.cmd([[set statusline=%{repeat('─',winwidth('.'))}]])
+--       vim.diagnostic.config({ virtual_text = false })
+--       vim.cmd("BufferTabsToggle")
+--     end
+--     vim.cmd("set showtabline=0")
 --   end,
 -- })
