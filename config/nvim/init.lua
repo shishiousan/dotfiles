@@ -1,5 +1,8 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
-if vim.g.neovide then
+if vim.g.vscode then
+  -- VSCode extension
+  return
+elseif vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   vim.o.guifont = "MonaspiceKr Nerd Font:h13"
   vim.g.neovide_remember_window_size = true

@@ -550,4 +550,30 @@ return {
       vim.keymap.set("i", "<A-f>", neocodeium.accept)
     end,
   },
+  {
+    "OXY2DEV/helpview.nvim",
+    lazy = false, -- Recommended
+
+    -- In case you still want to lazy load
+    -- ft = "help",
+
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
+  {
+    "HakonHarnes/img-clip.nvim",
+    event = "VeryLazy",
+    opts = {
+      default = {
+        extension = { "png", "svg", "pdf", "eps" },
+      },
+      -- add options here
+      -- or leave it empty to use the default settings
+    },
+    keys = {
+      -- suggested keymap
+      { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+    },
+  },
 }

@@ -13,6 +13,7 @@ GLMakie
 GeometryBasics
 Gmsh
 HDF5
+HOHQMesh
 IJulia
 IncompleteLU
 IterativeSolvers

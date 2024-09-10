@@ -230,3 +230,18 @@ end
 function echo_figs
     echo *.pdf
 end
+
+function gnuplot
+    if [ -f /etc/os-release ]
+        set osName ( cat /etc/os-release | grep -e ^ID | cut -d= -f2 )
+    else
+        set osName " "
+    end
+
+    switch $osName
+        case fedora FEDORA
+            command gnuplot-wx $argv
+        case '*'
+            command gnuplot $argv
+    end
+end

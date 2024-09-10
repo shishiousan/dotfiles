@@ -40,6 +40,7 @@ set --export OPENBLAS_NUM_THREADS 1
 set -gx GMSH_LIB $HOME/.local/lib/
 set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
 set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib
+# set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/lib64/
 
 # fzf 
 set -gx TMUX_FZF_OPTIONS '-p 80%'
@@ -59,7 +60,8 @@ set --export SCI /usr/share/scilab/
 set --export NNN_PLUG "p:preview-tui"
 
 # deepl cli 
-set --export DEEPL_AUTH_KEY 0e712b9b-dbef-49a0-84e3-0e3c905eda73:fx
+# set --export DEEPL_AUTH_KEY 0e712b9b-dbef-49a0-84e3-0e3c905eda73:fx
+set --export DEEPL_AUTH_KEY e4d34904-2320-49fd-b6e2-de0fc1ddc5be:fx
 
 ### 
 # PATH 
