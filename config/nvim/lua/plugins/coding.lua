@@ -55,7 +55,8 @@ return {
     },
   },
   {
-    "anuvyklack/pretty-fold.nvim",
+    -- "anuvyklack/pretty-fold.nvim",
+    "bbjornstad/pretty-fold.nvim",
     config = function()
       require("pretty-fold").setup({
         sections = {

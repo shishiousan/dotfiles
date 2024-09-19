@@ -8,6 +8,7 @@ vim.g.currentCSNum = 1
 vim.g.CSLists = {
   "aurora",
   "cyberdream",
+  "moonfly",
   "flow",
   "nordic",
   "nordern",
@@ -132,5 +133,6 @@ vim.filetype.add({
 })
 
 function SwitchCS(ind)
+  vim.notify(vim.g.CSLists[ind])
   vim.cmd("colorscheme " .. vim.g.CSLists[ind])
 end
