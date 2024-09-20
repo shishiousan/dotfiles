@@ -119,3 +119,7 @@ end, { desc = "Previous Colorscheme" })
 map("n", "<leader>bD", function()
   vim.cmd([[%bd|e#|bd#|'"]])
 end, { desc = "Delete other buffers" })
+
+map("n", "<leader>rs", function()
+  require("persistence").load()
+end, { desc = "Restore Session" })

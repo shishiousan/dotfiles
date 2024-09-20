@@ -74,7 +74,7 @@ return {
       vim.g.aurora_bold = 1
     end,
     config = function()
-      vim.cmd.colorscheme("aurora")
+      -- vim.cmd.colorscheme("aurora")
       -- vim.api.nvim_set_hl(0, "@number", { fg = "#e933e3" })
     end,
   },
@@ -83,6 +83,10 @@ return {
     name = "moonfly",
     lazy = false,
     priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("moonfly")
+      -- vim.api.nvim_set_hl(0, "@number", { fg = "#e933e3" })
+    end,
   },
   {
     "nvim-tree/nvim-web-devicons",
@@ -148,6 +152,7 @@ return {
   -- },
   {
     "nvimdev/dashboard-nvim",
+    enabled = false,
     event = "VimEnter",
     opts = function()
       local logo = [[
@@ -337,5 +342,12 @@ return {
         },
       },
     },
+  },
+  {
+    "LazyVim/LazyVim",
+    init = function()
+      -- override lazyvim.config.options, the I empties the startscreen:
+      vim.opt.shortmess:append({ W = true, I = false, c = true })
+    end,
   },
 }
