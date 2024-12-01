@@ -11,6 +11,7 @@ set --export lazy "$HOME/.local/share/nvim/lazy"
 # set --export fish "$DROPBOX/dotfiles/config/fish"
 set --export fish "$HOME/.config/fish"
 set --export config "$HOME/.config"
+set --export writing "$DROPBOX/writing"
 
 
 set --export EDITOR nvim
@@ -37,9 +38,9 @@ set --export OPENBLAS_NUM_THREADS 1
 # NOTE: In addition to following extra paths 
 # one symlink to libgmsh.so.x.xx.x should be made 
 # in $HOME/.easifem/install/easifem/extpkgs/lib 
-set -gx GMSH_LIB $HOME/.local/lib/
-set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
-set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib
+# set -gx GMSH_LIB $HOME/.local/lib/
+# set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
+# set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib
 # set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/lib64/
 
 # fzf 
@@ -68,6 +69,7 @@ set --export DEEPL_AUTH_KEY e4d34904-2320-49fd-b6e2-de0fc1ddc5be:fx
 ###
 set -gx PATH $PATH $DENO_INSTALL/bin
 set -gx PATH $PATH /opt/ParaView/bin/
+set -gx PATH $PATH /opt/zotero
 set -gx PATH $PATH $HOME/.cargo/bin/
 set -gx PATH $PATH $HOME/.npm-global/bin/
 set -gx PATH $PATH $HOME/go/bin/

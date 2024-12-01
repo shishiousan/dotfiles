@@ -3,6 +3,14 @@ local function augroup(name)
 end
 
 vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("disable_autoformat"),
+  pattern = { "latex", "bib", "tex" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
   group = augroup("expr_folding"),
   pattern = { "fortran", "lua" },
   callback = function()

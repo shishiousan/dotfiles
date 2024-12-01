@@ -35,10 +35,7 @@ return {
   {
     "OXY2DEV/helpview.nvim",
     lazy = false, -- Recommended
-
-    -- In case you still want to lazy load
     -- ft = "help",
-
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
@@ -63,5 +60,22 @@ return {
   {
     "dag/vim-fish",
     filetypes = { "fish" },
+  },
+  {
+    "hat0uma/csvview.nvim",
+    config = function()
+      require("csvview").setup({
+        view = {
+          --- @type integer
+          min_column_width = 5,
+
+          --- @type integer
+          spacing = 2,
+
+          ---@type "highlight" | "border"
+          display_mode = "border",
+        },
+      })
+    end,
   },
 }

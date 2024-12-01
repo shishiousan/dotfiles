@@ -1,5 +1,16 @@
 return {
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  -- {
+  --   "jesseleite/nvim-noirbuddy",
+  --   dependencies = {
+  --     { "tjdevries/colorbuddy.nvim" },
+  --   },
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {
+  --     -- All of your `setup(opts)` will go here
+  --   },
+  -- },
   {
     "2giosangmitom/nightfall.nvim",
     lazy = false,
@@ -87,6 +98,12 @@ return {
       vim.cmd.colorscheme("moonfly")
       -- vim.api.nvim_set_hl(0, "@number", { fg = "#e933e3" })
     end,
+  },
+  {
+    "zenbones-theme/zenbones.nvim",
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
+    priority = 1000,
   },
   {
     "nvim-tree/nvim-web-devicons",

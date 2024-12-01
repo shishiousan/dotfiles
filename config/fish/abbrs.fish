@@ -82,6 +82,8 @@ abbr -a etj --set-cursor=! 'deepl -i "!" -t ja'
 abbr -a jte --set-cursor=! 'deepl -i "!" -t en'
 
 # others 
+abbr -a news newsboat
+abbr -a tt taskwarrior-tui
 abbr -a c clear
 abbr -a j "julia --color=yes"
 abbr -a python python3

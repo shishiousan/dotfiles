@@ -1,6 +1,6 @@
-[shell]
-program = "/usr/bin/fish"
-args = ["-l"]
+# [terminal.shell]
+# program = "/usr/bin/fish"
+# args = ["-l"]
 
 [colors.bright]
 black = "#545454"
@@ -27,12 +27,13 @@ background = "#222222"
 foreground = "#F9F9F9"
 
 [font]
-size = 12.0
+size = 16.5
 
 [font.normal]
 # family = "FiraCode Nerd Font"
 #family = "Terminess Nerd Font"
 family = "MonaspiceKr Nerd Font Mono"
+# family = "NeoSpleen Nerd Font"
 # family = "MonaspaceKrypton"
 # family = "BigBlueTerm437 Nerd Font"
 # family = "Perfect DOS VGA 437"
@@ -79,6 +80,8 @@ history = 50000
 decorations = 'None'
 #padding = { x = 3, y = 3 }
 opacity = 0.85
+
+[terminal]
 
 # [cursor]
 # blink_interval= 500

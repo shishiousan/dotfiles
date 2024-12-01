@@ -103,22 +103,22 @@ return {
       })
     end,
   },
-  {
-    "anuvyklack/fold-preview.nvim",
-    dependencies = "anuvyklack/keymap-amend.nvim",
-    config = function()
-      local fp = require("fold-preview")
-      local map = require("fold-preview").mapping
-      local keymap = vim.keymap
-      keymap.amend = require("keymap-amend")
-
-      fp.setup({
-        auto = false,
-        default_keybindings = true,
-        border = "single",
-      })
-    end,
-  },
+  -- {
+  --   "anuvyklack/fold-preview.nvim",
+  --   dependencies = "anuvyklack/keymap-amend.nvim",
+  --   config = function()
+  --     local fp = require("fold-preview")
+  --     local map = require("fold-preview").mapping
+  --     local keymap = vim.keymap
+  --     keymap.amend = require("keymap-amend")
+  --
+  --     fp.setup({
+  --       auto = false,
+  --       default_keybindings = true,
+  --       border = "single",
+  --     })
+  --   end,
+  -- },
   {
     "tris203/precognition.nvim",
     --event = "VeryLazy",
@@ -427,6 +427,27 @@ return {
         "<cmd>OverseerInfo<CR>",
         mode = { "n" },
         desc = "Overseer Info",
+      },
+    },
+  },
+  {
+    "jaimecgomezz/here.term",
+    keys = {
+      {
+        "<M-t>",
+        function()
+          require("here-term").toggle_terminal()
+        end,
+        mode = { "n", "i", "t" },
+        desc = "Toggle Terminal Here",
+      },
+      {
+        "<M-S-t>",
+        function()
+          require("here-term").kill_terminal()
+        end,
+        mode = { "n", "i", "t" },
+        desc = "Kill Terminal Here",
       },
     },
   },

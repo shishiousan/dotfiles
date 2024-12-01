@@ -57,6 +57,12 @@
           "markdown"
         ],
         "path": "./easifem-markdown.json"
+      },
+      {
+        "language": [
+          "csv"
+        ],
+        "path": "./mycsv_snippets.json"
       }
     ]
   }

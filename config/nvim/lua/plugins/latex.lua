@@ -2,6 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      format = { timeout_ms = 1000 },
       servers = {
         texlab = {
           settings = {
