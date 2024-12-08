@@ -60,6 +60,12 @@
       },
       {
         "language": [
+          "markdown"
+        ],
+        "path": "./mymarkdown_snippets.json"
+      },
+      {
+        "language": [
           "csv"
         ],
         "path": "./mycsv_snippets.json"

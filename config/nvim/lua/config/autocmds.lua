@@ -70,6 +70,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
       { "<leader>m", group = "+Markdown" },
       { "<leader>mp", "<cmd>MarkdownPreview<CR>", desc = "markdown preview" },
       { "<leader>ms", "<cmd>MarkdownPreviewStop<CR>", desc = "stop markdown preview" },
+      { "<leader>mr", "<cmd>RenderMarkdown toggle<CR>", desc = "toggle render markdown" },
     })
   end,
 })

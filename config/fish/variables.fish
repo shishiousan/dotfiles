@@ -12,11 +12,12 @@ set --export lazy "$HOME/.local/share/nvim/lazy"
 set --export fish "$HOME/.config/fish"
 set --export config "$HOME/.config"
 set --export writing "$DROPBOX/writing"
+set --export news "$DROPBOX/dotfiles/newsboat"
 
 
 set --export EDITOR nvim
 set --export VIMTEX_OUTPUT_DIRECTORY build
-set --export BROWSER firefox
+set --export BROWSER zen-browser
 set --export JAVA_HOME /usr/lib/jvm/java-21-openjdk/
 set --export DENO_INSTALL "/home/shion/.deno"
 

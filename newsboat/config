@@ -2,7 +2,7 @@ browser "zen-browser %u"
 #browser firefox %u
 
 # auto-reload yes
-delete-read-articles-on-quit yes
+# delete-read-articles-on-quit yes
 
 bind-key k up
 bind-key j down
@@ -14,6 +14,8 @@ bind-key s sort
 bind-key S rev-sort
 bind-key g home 
 bind-key G end
+bind-key d delete-article
+bind-key D delete-all-articles
 
 highlight feedlist "---.*---" green black bold
 highlight feedlist "^.*\\(0/0\\)" default default invis
@@ -30,6 +32,12 @@ color hint-key            magenta  black   bold
 color hint-keys-delimiter white   black
 color hint-separator      white   black   bold
 color hint-description    white   black
+
+reload-only-visible-feeds yes
+reload-threads 4
+confirm-delete-all-articles no
+confirm-mark-feed-read no
+confirm-mark-all-feeds-read no
 
 text-width 0
 save-path "~/Dropbox/documents/read_later"

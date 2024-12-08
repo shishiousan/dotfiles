@@ -31,6 +31,8 @@ return {
           typst = { "typstyle" },
           fortran = { "fprettify", "myfmt", stop_after_first = true },
           tex = { "latexindent" },
+          markdown = { "mdformat" },
+          cmake = { "cmake_format" },
         },
         ---@type table<string, conform.FormatterConfigOverride|fun(bufnr: integer): nil|conform.FormatterConfigOverride>
         formatters = {
@@ -107,6 +109,14 @@ return {
           latexindent = {
             command = "latexindent",
             stdin = true,
+            args = { "-" },
+          },
+          mdformat = {
+            command = "mdformat",
+            args = { "-" },
+          },
+          cmake_format = {
+            command = "cmake-format",
             args = { "-" },
           },
         },

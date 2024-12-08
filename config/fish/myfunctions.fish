@@ -245,3 +245,8 @@ function gnuplot
             command gnuplot $argv
     end
 end
+
+function zenzen
+    set -l XDG_CURRENT_DESKTOP GNOME
+    command zen-browser
+end
