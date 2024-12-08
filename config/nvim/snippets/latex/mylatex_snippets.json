@@ -12,14 +12,23 @@
   "Eq:Ref": {
     "prefix": "eref",
     "body": [
-      "${1:Eq.}~(\\ref{eq:$2}) $0"
+      "${1:Eq.}~\\eqref{eq:$2} $0"
     ],
     "description": "Equation Reference"
   },
   "Equation:Ref": {
     "prefix": "eref",
     "body": [
-      "${1:Equation}~(\\ref{eq:$2}) $0"
+      "${1:Equation}~\\eqref{eq:$2} $0"
+    ],
+    "description": "Equation Reference"
+  },
+  "Env:subequations": {
+    "prefix": "subeq",
+    "body": [
+      "\\begin{subequations}",
+      "\t\\label{eqs:$1}\n\t$0",
+      "\\end{subequations}"
     ],
     "description": "Equation Reference"
   },

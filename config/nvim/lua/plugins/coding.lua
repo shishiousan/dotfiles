@@ -55,7 +55,8 @@ return {
     },
   },
   {
-    "anuvyklack/pretty-fold.nvim",
+    -- "anuvyklack/pretty-fold.nvim",
+    "bbjornstad/pretty-fold.nvim",
     config = function()
       require("pretty-fold").setup({
         sections = {
@@ -102,29 +103,22 @@ return {
       })
     end,
   },
-  {
-    "anuvyklack/fold-preview.nvim",
-    dependencies = "anuvyklack/keymap-amend.nvim",
-    config = function()
-      local fp = require("fold-preview")
-      local map = require("fold-preview").mapping
-      local keymap = vim.keymap
-      keymap.amend = require("keymap-amend")
-
-      fp.setup({
-        auto = false,
-        default_keybindings = true,
-        border = "single",
-      })
-    end,
-  },
-  {
-    "m4xshen/hardtime.nvim",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    opts = {
-      enabled = false,
-    },
-  },
+  -- {
+  --   "anuvyklack/fold-preview.nvim",
+  --   dependencies = "anuvyklack/keymap-amend.nvim",
+  --   config = function()
+  --     local fp = require("fold-preview")
+  --     local map = require("fold-preview").mapping
+  --     local keymap = vim.keymap
+  --     keymap.amend = require("keymap-amend")
+  --
+  --     fp.setup({
+  --       auto = false,
+  --       default_keybindings = true,
+  --       border = "single",
+  --     })
+  --   end,
+  -- },
   {
     "tris203/precognition.nvim",
     --event = "VeryLazy",
@@ -246,9 +240,6 @@ return {
       },
     },
   },
-  -- {
-  --   "onsails/diaglist.nvim",
-  -- },
   {
     "echasnovski/mini.comment",
     event = "VeryLazy",
@@ -281,10 +272,6 @@ return {
       enable_autocmd = false,
     },
   },
-  -- {
-  --   "MunifTanjim/nui.nvim",
-  --   lazy = true,
-  -- },
   {
     "Aasim-A/scrollEOF.nvim",
     event = { "CursorMoved", "WinScrolled" },
@@ -342,113 +329,6 @@ return {
     "chrisbra/NrrwRgn",
   },
   {
-    "folke/twilight.nvim",
-    config = function()
-      require("twilight").setup({
-        dimming = {
-          alpha = 0.25,
-          color = { "Normal", "#ffffff" },
-          term_bg = "#000000",
-          inactive = false,
-        },
-        context = 20,
-        treesitter = true,
-        expand = {
-          "subroutine",
-          "interface",
-          "function",
-          "method",
-          "table",
-          "if_statement",
-        },
-        exclude = {},
-      })
-    end,
-  },
-  { "echasnovski/mini.icons", version = false },
-  {
-    [1] = "gregorias/toggle.nvim",
-    version = "1.0",
-    config = true,
-  },
-  { "lukas-reineke/indent-blankline.nvim", enabled = false },
-  {
-    "shellRaining/hlchunk.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      require("hlchunk").setup({
-        chunk = {
-          enable = true,
-          chars = {
-            horizontal_line = "─",
-            vertical_line = "│",
-            left_top = "┌",
-            left_bottom = "└",
-            right_arrow = "─",
-          },
-          style = {
-            "#00ffff",
-            "#c21f30",
-          },
-          exclude_filetypes = {
-            toml = true,
-          },
-        },
-        indent = {
-          enable = false,
-        },
-        line_num = {
-          enable = true,
-          style = "#b30eec",
-          use_treesitter = true,
-          exclude_filetypes = {
-            toml = true,
-          },
-        },
-      })
-    end,
-  },
-  {
-    "ojroques/nvim-bufdel",
-  },
-  -- {
-  --   "theRealCarneiro/hyprland-vim-syntax",
-  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  --   ft = "hypr",
-  -- },
-  { "vim-denops/denops.vim" },
-  {
-    "vim-skk/skkeleton",
-    dependencies = { "vim-denops/denops.vim", "Shougo/ddc.vim" },
-    config = function()
-      vim.cmd([[ call skkeleton#config({
-        \ 'globalDictionaries': ['~/.skkdict/SKK-JISYO.L'],
-        \ 'eggLikeNewline': v:true,
-        \ })]])
-      vim.cmd([[ call skkeleton#register_kanatable('rom', {
-          \   ',': ['，', ''],
-          \   '.': ['．', ''],
-          \ })]])
-      -- vim.cmd([[ call ddc#custom#patch_global( 'sources', ['skkeleton'])]])
-      -- vim.cmd([[ call ddc#custom#patch_global( 'sourceOptions', {
-      -- \ '_': {
-      -- \ 'matchers': ['matcher_head'],
-      -- \ 'sorters': ['sorter_rank'],
-      -- \ },
-      -- \ 'skkeleton' : {
-      -- \ 'mark': 'skkeleton',
-      -- \ 'matchers': [],
-      -- \ 'sorters': [],
-      -- \ 'converters': [],
-      -- \ 'isVolatile': v:true,
-      -- \ 'minAutoCompleteLength': 1
-      -- \ }})]])
-      -- vim.cmd([[call ddc#enable()]])
-      -- vim.cmd([[ call ddc#custom#patch_global('ui', 'pum')]])
-      vim.keymap.set({ "i", "c" }, [[<C-j>]], [[<Plug>(skkeleton-toggle)]], { noremap = false })
-    end,
-  },
-  {
     "tzachar/highlight-undo.nvim",
     config = function()
       require("highlight-undo").setup({
@@ -472,82 +352,103 @@ return {
     end,
   },
   {
-    "MeanderingProgrammer/render-markdown.nvim",
-    opts = {},
-    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-  },
-  -- {
-  -- "jinh0/eyeliner.nvim",
-  -- config = function()
-  --   require("eyeliner").setup({
-  --     -- show highlights only after keypress
-  --     highlight_on_key = true,
-  --     dim = false,
-  --     max_length = 9999,
-  --     disabled_filetypes = {},
-  --     -- e.g., disabled_buftypes = {"nofile"}
-  --     disabled_buftypes = {},
-  --     default_keymaps = true,
-  --   })
-  -- end,
-  -- },
-  {
-    "mfussenegger/nvim-lint",
-    config = function()
-      vim.notify("Loading fortran linting", 3, { title = "LazyVim" })
-      local lint = require("lint")
-
-      local errorformat =
-        "%-Ggfortran%.%#,%A%f:%l:%c:,%A%f:%l:,%C,%C%p%*[0123456789^],%Z%trror:\\ %m,,%Z%tarning:\\ %m,%C%.%#,%-G%.%#"
-      lint.linters.gfortran = {
-        name = "gfortran",
-        cmd = "gfortran",
-        args = {
-          "-c",
-          "-fsyntax-only",
-          "-cpp",
-          -- "-fdiagnostics-plain-output",
-          "-Wunused-variable",
-          "-Wunused-dummy-argument",
-          "-Wall",
-          "-I",
-          os.getenv("HOME") .. "/.easifem/easifem/lint/include/",
-          "-I",
-          -- os.getenv("HOME") .. "/.easifem/install/arpack/include/arpack/",
-          os.getenv("HOME") .. "/.easifem/install/base/include/",
-          "-I",
-          os.getenv("HOME") .. "/.easifem/install/classes/include/",
-          -- os.getenv("HOME") .. "/.easifem/install/fftw/include/",
-          -- os.getenv("HOME") .. "/.easifem/install/gmsh/include/",
-          -- os.getenv("HOME") .. "/.easifem/install/lapack95/include/",
-          -- os.getenv("HOME") .. "/.easifem/install/lis/include/",
-          -- os.getenv("HOME") .. "/.easifem/install/sparsekit/include/",
-          -- os.getenv("HOME") .. "/.easifem/install/superlu/include/",
-          "-I",
-          os.getenv("HOME") .. "/.easifem/install/kernels/include/",
-          "-I",
-          os.getenv("HOME") .. "/.easifem/install/tomlf/include/toml-f/modules/",
-          "-J",
-          os.getenv("HOME") .. "/.easifem/lint/include/",
-          "-DDEBUG_VER",
-        }, -- args to pass to the linter
-        ignore_exitcode = true, -- set this to true if you don't want to show error messages
-        stream = "both", -- set this to "stdout" if the output is not an error, for example with luac
-        parser = require("lint.parser").from_errorformat(errorformat),
-      }
-      lint.linters_by_ft = { fortran = { "gfortran" } }
-    end,
-  },
-  -- add this to the file where you setup your other plugins:
-  {
-    "monkoose/neocodeium",
+    "HakonHarnes/img-clip.nvim",
     event = "VeryLazy",
+    opts = {
+      default = {
+        extension = { "png", "svg", "pdf", "eps" },
+      },
+    },
+    keys = {
+      { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+    },
+  },
+  {
+    "ahmedkhalf/project.nvim",
+    lazy = false,
+    opts = {
+      active = true,
+      on_config_done = nil,
+      manual_mode = false,
+      detection_methods = { "pattern", "lsp" },
+      patterns = { ".git" },
+      show_hidden = false,
+      silent_chdir = true,
+      ignore_lsp = {},
+    },
+  },
+  {
+    "stevearc/overseer.nvim",
+    lazy = false,
     config = function()
-      local neocodeium = require("neocodeium")
-      neocodeium.setup()
-      vim.keymap.set("i", "<A-f>", neocodeium.accept)
+      require("overseer").setup({
+        templates = {
+          "user.baseDev",
+          "user.baseInstall",
+          "user.run_script",
+          "user.classesDev",
+          "user.classesInstall",
+          "user.easifemLint",
+          -- "user.smartLint",
+        },
+        component_aliases = {
+          default = {
+            "on_output_summarize",
+            "on_exit_set_status",
+            { "on_complete_notify", statuses = { "FAILURE", "SUCCESS" }, on_change = true },
+            { "on_complete_dispose", statuses = { "SUCCESS", "FAILURE" } },
+            {
+              "on_result_diagnostics",
+              virtual_text = true,
+              remove_on_restart = true,
+              signs = true,
+              underline = true,
+            },
+            { "on_result_diagnostics_quickfix", open = false },
+          },
+        },
+      })
     end,
+    keys = {
+      {
+        "<leader>or",
+        "<cmd>OverseerRun<CR>",
+        mode = { "n" },
+        desc = "Overseer Run",
+      },
+      {
+        "<leader>ot",
+        "<cmd>OverseerToggle<CR>",
+        mode = { "n" },
+        desc = "Overseer Toggle",
+      },
+      {
+        "<leader>oi",
+        "<cmd>OverseerInfo<CR>",
+        mode = { "n" },
+        desc = "Overseer Info",
+      },
+    },
+  },
+  {
+    "jaimecgomezz/here.term",
+    keys = {
+      {
+        "<M-t>",
+        function()
+          require("here-term").toggle_terminal()
+        end,
+        mode = { "n", "i", "t" },
+        desc = "Toggle Terminal Here",
+      },
+      {
+        "<M-S-t>",
+        function()
+          require("here-term").kill_terminal()
+        end,
+        mode = { "n", "i", "t" },
+        desc = "Kill Terminal Here",
+      },
+    },
   },
 }

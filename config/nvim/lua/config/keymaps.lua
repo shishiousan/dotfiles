@@ -55,6 +55,7 @@ map("n", "<c-/>", function()
     LazyVim.terminal(nil, { cwd = cwd, border = "rounded" })
   end
 end, { desc = "Terminal (parent directory)" })
+
 map("n", "<c-_>", function()
   local ft = vim.bo.filetype
   if ft == "lazyterm" then
@@ -119,3 +120,11 @@ end, { desc = "Previous Colorscheme" })
 map("n", "<leader>bD", function()
   vim.cmd([[%bd|e#|bd#|'"]])
 end, { desc = "Delete other buffers" })
+
+map("n", "<leader>rs", function()
+  require("persistence").load()
+end, { desc = "Restore Session" })
+
+map("n", "<leader>ua", function()
+  ToggleAutoComplete()
+end, { desc = "Toggle Auto Complete" })

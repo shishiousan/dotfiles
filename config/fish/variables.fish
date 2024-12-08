@@ -11,11 +11,13 @@ set --export lazy "$HOME/.local/share/nvim/lazy"
 # set --export fish "$DROPBOX/dotfiles/config/fish"
 set --export fish "$HOME/.config/fish"
 set --export config "$HOME/.config"
+set --export writing "$DROPBOX/writing"
+set --export news "$DROPBOX/dotfiles/newsboat"
 
 
 set --export EDITOR nvim
 set --export VIMTEX_OUTPUT_DIRECTORY build
-set --export BROWSER firefox
+set --export BROWSER zen-browser
 set --export JAVA_HOME /usr/lib/jvm/java-21-openjdk/
 set --export DENO_INSTALL "/home/shion/.deno"
 
@@ -37,9 +39,10 @@ set --export OPENBLAS_NUM_THREADS 1
 # NOTE: In addition to following extra paths 
 # one symlink to libgmsh.so.x.xx.x should be made 
 # in $HOME/.easifem/install/easifem/extpkgs/lib 
-set -gx GMSH_LIB $HOME/.local/lib/
-set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
-set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib
+# set -gx GMSH_LIB $HOME/.local/lib/
+# set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
+# set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib
+# set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/lib64/
 
 # fzf 
 set -gx TMUX_FZF_OPTIONS '-p 80%'
@@ -59,13 +62,15 @@ set --export SCI /usr/share/scilab/
 set --export NNN_PLUG "p:preview-tui"
 
 # deepl cli 
-set --export DEEPL_AUTH_KEY 0e712b9b-dbef-49a0-84e3-0e3c905eda73:fx
+# set --export DEEPL_AUTH_KEY 0e712b9b-dbef-49a0-84e3-0e3c905eda73:fx
+set --export DEEPL_AUTH_KEY e4d34904-2320-49fd-b6e2-de0fc1ddc5be:fx
 
 ### 
 # PATH 
 ###
 set -gx PATH $PATH $DENO_INSTALL/bin
 set -gx PATH $PATH /opt/ParaView/bin/
+set -gx PATH $PATH /opt/zotero
 set -gx PATH $PATH $HOME/.cargo/bin/
 set -gx PATH $PATH $HOME/.npm-global/bin/
 set -gx PATH $PATH $HOME/go/bin/

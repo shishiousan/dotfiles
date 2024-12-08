@@ -4,7 +4,8 @@ return {
   builder = function(params)
     return {
       cmd = { "easifem" },
-      args = { "dev", "classes", "-q", "--env", "dev" },
+      -- args = { "dev", "classes", "-q", "--env", "dev" },
+      args = { "dev", "classes", "-q" },
       name = "devClasses",
       cwd = vim.fn.expand("%:h"), -- "/tmp",
       env = {},

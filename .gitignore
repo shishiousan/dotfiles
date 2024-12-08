@@ -6,3 +6,8 @@ local/share/nvim/
 config/nvim/snippets/easifem-*.json
 config/tmux/plugins/*
 config/fish/fish_variables
+config/fish/fish_variables*
+
+newsboat/cache.db
+newsboat/urls
+newsboat/history*
