@@ -34,7 +34,7 @@ color hint-separator      white   black   bold
 color hint-description    white   black
 
 reload-only-visible-feeds yes
-reload-threads 4
+reload-threads 5
 confirm-delete-all-articles no
 confirm-mark-feed-read no
 confirm-mark-all-feeds-read no

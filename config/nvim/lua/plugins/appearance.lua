@@ -297,7 +297,7 @@ return {
         },
         message = {
           -- Messages shown by lsp servers
-          enabled = true,
+          enabled = false,
           view = "notify",
           opts = {},
         },
@@ -371,6 +371,8 @@ return {
     "folke/snacks.nvim",
     opts = {
       dashboard = { enabled = false },
+      indent = { enabled = false },
+      scroll = { enabled = false },
     },
   },
   {

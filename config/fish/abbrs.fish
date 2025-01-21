@@ -90,8 +90,15 @@ abbr -a python python3
 abbr -a gpp "gnuplot --persist"
 abbr -a gp gnuplot
 abbr -a figs --position anywhere "*.pdf *.svg *.eps"
+abbr -a yz yazi
 # abbr -a figs --position anywhere --function echo_figs
 # abbr -a sz "source $zrc"
 # abbr -a sb "source $brc"
 
+# easifem
 abbr -a envls bat $econ/easifem.toml
+abbr -a er erun
+abbr -a ebc ebuild classes
+abbr -a ebb ebuild base
+abbr -a eib einstall base
+abbr -a eic einstall classes

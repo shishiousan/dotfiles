@@ -42,29 +42,33 @@ map("n", "<leader>qw", "<cmd>q<CR>", { desc = "Quit window" })
 map("n", "<leader>qo", "<cmd>only<CR>", { desc = "Only" })
 
 -- floating terminal
-local lazyterm = function()
-  LazyVim.terminal(nil, { cwd = LazyVim.root() })
-end
-map("n", "<leader>tT", lazyterm, { desc = "Terminal (Root Dir)" })
-map("n", "<c-/>", function()
-  local ft = vim.bo.filetype
-  if ft == "lazyterm" then
-    vim.cmd("close")
-  else
-    local cwd = vim.fn.expand("%:p:h")
-    LazyVim.terminal(nil, { cwd = cwd, border = "rounded" })
-  end
-end, { desc = "Terminal (parent directory)" })
+-- local lazyterm = function()
+--   Snacks.terminal(nil, { cwd = LazyVim.root() })
+-- end
+-- map("n", "<leader>tT", lazyterm, { desc = "Terminal (Root Dir)" })
+-- map("n", "<c-/>", function()
+--   local ft = vim.bo.filetype
+--   if ft == "lazyterm" then
+--     vim.cmd("close")
+--   else
+--     local cwd = vim.fn.expand("%:p:h")
+--     Snacks.terminal(nil, { cwd = cwd, border = "rounded" })
+--   end
+-- end, { desc = "Terminal (parent directory)" })
+--
+-- map("n", "<c-_>", function()
+--   local ft = vim.bo.filetype
+--   if ft == "lazyterm" then
+--     vim.cmd("close")
+--   else
+--     local cwd = vim.fn.expand("%:p:h")
+--     Snacks.terminal(nil, { cwd = cwd, border = "rounded" })
+--   end
+-- end, { desc = "Terminal (parent directory)" })
 
-map("n", "<c-_>", function()
-  local ft = vim.bo.filetype
-  if ft == "lazyterm" then
-    vim.cmd("close")
-  else
-    local cwd = vim.fn.expand("%:p:h")
-    LazyVim.terminal(nil, { cwd = cwd, border = "rounded" })
-  end
-end, { desc = "Terminal (parent directory)" })
+vim.keymap.del("n", "<c-_>")
+vim.keymap.del("n", "<c-/>")
+-- vim.keymap.del("n", "<leader>tT")
 
 -- save file
 -- map("n", "<leader>fs", "<cmd>silent! w<CR>", { desc = "write" })

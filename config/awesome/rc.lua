@@ -416,12 +416,12 @@ globalkeys = my_table.join(
 	awful.key({ modkey }, "v", function()
 		awful.util.spawn("pavucontrol")
 	end, { description = "pulseaudio control", group = "super" }),
-	awful.key({ modkey }, "x", function()
-		awful.util.spawn("xscreensaver-command -lock")
-	end, { description = "lock screen", group = "hotkeys" }),
+	-- awful.key({ modkey }, "x", function()
+	-- 	awful.util.spawn("xscreensaver-command -lock")
+	-- end, { description = "lock screen", group = "hotkeys" }),
 	awful.key({ modkey }, "Escape", function()
-		awful.util.spawn("xkill")
-	end, { description = "Kill proces", group = "hotkeys" }),
+		awful.util.spawn("xscreensaver-command -lock")
+	end, { description = "Lock screen", group = "hotkeys" }),
 
 	-- super + shift + ...
 	awful.key({ modkey, "Shift" }, "Return", function()

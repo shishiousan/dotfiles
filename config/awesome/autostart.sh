@@ -21,6 +21,7 @@ run blueberry-tray
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run numlockx on
 run volumeicon
+run xscreensaver 
 #run nitrogen --restore
 # run conky -c $HOME/.config/awesome/system-overview
 

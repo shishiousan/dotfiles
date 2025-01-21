@@ -1,13 +1,20 @@
 ltex*.txt
 lazy*.json
 spell/
+local/
 local/share/nvim/
+local/share/fonts/
 
 config/nvim/snippets/easifem-*.json
 config/tmux/plugins/*
 config/fish/fish_variables
 config/fish/fish_variables*
+config/yazi/flavors/*
+config/keychron/*
+config/fastfetch/examples/*
 
 newsboat/cache.db
 newsboat/urls
 newsboat/history*
+
+

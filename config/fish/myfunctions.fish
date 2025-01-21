@@ -93,10 +93,6 @@ function nvim
     command nvim $argv
 end
 
-function ya
-    yazi $argv
-end
-
 function v
     nvim $argv
 end
