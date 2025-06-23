@@ -1,0 +1,5 @@
+# Disable some built-in rules
+config:
+  no-trailing-spaces: false
+  no-multiple-blanks: false
+  line-length: false

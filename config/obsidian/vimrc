@@ -1,0 +1,79 @@
+unmap <Space>
+map <C-[> <Esc>
+" insert mode key binding 
+imap jj <Esc>
+
+" normal mode key binding 
+nmap <C-n> :nohl
+nmap <Space>v Yp
+
+" visual mode key binding 
+vmap <Tab> <Esc>
+vmap <Space>v Yp
+
+" obsidian command setting below is sample 
+" exmap back obcommand app:go-back
+" nmap <C-o> :back
+
+
+"for workspace 
+
+" exmap  obcommand workspace: 
+" nmap  :
+exmap VSplit obcommand workspace:split-vertical 
+nmap  <Space><Space>vs :VSplit
+exmap HSplit obcommand workspace:split-horizontal 
+nmap  <Space><Space>hs :HSplit
+exmap RightTab obcommand workspace:next-tab 
+nmap <Space>bl :RightTab
+exmap LeftTab obcommand workspace:previous-tab 
+nmap <Space>bh :LeftTab
+exmap CloseFile obcommand workspace:close 
+nmap <Space>bc :CloseFile
+nmap <Space>bd :CloseFile
+exmap CloseWin obcommand workspace:close-window 
+nmap <Space>ok :CloseWin
+
+" for switcher
+exmap OpenRecentFiles obcommand switcher:open 
+nmap <Space>f :OpenRecentFiles
+
+"for editor 
+" exmap  obcommand editor: 
+" nmap  :
+exmap SaveFile obcommand editor:save-file 
+nmap <Space>sf :SaveFile
+nmap <C-s> :SaveFile
+exmap FocusLeft obcommand editor:focus-left
+nmap <Space>gh :FocusLeft
+exmap FocusBottom obcommand editor:focus-bottom
+nmap <Space>gj :FocusBottom
+exmap FocusRight obcommand editor:focus-right
+nmap <Space>gl :FocusRight
+exmap FocusTop obcommand editor:focus-top
+nmap <Space>gk :FocusTop
+exmap Fold obcommand editor:toggle-fold 
+nmap <Space><Space>c :Fold
+nmap <Space><Space>o :Fold
+exmap FoldAll obcommand editor:fold-all 
+nmap <Space><Space><S-n> :FoldAll
+exmap UnFoldAll obcommand editor:unfold-all
+nmap <Space><Space>n :UnFoldAll
+
+" for file-explorer
+exmap FocusFileLocation obcommand file-explorer:reveal-active-file 
+nmap <Space>lf :FocusFileLocation
+exmap MoveFile obcommand file-explorer:move-file 
+nmap <Space>mf :MoveFile
+
+" for app 
+exmap Reload obcommand app:reload 
+nmap <Space>or :Reload
+exmap DelFile obcommand app:delete-file 
+nmap <Space>df :DelFile
+exmap OpenConfig obcommand app:open-settings 
+nmap <Space>oc :OpenConfig
+
+
+
+

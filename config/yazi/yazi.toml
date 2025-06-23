@@ -1,0 +1,74 @@
+# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
+# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
+"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+
+[mgr]
+ratio = [1, 4, 3]
+# "mtime", "extension", "size", "natural", "alphabetical"
+sort_by = "mtime"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+sort_translit = false
+linemode = "mtime"
+show_hidden = false
+show_symlink = true
+# cursor will be centered 
+scrolloff = 200
+mouse_events = ["click", "scroll"]
+title_format = "Yazi: {cwd}"
+
+[preview]
+wrap = "no"
+tab_size = 2
+max_width = 600
+max_height = 900
+cache_dir = ""
+image_delay = 30
+image_filter = "triangle"
+image_quality = 75
+sixel_fraction = 15
+ueberzug_scale = 1
+ueberzug_offset = [0, 0, 0, 0]
+
+[opener]
+edit = [
+  { run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "linux" },
+]
+open = [
+  { run = 'xdg-open "$1"', desc = "Open", for = "linux" },
+]
+lyxopen = [
+  { run = 'lyx "$1"', desc = "Open with Lyx", for = "linux" },
+]
+veuszopen = [
+  { run = 'veusz "$1"', desc = "Open with veusz", for = "linux" },
+]
+svgedit = [
+  { run = 'inkscape "$1"', desc = "edit svg with inkscape", for = "linux" },
+]
+pdfopen = [
+  { run = 'zathura "$1"', desc = "pdf Open", for = "linux" },
+  { run = 'okular "$1"', desc = "pdf Open for print", for = "linux" },
+  { run = 'sioyek "$1"', desc = "pdf Open by sioyek", for = "linux" },
+]
+reveal = [
+  { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
+  { run = 'nautilus "$(dirname "$1")"', desc = "Reveal with nautilus", for = "linux" },
+]
+extract = [
+  { run = 'ya pub extract --list "$@"', desc = "Extract here", for = "linux" },
+]
+play = [
+  { run = 'mpv --force-window "$@"', orphan = true, for = "linux" },
+]
+
+[open]
+prepend_rules = [
+  { name = "*.pdf", use = ["pdfopen", "svgedit"] },
+  { name = "*.svg", use = "svgedit" },
+  { name = "*.png", use = ["open", "svgedit"] },
+  { name = "*.jpeg", use = ["open", "svgedit"] },
+  { name = "*.lyx", use = "lyxopen" },
+  { name = "*.vsz", use = "veuszopen" },
+]

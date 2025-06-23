@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# moonfly theme for tmux
+#
+# Upstream: github.com/bluz72/vim-moonfly-colors
+
+# Set status line, windows, pane and message colors.
+set -g message-style "bg=#2c1c1c,fg=#9c9c9c"
+set -g pane-active-border-style "bg=#080809,fg=#80a0ff"
+set -g pane-border-style "bg=#080809,fg=#303030"
+set -g status-style "bg=#2c1c1c,fg=#9c9c9c"
+setw -g window-status-activity-style none
+setw -g window-status-current-style "bg=#353947,fg=#80a0ff"
+# Set active and inactive window style.
+setw -g window-status-current-format " #I #[fg=#10c9c9c] #[fg=default]#W #[fg=#e65e72]#{?window_flags,#{window_flags}, }#[fg=default] "
+setw -g window-status-format " #I  #W #[fg=#e66e72]#{?window_flags,#{window_flags}, }#[fg=default] "
+
+# Set status bar components and style.
+set-option -g status-justify centre
+set-option -g status 'on'
+set -g status-left-length 15
+set -g status-left '#{?client_prefix,#[fg=#f09480 bg=#353947]🐧 #[fg=#80a0ff]#S@#h,#[fg=#80a0ff]🐧 #[fg=#80a0ff]#S@#h}'
+if-shell '[[ $(uname) = Darwin ]]' \
+    'set -g status-right "%a %d %b  #[fg=#81a0ff]%I:%M%p"' \
+    'set -g status-right "%a %d %b  #[fg=#81a0ff]%I:%M%P"' \

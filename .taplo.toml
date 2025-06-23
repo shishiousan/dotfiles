@@ -1,0 +1,17 @@
+[formatting]
+array_auto_collapse = false
+
+# [[rule]]
+# include = ["**/config*.toml"]
+#
+# [rule.schema]
+# path = "/home/shion/Dropbox/easifem/easifem_playground/sd_test/sdconfig.json"
+# enabled = true
+
+[[rule]]
+include = ["**/runner.toml"]
+
+[rule.schema]
+# _path = "/home/shion/Dropbox/easifem/easifem_playground/sd_test/runner.json"
+path = "/home/shion/runner.json"
+enabled = true

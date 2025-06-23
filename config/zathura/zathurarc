@@ -1,0 +1,38 @@
+# Synctex
+
+set synctex true
+set synctex-editor-command "nvr --remote-silent +%{line} %{input}"
+
+# Basic Settings
+
+# set highlight-transparency 0.15
+set zoom-center "true"
+set selection-clipboard clipboard
+set render-loading "false"
+set window-width 960
+set window-height 1080
+
+map <Space> toggle_index
+map w recolor
+map k scroll half-up
+map j scroll half-down
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+map q quit 
+
+# moonfly 
+include ./themes/moonfly
+
+#
+# Recolor mode settings
+#
+
+set recolor-lightcolor          "#282a36" # Background
+set recolor-darkcolor           "#f8f8f2" # Foreground
+
+#
+# Startup options
+#
+set adjust-open width
+set recolor true
