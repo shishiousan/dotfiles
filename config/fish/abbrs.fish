@@ -87,7 +87,8 @@ abbr -a jte --set-cursor=! 'deepl -i "!" -t en'
 # others 
 abbr -a news newsboat
 abbr -a tt taskwarrior-tui
-abbr -a c clear
+# abbr -a c clear
+abbr -a c "clear && echo -e \"\033[$(expr $(tput lines) / 3);0H\""
 abbr -a j "julia --color=yes"
 abbr -a python python3
 abbr -a gpp "gnuplot --persist"
@@ -109,5 +110,7 @@ abbr -a erm "easifem run (fd . --type f -e md -d 1 | fzf -m )"
 abbr -a ebc ebuild classes
 abbr -a ebb ebuild base
 abbr -a ei --set-cursor=! 'easifem install ! --no-download'
+abbr -a ed easifem dev
+abbr -a ec easifem clean
 abbr -a eib einstall base
 abbr -a eic einstall classes

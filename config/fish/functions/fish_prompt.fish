@@ -54,12 +54,12 @@ function fish_prompt
     set -l white (set_color -o white)
 
     if [ $last_status != 0 ]
-        # set failed "$brightred✘$normal "
-        set failed "$brightred󰻀 $normal"
-        set penguin "🐧 <$brightred Moron!$normal"
+        # set failed "$brightred✘$normal 󰻀"
+        set failed "$brightred $normal"
+        set penguin " $brightred🐧$normal <$brightred Moron!$normal"
     else
-        set failed "$blue󰻀 $normal"
-        set penguin "🐧 <$brcyan Cool!$normal"
+        set failed "$blue $normal"
+        set penguin " $blue🐧$normal <$brcyan Cool!$normal"
     end
 
     if [ root = (whoami) ]
@@ -74,7 +74,7 @@ function fish_prompt
     if [ (_git_branch_name) ]
         set -l git_branch_name (_git_branch_name)
         set -l git_branch $brightred$git_branch_name$normal
-        set git_info "$blue ($git_branch$blue)$normal"
+        set git_info "$blue ($git_branch$blue)$normal"
         set -l git_ahead_count (_git_ahead_count $git_branch_name)
 
         if [ $git_ahead_count != 0 ]
@@ -99,7 +99,7 @@ function fish_prompt
         echo -sne \n
     end
     echo -sne '\e['$row'A'
-    # tput cup $row 0
-    echo -s $failed $arrow $time ' ' $cwd $git_info $normal $penguin
+    echo -se $failed $arrow $time ' ' $cwd $git_info $normal $penguin
     echo -s $line2
+
 end

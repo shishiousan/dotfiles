@@ -65,16 +65,17 @@ end
 #     eval (ssh-add $HOME/.ssh/id_git_rsa)
 # end
 
-set fish_cursor_default block
+set fish_cursor_default line blink
+
+# Set the external cursor to a line. The external cursor appears when a command is started.
+set fish_cursor_external line blink
 set fish_cursor_insert line blink
 set fish_cursor_replace_one underscore
 set fish_cursor_replace underscore
-# Set the external cursor to a line. The external cursor appears when a command is started.
-set fish_cursor_external line blink
-set fish_vi_force_cursor 0
+# set fish_vi_force_cursor 0
 # init vi mode 
-my_vi_mode
-fish_vi_cursor --force
+# my_vi_mode
+# fish_vi_cursor --force
 
 # installing npm packages locally
 set NPM_PACKAGES "$HOME/.npm-packages"

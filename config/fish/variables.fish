@@ -1,6 +1,11 @@
 #
 # variable
 #
+
+# fish 
+# suppress reflow when the terminal is resized 
+set -gx fish_handle_reflow 0
+
 set --export DROPBOX "$HOME/Dropbox"
 set --export ONEDRIVE "$HOME/OneDrive"
 set --export brc "$HOME/.bashrc"
