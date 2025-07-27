@@ -75,7 +75,7 @@ set fish_cursor_replace underscore
 # set fish_vi_force_cursor 0
 # init vi mode 
 # my_vi_mode
-# fish_vi_cursor --force
+fish_vi_cursor --force
 
 # installing npm packages locally
 set NPM_PACKAGES "$HOME/.npm-packages"

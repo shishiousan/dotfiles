@@ -227,12 +227,28 @@ keymap = [
   ], run = "cd ~/.config", desc = "Goto ~/.config" },
   { on = [
     "g",
-    "d",
+    "D",
   ], run = "cd ~/Downloads", desc = "Goto ~/Downloads" },
   { on = [
     "g",
     "<Space>",
   ], run = "cd --interactive", desc = "Jump interactively" },
+  { on = [
+    "g",
+    "d",
+  ], run = "cd $DROPBOX", desc = "Go Dropbox" },
+  { on = [
+    "g",
+    "o",
+  ], run = "cd $ONEDRIVE", desc = "Go Onedrive" },
+  { on = [
+    "g",
+    "A",
+  ], run = "cd $ONEDRIVE/Articles", desc = "Go Articles" },
+  { on = [
+    "g",
+    "w",
+  ], run = "cd $DROPBOX/writing", desc = "Go writing" },
 
   # Tabs
   { on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },

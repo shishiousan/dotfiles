@@ -11,10 +11,10 @@ input {
         xkb {
             // You can set rules, model, layout, variant and options.
             // For more information, see xkeyboard-config(7).
-            layout "us"
+            layout "us,jp"
+            options "grp:alts_toggle"
         }
     }
-
     // Next sections include libinput settings.
     // Omitting settings disables them, or leaves them at their default values.
     touchpad {
@@ -41,14 +41,14 @@ input {
 }
 
 // HINT: niri msg outputs gives you all information
-output "DP-2" {
+output "DP-3" {
     mode "1920x1080@60.000"
     scale 1.0
     transform "normal"
     position x=1280 y=0
 }
 
-output "HDMI-A-3" {
+output "DP-4" {
     mode "1920x1080@60.000"
     scale 1.0
     transform "90"
@@ -103,9 +103,18 @@ layout {
     }
 }
 
+cursor {
+    xcursor-theme "ArchCursorTheme"
+    // xcursor-theme "catppuccin-mocha-dark-cursors"
+    xcursor-size 10
+
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
 environment {
   // DISPLAY ":0"
-  DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/1000/bus"
+  // DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/1000/bus"
 }
 
 xwayland-satellite {

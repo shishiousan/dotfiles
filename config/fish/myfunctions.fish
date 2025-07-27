@@ -146,14 +146,14 @@ function wofi
     command wofi --style $HOME/.config/wofi_theme/src/mocha/style.css $argv
 end
 
-function paraview
-    argparse d/dark -- $argv
-    if set -ql _flag_default
-        command paraview --style=Fusion --stylesheet=$HOME/.config/ParaView/style.qss $argv
-    else
-        command paraview --style=Fusion $argv
-    end
-end
+# function paraview
+#     argparse d/dark -- $argv
+#     if set -ql _flag_default
+#         command paraview --style=Fusion --stylesheet=$HOME/.config/ParaView/style.qss $argv
+#     else
+#         command paraview --style=Fusion $argv
+#     end
+# end
 
 function mayavi
     set -l XDG_BACKEND x11
