@@ -1,0 +1,27 @@
+#!/bin/sh
+
+current_num=$(i3-msg -t get_workspaces | jq '.[] | select(.focused==true).name' | cut -d"\"" -f2)
+
+# Echo for debugging
+# echo "Current workspace: $current_ws (number: $current_num)"
+
+# Handle workspaces 1-5
+if [ "$current_num" -ge 1 ] && [ "$current_num" -le 4 ]; then
+  # Move to next workspace (current + 1)
+  next_num=$((current_num + 1))
+  i3-msg workspace number "$next_num"
+elif [ "$current_num" -eq 5 ]; then
+  # Cycle back to 1
+  i3-msg workspace number 1
+# Handle workspaces 6-10
+elif [ "$current_num" -ge 6 ] && [ "$current_num" -le 9 ]; then
+  # Move to next workspace (current + 1)
+  next_num=$((current_num + 1))
+  i3-msg workspace number "$next_num"
+elif [ "$current_num" -eq 10 ]; then
+  # Cycle back to 6
+  i3-msg workspace number 6
+else
+  # If outside ranges, create workspace 1
+  i3-msg workspace number 1
+fi
