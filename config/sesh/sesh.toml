@@ -1,0 +1,86 @@
+[[session]]
+name = "Downloads 📥"
+path = "~/Downloads"
+startup_command = "ls"
+
+[[session]]
+name = "Onedrive 󰏊 "
+path = "~/OneDrive"
+startup_command = "ls"
+
+[[session]]
+name = "Dropbox  "
+path = "~/Dropbox"
+startup_command = "ls"
+
+[[session]]
+name = "Pengvim 🐧 (my nvim config)"
+path = "~/Dropbox/src/PengVim"
+startup_command = "nvim ."
+
+[[session]]
+name = "Pengineer 🐧 (my website src)"
+path = "~/Dropbox/src/Pengineer"
+startup_command = "ls"
+
+[[session]]
+name = "tmux config"
+path = "~/Dropbox/dotfiles/config/tmux"
+startup_command = "nvim tmux.conf"
+preview_command = "bat --color=always ~/Dropbox/dotfiles/config/tmux/tmux.conf"
+
+[[session]]
+name = "fish config"
+path = "~/Dropbox/dotfiles/config/fish"
+startup_command = "nvim ."
+preview_command = "bat --color=always ~/Dropbox/dotfiles/config/fish/config.fish"
+
+[[session]]
+name = "alacritty config"
+path = "~/Dropbox/dotfiles/config/alacritty"
+startup_command = "nvim alacritty.toml"
+preview_command = "bat --color=always ~/Dropbox/dotfiles/config/alacritty/alacritty.toml"
+
+[[session]]
+name = "easifem base"
+path = "~/Dropbox/easifem/base"
+startup_command = "nvim"
+
+[[session]]
+name = "easifem classes"
+path = "~/Dropbox/easifem/classes"
+startup_command = "nvim"
+
+[[session]]
+name = "easifem onedim elasticity"
+path = "~/Dropbox/easifem/oneDimElasticity"
+startup_command = "nvim"
+
+[[session]]
+name = "easifem layered"
+path = "~/Dropbox/easifem/oneDimLayeredMedia"
+startup_command = "nvim"
+
+[[session]]
+name = "easifem scalarwave"
+path = "~/Dropbox/easifem/scalarWave"
+startup_command = "nvim"
+
+[[session]]
+name = "easifem elasticity"
+path = "~/Dropbox/easifem/elasticity"
+startup_command = "nvim"
+
+[[session]]
+name = "easigo"
+path = "~/Dropbox/easifem/easifemGO"
+startup_command = "nvim"
+
+[[session]]
+name = "easifem config"
+path = "~/Dropbox/easifem/config"
+startup_command = "nvim"
+
+[[window]]
+name = "git"
+startup_script = "git pull"

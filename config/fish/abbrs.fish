@@ -7,6 +7,7 @@ abbr -a db "cd $DROPBOX"
 abbr -a odv "cd $ONEDRIVE"
 abbr -a cdd "cd $HOME/Downloads"
 abbr -a cdc "cd $HOME/.config"
+abbr -a cdp "cd $DROPBOX/writing/papers"
 # abbr -a de "cd $HOME/Desktop/"
 # now I am using puffer-fish instead of them 
 # alias ..2="cd ../.."

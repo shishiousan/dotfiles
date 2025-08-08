@@ -104,3 +104,5 @@ if test -f /home/shion/miniconda3/etc/fish/conf.d/conda.fish
     source /home/shion/miniconda3/etc/fish/conf.d/conda.fish
 end
 # <<< conda initialize <<<
+
+zoxide init fish | source
