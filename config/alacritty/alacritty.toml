@@ -1,65 +1,30 @@
-# [terminal.shell]
-# program = "/usr/bin/fish"
-# args = ["-l"]
 [general]
 import = [
   "./theme/moonfly.toml",
 ]
 
-# [colors.bright]
-# black = "#545454"
-# blue = "#7ec4ff"
-# cyan = "#93e0e3"
-# green = "#8ae234"
-# magenta = "#b294bb"
-# red = "#fc5454"
-# white = "#ffffff"
-# yellow = "#fce94f"
-#
-# [colors.normal]
-# black = "#3f3f3f"
-# blue = "#5fb7fe"
-# cyan = "#06989a"
-# green = "#4e9a06"
-# magenta = "#85678f"
-# red = "#cc0000"
-# white = "#dcdccc"
-# yellow = "#c4a000"
-#
-# [colors.primary]
-# background = "#222222"
-# foreground = "#F9F9F9"
-
 [font]
-size = 16.5
+size = 12.1
 
 [font.normal]
-# family = "FiraCode Nerd Font"
-#family = "Terminess Nerd Font"
-family = "MonaspiceKr Nerd Font Mono"
-# family = "NeoSpleen Nerd Font"
-# family = "MonaspaceKrypton"
-# family = "BigBlueTerm437 Nerd Font"
-# family = "Perfect DOS VGA 437"
-# family = "RobotoMono Nerd Font Mono"
+# family = "MonaspiceKr Nerd Font"
+# monaspice with japanese support
+family = "Moralerspace Krypton"
 style = "Regular"
 
 [font.bold]
-# family = "FiraCode Nerd Font"
-# family = "Terminess Nerd Font"
-family = "MonaspiceKr Nerd Font"
-style = "SemiBold"
+# family = "MonaspiceKr Nerd Font"
+family = "Moralerspace Krypton"
+style = "Bold"
 
 [font.italic]
-# family = "FiraCode Nerd Font"
-# family = "Terminess Nerd Font"
-family = "MonaspiceKr Nerd Font"
+# family = "MonaspiceKr Nerd Font"
+family = "Moralerspace Krypton"
 style = "Italic"
 
 [font.bold_italic]
-# family = "FiraCode Nerd Font"
-# family = "Terminess Nerd Font"
-family = "MonaspiceKr Nerd Font"
+# family = "MonaspiceKr Nerd Font"
+family = "Moralerspace Krypton"
 style = "Bold Italic"
 
 [[keyboard.bindings]]
@@ -83,7 +48,7 @@ history = 50000
 [window]
 decorations = 'None'
 #padding = { x = 3, y = 3 }
-opacity = 0.85
+opacity = 0.9
 
 [terminal]
 

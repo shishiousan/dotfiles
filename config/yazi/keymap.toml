@@ -244,7 +244,7 @@ keymap = [
   { on = [
     "g",
     "A",
-  ], run = "cd $ONEDRIVE/Articles", desc = "Go Articles" },
+  ], run = "cd $ONEDRIVE/articles", desc = "Go Articles" },
   { on = [
     "g",
     "w",
