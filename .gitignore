@@ -2,7 +2,6 @@ ltex*.txt
 lazy*.json
 aura_penguin.jpg
 spell/
-local/
 local/share/nvim/
 local/share/fonts/
 local/share/fcitx5/skk/
