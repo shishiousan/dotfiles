@@ -13,7 +13,7 @@
     "modules-center": ["clock"],
     "modules-right": ["cpu", "memory", "battery", "tray"],
     "custom/logout": {
-        "format": "⏻",
+        "format": "⏻ ",
         "tooltip": false,
         "on-click": "niri msg action quit"
     },
@@ -87,11 +87,11 @@
         "format": "{:%e %B %H:%M}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}%  ",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}%  "
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -99,7 +99,7 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["󰉬", "", "󰉪"]
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -113,22 +113,22 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-charging": "{capacity}% 󰃨 ",
+        "format-plugged": "{capacity}%  ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": [" ", " ", " ", " ", " "]
     },
     "battery#bat2": {
         "bat": "BAT2"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "",
-        "format-ethernet": "",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "",
+        "format-wifi": " ",
+        "format-ethernet": "󰈀",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "format-linked": "󰊗",
         "format-disconnected": "⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
@@ -136,14 +136,14 @@
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": " {icon}",
-        "format-muted": "",
+        "format-bluetooth-muted": "󰅶 {icon}",
+        "format-muted": "󰅶",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "󰂑",
+            "headset": "󰂑",
             "phone": "",
             "portable": "",
             "car": "",

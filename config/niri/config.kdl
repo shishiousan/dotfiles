@@ -41,6 +41,22 @@ input {
 }
 
 // HINT: niri msg outputs gives you all information
+output "DP-1" {
+    mode "1920x1080@60.000"
+    // mode "1024x768@60.004"
+    scale 1.0
+    transform "180"
+    // position x= y=0
+}
+// for surface laptop
+output "DP-2" {
+    mode "1920x1080@60.000"
+    // mode "1024x768@60.004"
+    scale 1.0
+    transform "270"
+    // position x= y=0
+}
+
 output "DP-3" {
     mode "1920x1080@60.000"
     scale 1.0
@@ -53,6 +69,14 @@ output "DP-4" {
     scale 1.0
     transform "90"
     position x=1280 y=-100
+}
+
+output "HDMI-A-1" {
+    mode "1920x1080@60.000"
+    // mode "1024x768@60.004"
+    scale 1.0
+    transform "normal"
+    // position x= y=0
 }
 
 layout {

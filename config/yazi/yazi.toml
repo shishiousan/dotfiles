@@ -27,7 +27,7 @@ cache_dir = ""
 image_delay = 30
 image_filter = "triangle"
 image_quality = 75
-sixel_fraction = 15
+# sixel_fraction = 15
 ueberzug_scale = 1
 ueberzug_offset = [0, 0, 0, 0]
 
@@ -49,7 +49,8 @@ svgedit = [
 ]
 pdfopen = [
   { run = 'zathura "$1"', desc = "pdf Open", for = "linux" },
-  { run = 'okular "$1"', desc = "pdf Open for print", for = "linux" },
+  { run = 'evince "$1"', desc = "pdf Open for print", for = "linux" },
+  { run = 'okular "$1"', desc = "pdf Open by okular", for = "linux" },
   { run = 'sioyek "$1"', desc = "pdf Open by sioyek", for = "linux" },
 ]
 reveal = [
@@ -65,10 +66,10 @@ play = [
 
 [open]
 prepend_rules = [
-  { name = "*.pdf", use = ["pdfopen", "svgedit"] },
-  { name = "*.svg", use = "svgedit" },
-  { name = "*.png", use = ["open", "svgedit"] },
-  { name = "*.jpeg", use = ["open", "svgedit"] },
-  { name = "*.lyx", use = "lyxopen" },
-  { name = "*.vsz", use = "veuszopen" },
+  { url = "*.pdf", use = ["pdfopen", "svgedit"] },
+  { url = "*.svg", use = "svgedit" },
+  { url = "*.png", use = ["open", "svgedit"] },
+  { url = "*.jpeg", use = ["open", "svgedit"] },
+  { url = "*.lyx", use = "lyxopen" },
+  { url = "*.vsz", use = "veuszopen" },
 ]

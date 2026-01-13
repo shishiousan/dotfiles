@@ -38,8 +38,8 @@ format = " $icon $mem_used.eng(w:2)/$mem_total.eng(w:2) "
 [[block]]
 block = "battery"
 full_format = " $icon $percentage "
-device = "BAT0"
-driver = "upower"
+# device = "BAT0"
+# driver = "upower"
 interval = 10
 warning = 20
 critical = 10
