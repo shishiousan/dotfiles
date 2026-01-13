@@ -1,0 +1,5 @@
+inherits = "tokyonight_moon"
+# inherits = "tokyonight_storm"
+
+# to hide the statusline completely 
+"ui.statusline" = {}

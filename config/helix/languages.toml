@@ -1,0 +1,105 @@
+# only fortran grammar is downloaded by helix --grammar fetch and build
+use-grammars = { only = ["fortran"] }
+
+## Language Server
+[language-server]
+fortls = { command = "fortls", args = [
+  "--nthreads",
+  "10",
+  "--lowercase_intrinsics",
+  "--hover_signature",
+  "--hover_language=fortran",
+  "--use_signature_help",
+  "--incremental_sync",
+  "--recursion_limit",
+  "1000",
+  "--source_dirs",
+  "/home/shion/Dropbox/easifem/base/src/**",
+  "/home/shion/Dropbox/easifem/classes/src/**",
+  "/home/shion/Dropbox/easifem/oneDimElasticity/src/**",
+  "/home/shion/Dropbox/easifem/oneDimLayeredMedia/src/**",
+  "/home/shion/Dropbox/easifem/diffusionKernel/src/**",
+  "/home/shion/Dropbox/easifem/elasticityKernel/src/**",
+  "/home/shion/Dropbox/easifem/dispersionAnalysis/src/**",
+  "/home/shion/.easifem/src/tomlf/src/**",
+] }
+
+# 2026-01-13 building from source is necessary to use server features
+# fortitude = { command = "fortitude", args = ["server"] }
+
+# for linting
+efm = { command = "efm-langserver" }
+
+# completion
+[language-server.scls]
+command = "simple-completion-language-server"
+[language-server.scls.config]
+feature_words = false
+feature_snippets = true
+snippets_first = true
+snippets_inline_by_word_tail = false
+feature_unicode_input = false
+feature_paths = false
+feature_citations = false
+[language-server.scls.environment]
+# SCLS_CONFIG_SUBDIRECTORY = "nvim"
+RUST_LOG = "info,simple-completion-language-server=info"
+LOG_FILE = "/tmp/completion.log"
+
+## language settings
+[[language]]
+name = "git-commit"
+language-servers = ["scls"]
+
+[[language]]
+name = "fortran"
+file-types = ["F90", "f90", "f", "f95", "f03", "f08"]
+indent = { tab-width = 2, unit = "  " }
+language-servers = [
+  { name = "efm", only-features = ["diagnostics"] },
+  # "fortitude",
+  "fortls",
+  "scls",
+]
+formatter = { command = "fprettify", args = [
+  "--line-length",
+  "78",
+  "--indent",
+  "2",
+  "--strict-indent",
+  "--disable-indent-mod",
+  "--whitespace",
+  "2",
+  "--whitespace-comma",
+  "--whitespace-assignment",
+  "--enable-decl",
+  "--whitespace-decl",
+  "--whitespace-relational",
+  "--whitespace-logical",
+  "--whitespace-multdiv",
+  "--whitespace-print",
+  "--whitespace-intrinsics",
+  "--strip-comments",
+  "--case",
+  "2",
+  "2",
+  "2",
+  "2",
+] }
+
+# introduce a new language to enable completion on any doc 
+# by forcing set language with :set-language stub
+[[language]]
+name = "stub"
+scope = "text.stub"
+file-types = []
+shebangs = []
+roots = []
+auto-format = false
+language-servers = ["scls"]
+
+## grammars
+
+[[grammar]]
+name = "fortran"
+source = { git = "https://github.com/stadelmanma/tree-sitter-fortran", rev = "589151aab08fdd7404678330e8abacf9b78bb595" }

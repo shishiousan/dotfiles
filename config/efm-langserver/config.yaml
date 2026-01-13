@@ -1,0 +1,26 @@
+languages:
+  fortran:
+    # set environmental variable EASIFEM_LINT_OPTIONS for linting
+    # my variable is written in $fish/easifem_lint_options.txt 
+    # and set through $fish/variables.fish
+    lint-command: 'gfortran $EASIFEM_LINT_OPTIONS ' 
+    # explicitly write options (one line is recommended otherwise linting will be broken)
+    # lint-command: 'gfortran -c -fsyntax-only -cpp -fdiagnostics-plain-output -Wunused-variable -Wunused-dummy-argument -Wno-c-binding-type -Wall -I /home/shion/.easifem/lint/include/ -I /home/shion/.easifem/install/base/include/ -I /home/shion/.easifem/install/classes/include/ -I /home/shion/.easifem/install/oneDimElasticity/include/ -I /home/shion/.easifem/install/oneDimLayeredMedia/include/ -I /home/shion/.easifem/install/elasticity/include/ -I /home/shion/.easifem/install/dispersionAnalysis/include/ -I /home/shion/.easifem/install/tomlf/include/toml-f/modules/ -J /home/shion/.easifem/lint/include/ -DDEBUG_VER ' 
+    lint-stdin: false
+    lint-formats:
+      - '%f:%l:%c:\\ Fatal %trror:\\ %m'
+      - '%f:%l:%c:\\ %trror:\\ %m'
+      - '%f:%l:%c:\\ %tarning:\\ %m'
+      - '%-Ggfortran%.%#'
+      - '%-G%Agfortran%.%#'
+      - '%A%f:%l:%c:'
+      - '%A%f:%l:'
+      - '%C'
+      - '%C%p%*[0123456789^]'
+      - '%Z%trror: %m'
+      - '%Z Fatal %trror: %m'
+      - '%Z%tarning: %m'
+      - '%Z%tote: %m'
+      - '%C%.%#'
+      - '%-G%.%#'
+    lint-ignore-exit-code: true

@@ -1,0 +1,12 @@
+-c -fsyntax-only -cpp
+-fdiagnostics-plain-output -Wunused-variable -Wunused-dummy-argument
+-Wno-c-binding-type -Wall
+-I /home/shion/.easifem/lint/include/
+-I /home/shion/.easifem/install/base/include/
+-I /home/shion/.easifem/install/classes/include/
+-I /home/shion/.easifem/install/oneDimElasticity/include/
+-I /home/shion/.easifem/install/oneDimLayeredMedia/include/
+-I /home/shion/.easifem/install/elasticity/include/
+-I /home/shion/.easifem/install/dispersionAnalysis/include/
+-I /home/shion/.easifem/install/tomlf/include/toml-f/modules/
+-J /home/shion/.easifem/lint/include/ -DDEBUG_VER

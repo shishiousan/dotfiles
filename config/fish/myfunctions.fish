@@ -9,6 +9,17 @@ function cd
     standard_cd $argv; and ls
 end
 
+# WARN: Remove all files
+function ra
+    read -P "Remove all files in current directory? [y/N]: " confirm
+    if test "$confirm" = y -o "$confirm" = Y
+        rm *
+    else
+        echo "Aborted."
+        return 1
+    end
+end
+
 function ex --description "Extract bundled & compressed files"
     if test -f "$argv[1]"
         switch $argv[1]
@@ -91,6 +102,13 @@ function nvim
         end
     end
     command nvim $argv
+end
+
+function hx
+    if [ -f ~/.local/bin/updateGlobalSnippets.sh ]
+        updateGlobalSnippets.sh
+    end
+    helix $argv
 end
 
 function v
@@ -249,4 +267,11 @@ end
 
 function buckle
     command buckle -p /opt/bucklespring/wav
+end
+
+function veusz
+    if [ -f ~/.local/bin/veusz_preset.sh ]
+        veusz_preset.sh
+    end
+    command veusz $argv
 end

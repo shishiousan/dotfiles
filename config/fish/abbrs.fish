@@ -22,6 +22,12 @@ abbr -a l ls -l
 abbr -a la ls -a
 abbr -a lla ls -la
 abbr -a lt ls --tree
+abbr -a nls nuls 
+abbr -a nla nuls -a 
+abbr -a nll nuls -l 
+abbr -a nlla nuls -la
+abbr -a nlt nuls -rt # time, reverse 
+abbr -a nlat nuls -art # time, reverse 
 # cat to bad iff exist 
 if command -q bat
     # alias cat="bat"

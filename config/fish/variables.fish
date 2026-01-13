@@ -44,6 +44,7 @@ set --export easigo $easifem/easifemGO
 set --export easifish $easifem/easifem-fish-utility
 set --export OMP_NUM_THREADS 1
 set --export OPENBLAS_NUM_THREADS 1
+set --export EASIFEM_LINT_OPTIONS (cat $fish/easifem_lint_options.txt 2>/dev/null)
 
 # fzf 
 set -gx TMUX_FZF_OPTIONS '-p 80%'

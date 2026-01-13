@@ -1,0 +1,14 @@
+# execute the following command 
+# simple-completion-language-server fetch-external-snippets
+
+[[sources]]
+name = "mySnippets"
+git = "https://github.com/shishiousan/mySnippets.git"
+
+[[sources.paths]]
+scope = ["fortran"]
+path = "fortran"
+
+[[sources.paths]]
+scope = []
+path = "helix/global_helix.json"
