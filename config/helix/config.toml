@@ -5,7 +5,7 @@ line-number = "relative"
 scrolloff = 999
 popup-border = "all"
 auto-format = false
-end-of-line-diagnostics = "hint"
+end-of-line-diagnostics = "disable"
 completion-timeout = 1
 preview-completion-insert = false
 
@@ -13,8 +13,8 @@ preview-completion-insert = false
 display-messages = true
 display-inlay-hints = true
 
-# [editor.inline-diagnostics]
-# cursor-line = "warning"
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [editor.statusline]
 left = ["mode"]

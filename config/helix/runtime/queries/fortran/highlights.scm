@@ -1,8 +1,9 @@
+; see https://docs.helix-editor.com/themes.html
 "end" @number
 (identifier) @variable
 (string_literal) @string
-(number_literal) @number
-(boolean_literal) @boolean
+(number_literal) @constant.numeric
+(boolean_literal) @variable.builtin
 (comment) @comment
 
 [
@@ -23,6 +24,7 @@
  "out"
  "pointer"
  "type"
+ "generic"
  "value"
  ] @type
 
@@ -30,7 +32,7 @@
  "contains"
  "private"
  "public"
- ] @include
+ ] @variable.builtin
 
 [
  (none)
@@ -44,7 +46,7 @@
  "function"
  "procedure"
  "subroutine"
- ] @keyword.function
+ ] @keyword
 
 [
  (default)
@@ -86,7 +88,8 @@
  "write"
  ] @keyword
 
-"return" @keyword.return
+
+"return" @keyword.control.return
 
 [
  "else"
@@ -97,6 +100,9 @@
  "if"
  "then"
  "where"
+ "select"
+ "case"
+
  ] @keyword.control.conditional
 
 [
@@ -150,7 +156,7 @@
  ] @punctuation.delimiter
 
 (parameters
-  (identifier) @parameter)
+  (identifier) @variable.parameter)
 
 (program_statement
   (name) @namespace)
@@ -159,7 +165,7 @@
   (name) @namespace)
 
 (submodule_statement
-  (module_name) (name) @namespace)
+  (module_name) @variable (name) @namespace)
 
 (function_statement
   (name) @function)
@@ -169,6 +175,9 @@
 
 (module_procedure_statement
   (name) @function)
+
+(interface_statement
+  (name) @variable)
 
 (end_program_statement
   (name) @namespace)
@@ -188,6 +197,15 @@
 (end_module_procedure_statement
   (name) @function)
 
+(end_interface_statement
+  (name) @variable)
+
+(derived_type_statement
+  (type_name) @namespace)
+
+(end_type_statement
+  (name) @namespace)
+
 (subroutine_call
   (identifier) @function)
 
@@ -195,16 +213,36 @@
   name: (identifier) @keyword)
 
 (derived_type_member_expression
-  (type_member) @property)
+  (type_member) @function)
 
 (call_expression
   (identifier) @function.call)
 
+(module_procedure_statement) @keyword
 (end_module_procedure_statement) @keyword
+
+(submodule_statement) @keyword
+(end_submodule_statement) @keyword
+
+(function_statement) @keyword
 (end_function_statement) @keyword
+
+(subroutine_statement) @keyword
 (end_subroutine_statement) @keyword
+
+(module_statement) @keyword
 (end_module_statement) @keyword
+
+(program_statement) @keyword
 (end_program_statement) @keyword
 
+(end_type_statement) @type
+
+(interface_statement) @keyword
+(end_interface_statement) @keyword
+
 (end_do_loop_statement) @keyword.control.repeat
-(end_if_statement) @keyword.control.repeat
+(end_if_statement) @keyword.control.conditional
+(end_select_statement) @keyword.control.conditional
+
+
