@@ -34,5 +34,32 @@ C-s = [":fmt", ":write"]      # format save
 C-A-s = "save_selection"
 space = { q = { q = ":qa" } }
 
+# see https://yazi-rs.github.io/docs/tips/#helix-with-tmux
+A-y = ":sh tmux new-window -n fx '~/.config/helix/yazi-picker.sh open'"
+C-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi "%{buffer_name}" --chooser-file=/tmp/unique-file',
+  ':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+
+# textobjects related 
+"]" = { f = [
+  "goto_next_function",
+  "flip_selections",
+], t = [
+  "goto_next_class",
+  "flip_selections",
+] }
+"-" = { f = [
+  "goto_next_function",
+  "flip_selections",
+], t = [
+  "goto_next_class",
+  "flip_selections",
+], "-" = { f = "@maf", t = "@mat" } }
+# "[" = { f = ["goto_prev_function", "collapse_selection"] }
+
 [keys.insert.j]
 k = "normal_mode"
