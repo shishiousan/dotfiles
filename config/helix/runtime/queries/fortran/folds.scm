@@ -3,7 +3,7 @@
  (if_statement)
  (where_statement)
  (enum_statement)
- (do_loop)
+ (do_loop_statement)
  (derived_type_definition)
  (function)
  (subroutine)

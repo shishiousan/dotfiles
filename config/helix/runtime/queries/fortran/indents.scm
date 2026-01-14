@@ -7,7 +7,7 @@
   (function)
   ; (interface)
   (if_statement)
-  (do_loop)
+  (do_loop_statement)
   (where_statement)
   (derived_type_definition)
   (enum)
