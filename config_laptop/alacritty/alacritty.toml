@@ -1,0 +1,64 @@
+[general]
+import = [
+  "./theme/moonfly.toml",
+]
+
+[font]
+size = 12.1
+
+[font.normal]
+# family = "MonaspiceKr Nerd Font"
+# monaspice with japanese support
+family = "Moralerspace Krypton"
+style = "Regular"
+
+[font.bold]
+# family = "MonaspiceKr Nerd Font"
+family = "Moralerspace Krypton"
+style = "Bold"
+
+[font.italic]
+# family = "MonaspiceKr Nerd Font"
+family = "Moralerspace Krypton"
+style = "Italic"
+
+[font.bold_italic]
+# family = "MonaspiceKr Nerd Font"
+family = "Moralerspace Krypton"
+style = "Bold Italic"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
+
+# reference [https://stackoverflow.com/questions/16359878/how-to-map-shift-enter]
+[[keyboard.bindings]]
+chars = "\u001B[13;2u"
+key = "Return"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B[13;5u"
+key = "Return"
+mods = "Control"
+
+[scrolling]
+history = 50000
+
+[window]
+decorations = 'None'
+#padding = { x = 3, y = 3 }
+opacity = 0.9
+
+[terminal]
+
+# [cursor]
+# blink_interval= 500
+#
+# [cursor.style]
+# shape = "Beam"
+# blinking =  "Always"
+#
+# [cursor.vi_mode_style]
+# shape = "Block"
+# blinking = "Off"

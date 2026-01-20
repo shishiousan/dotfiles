@@ -20,6 +20,11 @@ config/tmux/plugins/*
 !/config/fish/completions/fish_logo.fish
 /config/fish/deepl_key.txt
 
+/config/helix/external-snippets/github.com
+/config/helix/external-snippets/github.com/*
+/config/helix/runtime/grammars
+/config/helix/runtime/grammars/*
+
 config/yazi/flavors/*
 config/keychron/*
 config/fastfetch/examples/*
