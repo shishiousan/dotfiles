@@ -40,6 +40,12 @@
   . 
   )) 
   
+((interface
+  (interface_statement)
+  .
+  (_)+ @class.inside
+  . 
+  (end_interface_statement))) @class.around
 
 ; function objects
 
@@ -64,87 +70,95 @@
    .
    (end_subroutine_statement))) @function.around
 
-; entry objects (used for conditional and loop )
+; entry objects (used for loop)
 
-; ((do_loop_statement
-;   (_)
-;   . 
-;   (_)+ @entry.inside
-;   .
-;   (end_do_loop_statement))) @entry.around
-;   
-;
-; (if_statement) @entry.around
-;
-; ((if_statement
-;    (parenthesized_expression)
-;    . 
-;    (_)+ @entry.inside
-;    .
-;    [
-;     (elseif_clause)
-;     (else_clause)
-;     (end_if_statement)
-;    ]))
-;
-; ((elseif_clause 
-;   (parenthesized_expression)
-;   . 
-;   (_)+ @entry.inside
-;   .
-;   ))
-;   
-;
-; ((else_clause 
-;   . 
-;   (_)+ @entry.inside
-;   .
-;   ))
-;
-; (select_case_statement) @entry.around
-;
-; (select_case_statement
-;    (selector)
-;    . 
-;    (_)+ @entry.inside
-;    .
-;    [
-;    (end_select_statement)
-;    (case_statement)
-;    ]) @entry.around
-;
-; ((case_statement 
-;   (_)
-;   . 
-;   (_)+ @entry.inside
-;   .
-;   ))
-;
-; (select_type_statement) @entry.around
-;
-; (select_type_statement
-;    (selector)
-;    . 
-;    (_)+ @entry.inside
-;    .
-;    [
-;    (end_select_statement)
-;    (type_statement)
-;    ])
-;
-; ((type_statement 
-;   (_)
-;   . 
-;   (_)+ @entry.inside
-;   .
-;   ))
-;
-; ; test objects used for block
-;
-; (block_construct) @test.around
-;
-; ((block_construct
-;    .
-;    (_)+ @test.inside
-;    .
-;    (end_block_construct_statement)))
+; Maybe the below line show the Error diagnostic, but it works as intended
+((do_loop
+  (_)
+  . 
+  (_)+ @entry.inside
+  .
+  (end_do_loop_statement))) @entry.around
+   
+; comment objects (used for "c"onditionals)
+
+(if_statement) @comment.around
+
+((if_statement
+   (parenthesized_expression)
+   . 
+   (_)+ @comment.inside
+   .
+   [
+    (elseif_clause)
+    (else_clause)
+    (end_if_statement)
+   ]))
+
+((elseif_clause 
+  (parenthesized_expression)
+  . 
+  (_)+ @comment.inside
+  .
+  ))
+  
+
+((else_clause 
+  . 
+  (_)+ @comment.inside
+  .
+  ))
+
+(select_case_statement) @comment.around
+
+(select_case_statement
+   (selector)
+   . 
+   (_)+ @comment.inside
+   .
+   [
+   (end_select_statement)
+   (case_statement)
+   ]) @comment.around
+
+((case_statement 
+  (_)
+  . 
+  (_)+ @comment.inside
+  .
+  ))
+
+(select_type_statement) @comment.around
+
+(select_type_statement
+   (selector)
+   . 
+   (_)+ @comment.inside
+   .
+   [
+   (end_select_statement)
+   (type_statement)
+   ])
+
+((type_statement 
+  (_)
+  . 
+  (_)+ @comment.inside
+  .
+  ))
+
+; test objects used for block
+
+(block_construct) @test.around
+
+((block_construct
+   .
+   (_)+ @test.inside
+   .
+   (end_block_construct_statement)))
+
+; parameter objects 
+
+((parameters 
+   (_)+ @parameter.inside
+   )) @parameter.around
