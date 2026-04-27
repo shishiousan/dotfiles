@@ -1,6 +1,6 @@
 [general]
 import = [
-  "./theme/moonfly.toml",
+  "./theme/nightfly.toml",
 ]
 
 [font]
@@ -36,6 +36,11 @@ key = "F11"
 chars = "\u001B[13;2u"
 key = "Return"
 mods = "Shift"
+
+# [[keyboard.bindings]]
+# key = "S"
+# mods = "Control | Shift"
+# chars = "\u001b[83;6u"
 
 [[keyboard.bindings]]
 chars = "\u001B[13;5u"
