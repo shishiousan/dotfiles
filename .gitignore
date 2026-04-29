@@ -1,6 +1,9 @@
 ltex*.txt
 lazy*.json
-aura_penguin.jpg
+*.jpg
+*.png
+config/corne.vil
+
 spell/
 local/share/nvim/
 local/share/fonts/
@@ -33,4 +36,8 @@ newsboat/cache.db
 newsboat/urls
 newsboat/history*
 
+pkglist.txt
+pkglist_aur.txt
+
+latex/lyx
 
