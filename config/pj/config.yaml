@@ -1,0 +1,29 @@
+search_paths:
+  - ~/.easifem/src
+  - ~/Dropbox/easifem
+  - ~/Dropbox/src
+
+markers:
+  - marker: .git
+    icon: ""
+    priority: 100
+  - marker: go.mod
+    icon: "󰟓" 
+  - marker: package.json
+    icon: "󰎙"
+  - marker: Cargo.toml
+    icon: ""
+  - marker: pyproject.toml
+    icon: ""
+  - marker: Makefile
+    icon: ""
+  - marker: .vscode
+    icon: "󰨞"
+
+max_depth: 3
+
+excludes:
+  - .vscode
+  - node_modules
+  - build
+  - docker
