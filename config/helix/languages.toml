@@ -22,6 +22,7 @@ fortls = { command = "fortls", args = [
   "/home/shion/Dropbox/easifem/elasticityKernel/src/**",
   "/home/shion/Dropbox/easifem/dispersionAnalysis/src/**",
   "/home/shion/.easifem/src/tomlf/src/**",
+  "/home/shion/.easifem/src/lapack95/src/F95/**",
 ] }
 
 # 2026-01-13 building from source is necessary to use server features
@@ -46,10 +47,19 @@ feature_citations = false
 RUST_LOG = "info,simple-completion-language-server=info"
 LOG_FILE = "/tmp/completion.log"
 
+# grammar check 
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
 ## language settings
 [[language]]
 name = "git-commit"
-language-servers = ["scls"]
+language-servers = ["scls", "harper-ls"]
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "markdown-oxide", "harper-ls"]
 
 [[language]]
 name = "fortran"

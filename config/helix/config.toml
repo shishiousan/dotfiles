@@ -1,17 +1,26 @@
 theme = "penguin"
 
 [editor]
-line-number = "relative"
-scrolloff = 999
-popup-border = "all"
 auto-format = false
-end-of-line-diagnostics = "disable"
 completion-timeout = 1
+completion-trigger-len = 1
+continue-comments = false
+default-yank-register = "+"
+end-of-line-diagnostics = "disable"
+line-number = "relative"
+mouse = true
+path-completion = true
+popup-border = "all"
 preview-completion-insert = false
+scrolloff = 999
 
 [editor.lsp]
 display-messages = true
 display-inlay-hints = true
+auto-signature-help = true
+
+[editor.file-picker]
+hidden = false
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
@@ -24,15 +33,20 @@ mode.normal = "🐧 N"
 mode.insert = "🐧 I"
 mode.select = "🐧 S"
 
+[editor.smart-tab]
+enable = true
+
 [editor.cursor-shape]
 normal = "block"
 insert = "bar"
 select = "underline"
 
 [keys.normal]
-C-s = [":fmt", ":write"]                             # format save
+C-tab = "move_parent_node_end"
+S-tab = "move_parent_node_start"
+
+C-s = [":fmt", ":write"]
 C-A-s = "save_selection"
-space = { space = "file_picker", q = { q = ":qa" } }
 
 C-p = [
   ':sh rm -f /tmp/unique-file',
@@ -52,23 +66,6 @@ C-y = [
   ':redraw',
 ]
 
-# textobjects related 
-"]" = { f = [
-  "goto_next_function",
-  "flip_selections",
-], t = [
-  "goto_next_class",
-  "flip_selections",
-], d = [
-  "goto_next_entry",
-  "flip_selections",
-], c = [
-  "goto_next_comment",
-  "flip_selections",
-], a = [
-  "goto_next_parameter",
-  "flip_selections",
-] }
 
 "-" = { f = [
   "goto_next_function",
@@ -76,7 +73,7 @@ C-y = [
 ], t = [
   "goto_next_class",
   "flip_selections",
-], d = [
+], r = [
   "goto_next_entry",
   "flip_selections",
 ], c = [
@@ -85,8 +82,112 @@ C-y = [
 ], a = [
   "goto_next_parameter",
   "flip_selections",
-], "-" = { f = "@maf", t = "@mat", d = "@mae", c = "@mac", a = "@maa" } }
-# "[" = { f = ["goto_prev_function", "collapse_selection"] }
+], d = [
+  "goto_next_diag",
+], D = [
+  "goto_last_diag",
+], "-" = { f = "@maf", t = "@mat", r = "@mae", c = "@mac", a = "@maa" } }
+
+";" = { f = [
+  "goto_prev_function",
+], t = [
+  "goto_prev_class",
+], r = [
+  "goto_prev_entry",
+], c = [
+  "goto_prev_comment",
+], a = [
+  "goto_prev_parameter",
+], d = [
+  "goto_prev_diag",
+], D = [
+  "goto_first_diag",
+] }
+
+[keys.normal.space]
+j = "@xyp"
+k = "@xyP"
+space = "file_picker"
+q = { q = ":qa" }
+e = [
+  ":sh rm -f /tmp/unique-file",
+  ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file",
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ":open %sh{cat /tmp/unique-file}",
+  ":redraw",
+]
+"," = "buffer_picker"
+esc = ":config-reload"
+
+[keys.normal.space.b]
+d = ":buffer-close"
+D = ":buffer-close!"
+
+[keys.normal."]"]
+b = ":buffer-next"
+w = "jump_view_right"
+# textobjects related 
+f = [
+  "goto_next_function",
+  "flip_selections",
+]
+t = [
+  "goto_next_class",
+  "flip_selections",
+]
+r = [
+  "goto_next_entry", # go to next do loop 
+  "flip_selections",
+]
+c = [
+  "goto_next_comment", # go to next if 
+  "flip_selections",
+]
+a = [
+  "goto_next_parameter",
+  "flip_selections",
+]
+
+[keys.normal."["]
+b = ":buffer-previous"
+w = "jump_view_left"
+f = [
+  "goto_prev_function",
+  "flip_selections",
+]
+t = [
+  "goto_prev_class",
+  "flip_selections",
+]
+r = [
+  "goto_prev_entry", # go to prev do loop 
+  "flip_selections",
+]
+c = [
+  "goto_prev_comment", # go to prev if 
+  "flip_selections",
+]
+a = [
+  "goto_prev_parameter",
+  "flip_selections",
+]
+
+[keys.normal."+"]
+# b = [":run-shell-command easifem dev base -q", ":run-shell-command easifem install base -q --no-download"]
+# c= [":run-shell-command easifem dev classes -q", ":run-shell-command easifem install classes -q --no-download"]
+# b = ":echo %sh{~/.config/tmux/scripts/buildBase.sh}"
+# c = ":echo %sh{~/.config/tmux/scripts/buildClasses.sh}"
+"+" = [
+  "goto_file_end",
+  ":append-output easifem run %{buffer_name} -q",
+]
+g = ":sh tmux display-popup -E -w 95%% -h 95%% -d '#{pane_current_path}' lazygit"
+
+[keys.insert]
+C-s = [":fmt", ":write"]
 
 [keys.insert.j]
 k = "normal_mode"
+
+[keys.select]
+"A-f" = "extend_to_file_end"

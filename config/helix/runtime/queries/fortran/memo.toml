@@ -1,0 +1,36 @@
+attribute = { fg = "cyan" }
+comment = { fg = "comment", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "yellow" }
+"comment.line.documentation" = { fg = "yellow" }
+constant = { fg = "orange" }
+"constant.builtin" = { fg = "aqua" }
+"constant.character" = { fg = "light-green" }
+"constant.character.escape" = { fg = "magenta" }
+constructor = { fg = "aqua" }
+function = { fg = "blue", modifiers = ["italic"] }
+"function.builtin" = { fg = "aqua" }
+"function.macro" = { fg = "cyan" }
+"function.special" = { fg = "cyan" }
+keyword = { fg = "purple", modifiers = ["italic"] }
+"keyword.control" = { fg = "magenta" }
+"keyword.control.import" = { fg = "cyan" }
+"keyword.control.return" = { fg = "purple", modifiers = ["italic"] }
+"keyword.directive" = { fg = "cyan" }
+"keyword.function" = { fg = "magenta" }
+"keyword.operator" = { fg = "magenta" }
+label = { fg = "blue" }
+namespace = { fg = "cyan" }
+operator = { fg = "turquoise" }
+punctuation = { fg = "turquoise" }
+special = { fg = "aqua" }
+string = { fg = "light-green" }
+"string.regexp" = { fg = "light-cyan" }
+"string.special" = { fg = "aqua" }
+tag = { fg = "magenta" }
+type = { fg = "aqua" }
+"type.builtin" = { fg = "aqua" }
+"type.enum.variant" = { fg = "orange" }
+variable = { fg = "fg" }
+"variable.builtin" = { fg = "red" }
+"variable.other.member" = { fg = "green" }
+"variable.parameter" = { fg = "yellow", modifiers = ["italic"] }
