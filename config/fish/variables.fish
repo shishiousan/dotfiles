@@ -8,6 +8,8 @@ set -gx fish_handle_reflow 0
 
 set --export DROPBOX "$HOME/Dropbox"
 set --export ONEDRIVE "$HOME/OneDrive"
+set --export MYNAS_LOCAL "$HOME/Nasync/shionLab/"
+set --export MYNAS_REMOTE /mnt/nas/
 set --export brc "$HOME/.bashrc"
 set --export zrc "$HOME/.zshrc"
 # set --export nvim "$DROPBOX/dotfiles/config/nvim"
@@ -17,6 +19,7 @@ set --export lazy "$HOME/.local/share/nvim/lazy"
 # set --export fish "$DROPBOX/dotfiles/config/fish"
 set --export fish "$HOME/.config/fish"
 set --export config "$HOME/.config"
+set --export dotfiles "$DROPBOX/dotfiles"
 set --export writing "$DROPBOX/writing"
 set --export news "$DROPBOX/dotfiles/newsboat"
 set --export sharing "$DROPBOX/sharing"
@@ -32,7 +35,7 @@ set --export DENO_INSTALL "/home/shion/.deno"
 set --export easifem "$DROPBOX/easifem"
 set --export base "$easifem/base"
 set --export classes "$easifem/classes"
-set --export elasticity "$easifem/elasticity"
+set --export elasticity "$easifem/elasticityKernel"
 set --export scalarwave $easifem/scalarWave
 set --export ere $HOME/easifem-results
 set --export easifemdocs $easifem/easifem.github.io
@@ -48,7 +51,9 @@ set --export EASIFEM_LINT_OPTIONS (cat $fish/easifem_lint_options.txt 2>/dev/nul
 
 # fzf 
 set -gx TMUX_FZF_OPTIONS '-p 80%'
-set -gx FZF_DEFAULT_OPTS --color=bg+:#2d3036,border:#ffffff,spinner:#ff5ef1,hl:#7b8496,fg:#ffffff,header:#7b8496,info:#5ef1ff,pointer:#ff5ef1,marker:#ffbd5e,fg+:#ffffff,prompt:#ff5ef1,hl+:#ff5ef1
+## nightfly scheme
+set -gx FZF_DEFAULT_OPTS --color=bg:#011627,bg+:#0e293f,border:#2c3043,fg:#acb4c2,fg+:#d6deeb,gutter:#0e293f,header:#82aaff,hl+:#f78c6c,hl:#f78c6c,info:#ecc48d,marker:#f78c6c,pointer:#ff5874,prompt:#82aaff,spinner:#21c7a8
+set -gx FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "--height=50% --reverse --preview='bat --color=always {}'"
 set -U FZF_COMPLETE 0
 
 # gtk dark 
@@ -80,3 +85,7 @@ set -gx PATH $PATH $HOME/go/bin/
 set -gx PATH $PATH /usr/local/win/bin
 set -gx PATH $PATH $HOME/.juliaup/bin
 set -gx PATH $PATH $HOME/snap/bin
+
+# intel HPC toolkit related
+set -gx PATH $PATH /opt/intel/oneapi/compiler/2025.1/bin/
+set -gx LD_LIBRARY_PATH /opt/intel/oneapi/mkl/2025.1/lib $LD_LIBRARY_PATH

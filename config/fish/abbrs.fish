@@ -4,6 +4,8 @@
 
 ## moving directory
 abbr -a db "cd $DROPBOX"
+abbr -a nas "cd $MYNAS_LOCAL"
+abbr -a nas_remote "cd $MYNAS_REMOTE"
 abbr -a odv "cd $ONEDRIVE"
 abbr -a cdd "cd $HOME/Downloads"
 abbr -a cdc "cd $HOME/.config"
@@ -22,9 +24,9 @@ abbr -a l ls -l
 abbr -a la ls -a
 abbr -a lla ls -la
 abbr -a lt ls --tree
-abbr -a nls nuls 
-abbr -a nla nuls -a 
-abbr -a nll nuls -l 
+abbr -a nls nuls
+abbr -a nla nuls -a
+abbr -a nll nuls -l
 abbr -a nlla nuls -la
 abbr -a nlt nuls -rt # time, reverse 
 abbr -a nlat nuls -art # time, reverse 
@@ -109,6 +111,8 @@ abbr -a fzfyay "yay -Slq | fzf --preview 'yay -Si {}' --layout=reverse"
 # abbr -a sb "source $brc"
 
 # easifem
+abbr -a ef cd $easifem
+abbr -a efp cd $easifem/easifem_playground
 abbr -a envls bat $econ/easifem.toml
 abbr -a efr easifem run
 abbr -a er "easifem run (fd . --type f -e F90 -e f90 -E '_*' -d 1 | fzf -m )"
