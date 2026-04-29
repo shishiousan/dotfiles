@@ -24,3 +24,14 @@ languages:
       - '%C%.%#'
       - '%-G%.%#'
     lint-ignore-exit-code: true
+      # pattern explanation:
+      # %A = Start of multi-line message
+      # %C = Continuation line
+      # %Z = End of multi-line message
+      # %-G = Ignore this line completely
+      # %f = Filename
+      # %l = Line number
+      # %c = Column number
+      # %t = Error type (E/W/N)
+      # %m = Error message
+      # %p = Pointer line (shows where error occurs with ^)
