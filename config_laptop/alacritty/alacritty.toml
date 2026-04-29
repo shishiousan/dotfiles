@@ -1,6 +1,6 @@
 [general]
 import = [
-  "./theme/moonfly.toml",
+  "./theme/nightfly.toml",
 ]
 
 [font]
@@ -48,7 +48,7 @@ history = 50000
 [window]
 decorations = 'None'
 #padding = { x = 3, y = 3 }
-opacity = 0.9
+opacity = 1.0
 
 [terminal]
 

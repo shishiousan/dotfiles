@@ -30,8 +30,11 @@ input {
               // accel-profile "flat"
     }
 
-    mouse 
-
+    mouse {
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+    }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
     warp-mouse-to-focus
@@ -69,8 +72,8 @@ output "DP-2" {
     mode "1920x1200@60.000"
     // mode "1024x768@60.004"
     scale 1.0
-    transform "normal"
-    position x=1560 y=530
+    transform "90"
+    position x=3456 y=0
 }
 
 layout {
@@ -88,7 +91,7 @@ layout {
         // fixed 1920
     }
 
-    default-column-width { proportion 0.3333333; }
+    default-column-width {proportion 0.3333333;}
 
     // You can change how the focus ring looks.
     focus-ring {
@@ -113,7 +116,12 @@ layout {
     }
 
     // outer gaps
-    struts 
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
 }
 
 cursor {
@@ -125,11 +133,13 @@ cursor {
     hide-after-inactive-ms 1000
 }
 
-environment 
+environment {
+  // DISPLAY ":0"
+  // DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/1000/bus"
+}
 
-
-xwayland-satellite 
-
+xwayland-satellite {
+}
 
 // waybar is initiated by systemd
 // spawn-at-startup "waybar" "-c" "/home/shion/.config/hypr/waybar/config.ini" "-s"  "/home/shion/.config/hypr/waybar/style.css"
@@ -144,12 +154,11 @@ prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-animations 
-
+animations {
+}
 
 window-rule {
-    default-column-width 
-
+    default-column-width {}
     geometry-corner-radius 8 8 0 0 
     draw-border-with-background false 
     clip-to-geometry true
@@ -158,8 +167,8 @@ window-rule {
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
-    match app-id=r"^org\.keepassxc\.KeePassXC$"
-    match app-id=r"^org\.gnome\.World\.Secrets$"
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
     block-out-from "screen-capture"
 
@@ -191,22 +200,22 @@ binds {
     Mod+T { spawn "alacritty"; }
     Mod+Return { spawn "alacritty"; }
     Mod+D { spawn "fuzzel"; }
-    Mod+O { spawn "fuzzel"; }
+    Mod+O {spawn "fuzzel"; }
     Super+Alt+L { spawn "swaylock"; }
 
     // You can also use a shell:
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
-    Mod+B { spawn "killall" "-SIGUSR1" "waybar"; }
+    Mod+B { spawn "killall" "-SIGUSR1"  "waybar";}
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
-    XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
-    XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next" ; }
+    XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous" ; }
+    XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause" ; }
 
     Mod+Q { close-window; }
     Mod+Y { toggle-window-floating; }
@@ -295,10 +304,10 @@ binds {
     // To avoid scrolling through workspaces really fast, you can use
     // the cooldown-ms property. The bind will be rate-limited to this value.
     // You can set a cooldown on any bind, but it's most useful for the wheel.
-    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Ctrl+WheelScrollUp cooldown-ms=150 { move-column-to-workspace-up; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
     Mod+WheelScrollRight      { focus-column-right; }
     Mod+WheelScrollLeft       { focus-column-left; }
@@ -406,11 +415,3 @@ binds {
 spawn-at-startup "qs" "-c" "noctalia-shell" "--no-duplicate"
 gestures
 overview
-output "eDP-1" {
-    mode "1920x1200@60.001"
-
-    scale 1.25
-
-    transform "normal"
-    position x=0 y=1360
-}
