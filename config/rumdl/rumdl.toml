@@ -1,0 +1,19 @@
+[global]
+line-length = 80
+exclude = ["node_modules", "build", "dist"]
+respect-gitignore = true
+disable = ["MD025"]
+
+[per-file-ignores]
+"README.md" = ["MD033"]  # Allow HTML in README
+"SUMMARY.md" = ["MD025"] # Allow multiple H1 in table of contents
+
+# Configure individual rules
+[MD007]
+indent = 2
+
+[MD013]
+line-length = 80
+code-blocks = false
+tables = false
+reflow = true       # Enable automatic line wrapping (required for --fix)
