@@ -21,6 +21,7 @@ input {
     // Next sections include libinput settings.
     // Omitting settings disables them, or leaves them at their default values.
     touchpad {
+              // off
               tap
               dwt
               dwtp
@@ -403,7 +404,8 @@ binds {
 }
 
 // Init noctalia-shell 
-spawn-at-startup "qs" "-c" "noctalia-shell" "--no-duplicate"
+spawn-at-startup "noctalia"
+// spawn-at-startup "qs" "-c" "noctalia-shell" "--no-duplicate"
 gestures
 overview
 output "eDP-1" {
