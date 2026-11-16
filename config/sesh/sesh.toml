@@ -16,7 +16,7 @@ startup_command = "ls"
 [[session]]
 name = "Pengvim 🐧 (my nvim config)"
 path = "~/Dropbox/src/PengVim"
-startup_command = "nvim ."
+startup_command = "nvim . "
 
 [[session]]
 name = "Pengineer 🐧 (my website src)"
@@ -44,42 +44,42 @@ preview_command = "bat --color=always ~/Dropbox/dotfiles/config/alacritty/alacri
 [[session]]
 name = "easifem base"
 path = "~/Dropbox/easifem/base"
-startup_command = "nvim"
+startup_command = "nvim . ; $SHELL"
 
 [[session]]
 name = "easifem classes"
 path = "~/Dropbox/easifem/classes"
-startup_command = "nvim"
+startup_command = "nvim . ; $SHELL"
 
 [[session]]
 name = "easifem onedim elasticity"
 path = "~/Dropbox/easifem/oneDimElasticity"
-startup_command = "nvim"
+startup_command = "nvim . ; $SHELL"
 
 [[session]]
 name = "easifem layered"
 path = "~/Dropbox/easifem/oneDimLayeredMedia"
-startup_command = "nvim"
+startup_command = "nvim . ; $SHELL"
 
 [[session]]
 name = "easifem scalarwave"
 path = "~/Dropbox/easifem/scalarWave"
-startup_command = "nvim"
+startup_command = "nvim . ; $SHELL"
 
 [[session]]
 name = "easifem elasticity"
 path = "~/Dropbox/easifem/elasticity"
-startup_command = "nvim"
+startup_command = "nvim . ; $SHELL"
 
 [[session]]
 name = "easigo"
 path = "~/Dropbox/easifem/easifemGO"
-startup_command = "nvim"
+startup_command = "nvim . ; $SHELL"
 
 [[session]]
 name = "easifem config"
 path = "~/Dropbox/easifem/config"
-startup_command = "nvim"
+startup_command = "nvim . ; $SHELL"
 
 [[window]]
 name = "git"
