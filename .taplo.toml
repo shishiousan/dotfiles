@@ -1,5 +1,5 @@
-[formatting]
-array_auto_collapse = false
+# [formatting]
+# array_auto_collapse = false
 
 # [[rule]]
 # include = ["**/config*.toml"]
@@ -8,10 +8,10 @@ array_auto_collapse = false
 # path = "/home/shion/Dropbox/easifem/easifem_playground/sd_test/sdconfig.json"
 # enabled = true
 
-[[rule]]
-include = ["**/runner.toml"]
+# [[rule]]
+# include = ["**/runner.toml"]
 
-[rule.schema]
+# [rule.schema]
 # _path = "/home/shion/Dropbox/easifem/easifem_playground/sd_test/runner.json"
-path = "/home/shion/runner.json"
-enabled = true
+# path = "/home/shion/runner.json"
+# enabled = true
