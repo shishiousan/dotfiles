@@ -13,7 +13,7 @@ end
 function ra
     read -P "Remove all files in current directory? [y/N]: " confirm
     if test "$confirm" = y -o "$confirm" = Y
-        rm *
+        rm -r *
     else
         echo "Aborted."
         return 1
@@ -203,13 +203,6 @@ function my_vi_mode
     # set fish_cursor_visual block
 end
 
-# reload fish config
-function reload
-    exec fish
-    set -l config (status -f)
-    echo "reloading: $config"
-end
-
 # ssh connection reactivate 
 function ssh_reactivate
     eval (ssh-agent -c)
@@ -274,4 +267,43 @@ function veusz
         veusz_preset.sh
     end
     command veusz $argv
+end
+
+function imshow
+    argparse 'w/wait=' 't/title=' q/quarter -- $argv
+    or return 1
+
+    if test (count $argv) -eq 0
+        echo "Usage: imshow [-w time] [-t title] [-q] <images...>"
+        return 1
+    end
+
+    set -l wait_time 0.5
+    if set -q _flag_w
+        set wait_time (string replace -r 's$' '' -- $_flag_w)
+    end
+
+    # Default: Kitty Graphics Protocol
+    set -l pixelation kitty
+
+    # Fallback: terminal character rendering
+    if set -q _flag_q
+        set pixelation quarter
+    end
+
+    set -l opts --clear=every -p $pixelation "-w$wait_time"
+
+    if set -q _flag_t
+        set -a opts "--title=$_flag_t"
+    end
+
+    timg $opts $argv
+end
+
+# reload fish config
+function reload
+    echo "reloading fish config"
+    # -C runs after the new shell has read its config, so the paths
+    # that config.fish adds again are removed there.
+    exec fish -C 'uniqVar LD_LIBRARY_PATH'
 end

@@ -31,6 +31,8 @@ set --export BROWSER zen-browser
 set --export JAVA_HOME /usr/lib/jvm/java-21-openjdk/
 set --export DENO_INSTALL "/home/shion/.deno"
 
+# set --export JUPYTERLAB_DIR $HOME/.local/share/jupyter/lab
+
 #easifem-dev related 
 set --export easifem "$DROPBOX/easifem"
 set --export base "$easifem/base"
@@ -49,12 +51,18 @@ set --export OMP_NUM_THREADS 1
 set --export OPENBLAS_NUM_THREADS 1
 set --export EASIFEM_LINT_OPTIONS (cat $fish/easifem_lint_options.txt 2>/dev/null)
 
+# paraview openGL compatibility
+set --export QT_QPA_PLATFORM xcb
+
 # fzf 
 set -gx TMUX_FZF_OPTIONS '-p 80%'
 ## nightfly scheme
 set -gx FZF_DEFAULT_OPTS --color=bg:#011627,bg+:#0e293f,border:#2c3043,fg:#acb4c2,fg+:#d6deeb,gutter:#0e293f,header:#82aaff,hl+:#f78c6c,hl:#f78c6c,info:#ecc48d,marker:#f78c6c,pointer:#ff5874,prompt:#82aaff,spinner:#21c7a8
 set -gx FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "--height=50% --reverse --preview='bat --color=always {}'"
 set -U FZF_COMPLETE 0
+
+# nmtui
+set -gx NEWT_COLORS 'root=black,black;window=black,black;border=white,black;listbox=white,black;label=blue,black;checkbox=red,black;title=green,black;button=white,red;actsellistbox=white,red;actlistbox=white,gray;compactbutton=white,gray;actcheckbox=white,blue;entry=lightgray,black;textbox=blue,black'
 
 # gtk dark 
 # NOTE: following variables are written in /etc/environment
@@ -84,6 +92,7 @@ set -gx PATH $PATH $HOME/go/bin/
 # set -gx PATH $PATH $HOME/anaconda3/bin
 set -gx PATH $PATH /usr/local/win/bin
 set -gx PATH $PATH $HOME/.juliaup/bin
+set -gx PATH $PATH $HOME/.julia/bin
 set -gx PATH $PATH $HOME/snap/bin
 
 # intel HPC toolkit related

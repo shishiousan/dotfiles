@@ -6,7 +6,11 @@
 -I /home/shion/.easifem/install/classes/include/
 -I /home/shion/.easifem/install/oneDimElasticity/include/
 -I /home/shion/.easifem/install/oneDimLayeredMedia/include/
+-I /home/shion/.easifem/install/oneDimPoroElasticity/include/
+-I /home/shion/.easifem/install/sdof/include/
 -I /home/shion/.easifem/install/elasticity/include/
+-I /home/shion/.easifem/install/elastoPlasticity/include/
+-I /home/shion/.easifem/install/scalarWave/include/
 -I /home/shion/.easifem/install/dispersionAnalysis/include/
 -I /home/shion/.easifem/install/tomlf/include/toml-f/modules/
 -J /home/shion/.easifem/lint/include/ -DDEBUG_VER
