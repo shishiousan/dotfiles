@@ -1,6 +1,6 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+# "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
 [mgr]
 
@@ -239,12 +239,24 @@ keymap = [
   ], run = "cd $DROPBOX", desc = "Go Dropbox" },
   { on = [
     "g",
+    "n",
+  ], run = "cd $MYNAS_LOCAL", desc = "Go to NAS (LOCAL)" },
+  { on = [
+    "g",
+    "N",
+  ], run = "cd $MYNAS_REMOTE", desc = "Go to NAS (REMOTE)" },
+  { on = [
+    "g",
     "o",
   ], run = "cd $ONEDRIVE", desc = "Go Onedrive" },
   { on = [
     "g",
+    "a",
+  ], run = "cd $MYNAS_LOCAL/Articles/", desc = "Go to Articles (LOCAL NAS)" },
+  { on = [
+    "g",
     "A",
-  ], run = "cd $ONEDRIVE/articles", desc = "Go Articles" },
+  ], run = "cd $MYNAS_REMOTE/Articles/", desc = "Go to Articles (REMOTE NAS)" },
   { on = [
     "g",
     "w",
@@ -508,3 +520,67 @@ keymap = [
   # Filtering
   { on = "f", run = "filter", desc = "Apply a filter for the help items" },
 ]
+
+[[mgr.prepend_keymap]]
+on = ["P", "s"]
+run = "plugin projects save"
+desc = "Save current project"
+
+[[mgr.prepend_keymap]]
+on = ["P", "e"]
+run = "plugin projects enter"
+desc = "Enter selected project"
+
+[[mgr.prepend_keymap]]
+on = ["P", "l"]
+run = "plugin projects load"
+desc = "Load project"
+
+[[mgr.prepend_keymap]]
+on = ["P", "P"]
+run = "plugin projects load_last"
+desc = "Load last project"
+
+[[mgr.prepend_keymap]]
+on = ["P", "d"]
+run = "plugin projects delete"
+desc = "Delete project"
+
+[[mgr.prepend_keymap]]
+on = ["P", "D"]
+run = "plugin projects delete_all"
+desc = "Delete all projects"
+
+[[mgr.prepend_keymap]]
+on = ["P", "m"]
+run = "plugin projects 'merge current'"
+desc = "Merge current tab to other projects"
+
+[[mgr.prepend_keymap]]
+on = ["P", "M"]
+run = "plugin projects 'merge all'"
+desc = "Merge current project to other projects"
+
+# File/Directory finder using fd + fzf
+# see https://github.com/Shallow-Seek/fazif.yazi
+[[mgr.prepend_keymap]]
+on = ["b", "d"]
+run = "plugin fazif faziffd"
+desc = "Find files/directories with fd and fzf"
+
+# Content finder using ripgrep + fzf
+[[mgr.prepend_keymap]]
+on = ["b", "r"]
+run = "plugin fazif fazifrg"
+desc = "Find content in files with ripgrep and fzf"
+
+# Document content finder using ripgrep-all + fzf
+[[mgr.prepend_keymap]]
+on = ["b", "a"]
+run = "plugin fazif fazifrga"
+desc = "Find content in documents with ripgrep-all and fzf"
+
+[[mgr.prepend_keymap]]
+on = ["b", "s"]
+run = "plugin fazif myfd"
+desc = "Find content in files with ripgrep and fzf"

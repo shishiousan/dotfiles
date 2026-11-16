@@ -1,0 +1,40 @@
+{
+  "last": {
+    "active_idx": 1,
+    "tabs": [
+      {
+        "idx": 1,
+        "cwd": "/home/shion/Dropbox/easifem/base"
+      }
+    ]
+  },
+  "list": [
+    {
+      "desc": "base",
+      "project": {
+        "tabs": [
+          {
+            "cwd": "/home/shion/Dropbox/easifem/base",
+            "idx": 1
+          }
+        ],
+        "active_idx": 1
+      },
+      "on": "b"
+    },
+    {
+      "desc": "classes",
+      "project": {
+        "tabs": [
+          {
+            "cwd": "/home/shion/Dropbox/easifem/classes",
+            "idx": 1
+          }
+        ],
+        "active_idx": 1
+      },
+      "on": "c"
+    }
+  ]
+}
+

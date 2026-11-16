@@ -1,0 +1,35 @@
+#!/usr/bin/env zsh
+
+fd . --type d --strip-cwd-prefix  "$@" | fzf \
+--info=inline \
+--multi \
+--layout=reverse \
+--prompt='ctl-wetcrfp_CWD> ' \
+--bind 'ctrl-w:transform:echo "change-prompt(ctl-wetcrfp_Home_File> )+reload(fd . ~ --hidden --type f)"' \
+--bind 'ctrl-e:transform:echh "change-prompt(ctl-wetcrfp_Home_Dir> )+reload(fd . ~ --hidden --type d)"' \
+--bind 'alt-c:transform:echo "change-prompt(ctl-wetcrfp_CWD_Dir> )+reload(fd  --hidden --type d)"' \
+--bind 'ctrl-t:transform:echo "change-prompt(ctl-wetcrfp_CWD_File> )+reload(fd  --hidden --type f)"' \
+--bind 'ctrl-f:transform:echo "change-prompt(ctl-wetcrfp_root_Dir> )+reload(fd . / --hidden --type d)"' \
+--bind 'ctrl-r:transform:echo "change-prompt(ctl-wetcrfp_Root_File> )+reload(fd . / --hidden --type f)"' \
+--bind 'focus:transform-preview-label:echo {}' \
+--bind 'ctrl-p:change-preview-window(right|down|hidden)' \
+--bind 'focus:transform-preview-label:echo {}' \
+--bind 'ctrl-o:execute-silent(xdg-open-nvim {} &)' \
+--preview-window 'hidden' \
+--preview '
+    printf "\033_Ga=d,q=1\033\\"
+    [ -d {} ] && eza -aTL 2 --group-directories-first --color=always --icons=always {} ||
+    tmp="/tmp/fzf_preview"
+    case $(basename {}) in
+        *.pdf)
+            ;;
+        *.doc|*.docx|*.xls|*.xlsx|*.ppt|*.pptx|*.odt|*.ods|*.odp)
+            ;;
+        *.djvu)
+            ;;
+        *)
+            bat -p {} --color=always 2>/dev/null 
+            ;;
+    esac
+'
+

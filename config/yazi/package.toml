@@ -3,7 +3,22 @@ use = "yazi-rs/plugins:toggle-pane"
 rev = "9a52857"
 hash = "8a7c58225816a163a6e8730c0adafbc8"
 
+[[plugin.deps]]
+use = "MasouShizuka/projects"
+rev = "eed0657"
+hash = "ca79de2b3bb2247906e01b2261e5d2bb"
+
+[[plugin.deps]]
+use = "Shallow-Seek/fazif"
+rev = "6e10488"
+hash = "c549ff30fb1d1d97c734010fe82f6295"
+
 [[flavor.deps]]
 use = "BennyOe/tokyo-night"
 rev = "8e6296f"
 hash = "d9da921c3bd37ba32ee27a8a7a40461f"
+
+[[flavor.deps]]
+use = "tkapias/nightfly"
+rev = "599b8ad"
+hash = "79f760d46e08b2f3708516d1d026e3fa"

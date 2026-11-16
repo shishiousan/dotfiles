@@ -1,6 +1,6 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+# "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [mgr]
 ratio = [1, 4, 3]
@@ -36,22 +36,22 @@ edit = [
   { run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "linux" },
 ]
 open = [
-  { run = 'xdg-open "$1"', desc = "Open", for = "linux" },
+  { run = 'xdg-open %s1', desc = "Open", for = "linux" },
 ]
 lyxopen = [
-  { run = 'lyx "$1"', desc = "Open with Lyx", for = "linux" },
+  { run = 'lyx %s1', desc = "Open with Lyx", for = "linux" },
 ]
 veuszopen = [
-  { run = 'veusz "$1"', desc = "Open with veusz", for = "linux" },
+  { run = 'veusz %s1', desc = "Open with veusz", for = "linux" },
 ]
 svgedit = [
-  { run = 'inkscape "$1"', desc = "edit svg with inkscape", for = "linux" },
+  { run = 'inkscape %s1', desc = "edit svg with inkscape", for = "linux" },
 ]
 pdfopen = [
-  { run = 'zathura "$1"', desc = "pdf Open", for = "linux" },
-  { run = 'evince "$1"', desc = "pdf Open for print", for = "linux" },
-  { run = 'okular "$1"', desc = "pdf Open by okular", for = "linux" },
-  { run = 'sioyek "$1"', desc = "pdf Open by sioyek", for = "linux" },
+  { run = 'zathura %s1', desc = "pdf Open", for = "linux" },
+  { run = 'evince %s1', desc = "pdf Open for print", for = "linux" },
+  { run = 'okular %s1', desc = "pdf Open by okular", for = "linux" },
+  { run = 'sioyek %s1', desc = "pdf Open by sioyek", for = "linux" },
 ]
 reveal = [
   { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
