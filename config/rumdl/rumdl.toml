@@ -2,7 +2,7 @@
 line-length = 80
 exclude = ["node_modules", "build", "dist"]
 respect-gitignore = true
-disable = ["MD025"]
+disable = ["MD043", "MD025"]
 
 [per-file-ignores]
 "README.md" = ["MD033"]  # Allow HTML in README
