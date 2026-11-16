@@ -1,0 +1,41 @@
+indent = 2                        # spaces per indent level
+line_length = 78                  # maximum line length
+whitespace = 2                    # whitespace level, 0-4 (see below)
+impose_indent = true              # apply indentation
+impose_whitespace = true          # apply whitespace formatting
+strict_indent = true              # re-indent IF/DO even when already aligned
+indent_fypp = true                # indent fypp preprocessor blocks
+indent_mod = false                # indent module/program/submodule bodies
+format_decl = false               # normalize spacing around ::
+comment_spacing = 1               # spaces before an inline comment
+normalize_comment_spacing = false # apply comment_spacing everywhere
+enable_replacements = false       # convert between .lt. and < style operators
+c_relations = false               # with enable_replacements, prefer < over .lt.
+sort_use = true                   # sort use statements alphabetically within a group
+sort_use_only = true              # sort the names in a use ... only: list
+
+
+[whitespace_dict]
+comma = true       # after , and ;
+assignments = true # around = and =>
+relational = true  # around <, >, ==, /=, .eq., ...
+logical = true     # around .and., .or., ...
+plusminus = true   # around binary + and -
+multdiv = true     # around binary * and /
+print = true       # in print/read statements
+type = false       # around the % component selector
+intrinsics = true  # before intrinsic call parentheses
+decl = true        # around ::
+concat = false     # around //
+
+
+[case_dict]
+keywords = 2   # if, then, subroutine, integer, ...
+procedures = 2 # intrinsics called as functions: sin(x), size(a)
+operators = 2  # .and., .eq., .true., ...
+constants = 2  # iso_fortran_env and iso_c_binding names: output_unit, c_int
+types = 2      # kind= values, literal kind suffixes and exponent letters
+
+
+#   "--disable-indent-mod",
+#   "--strip-comments",
